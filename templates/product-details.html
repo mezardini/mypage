@@ -1,0 +1,239 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>MYPAGE</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="{% static 'dtox/images/favicon.svg' %}">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="{% static 'amado/css/core-style.css' %}">
+    <link rel="stylesheet" href="{% static 'amado/style.css' %}">
+
+</head>
+
+<body>
+    <!-- Search Wrapper Area Start -->
+    
+    <!-- Search Wrapper Area End -->
+
+    <!-- ##### Main Content Wrapper Start ##### -->
+    
+
+       
+        <div class="mobile-nav" style="display: flex; justify-content: center;">
+           
+            <div class="logo" >
+                <a href="index.html"><h4 class="text-center" style="font-family: cursive;">MYPAGE</h4></a>
+            </div>
+            
+            
+        </div>
+
+        
+        <header class="header-area clearfix" style="display: flex; justify-content: center;">
+            
+            <div class="logo" >
+                <div> <a href="index.html"> Dini</a></div>
+            </div>
+           
+        </header>
+        
+        <!-- <a href="{% url 'product_list' biz.slug %}"><h1 class="text-center"  style="font-family: cursive; margin-top: 2%;" >MYPAGE</h1></a> -->
+    <div class="container-fluid">
+        <div class="single-product-area section-padding-100 clearfix">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-12">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb mt-50">
+                                <li class="breadcrumb-item text-capitalize"><a href="{% url 'product_list' biz.slug %}">{{biz.business_name}}</a></li>
+                                <!-- <li class="breadcrumb-item"><a href="#">Furniture</a></li>
+                                <li class="breadcrumb-item"><a href="#">Chairs</a></li> -->
+                                <li class="breadcrumb-item active" aria-current="page">{{product.product_name}}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-lg-7">
+                        <div class="single_product_thumb">
+                            <div id="product_details_slider" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    <li class="active" data-target="#product_details_slider" data-slide-to="0" >
+                                    </li>
+                                    <li data-target="#product_details_slider" data-slide-to="1" >
+                                    </li>
+                                    <li data-target="#product_details_slider" data-slide-to="2" >
+                                    </li>
+                                    <li data-target="#product_details_slider" data-slide-to="3" >
+                                    </li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <a class="gallery_img" href="{% static 'amado/img/product-img/pro-big-1.jpg' %}">
+                                            <img class="d-block w-100" src="{% static 'amado/img/product-img/pro-big-1.jpg' %}" alt="First slide">
+                                        </a>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <a class="gallery_img" href="{% static 'amado/img/product-img/pro-big-2.jpg' %}">
+                                            <img class="d-block w-100" src="{% static 'amado/img/product-img/pro-big-2.jpg' %}" alt="Second slide">
+                                        </a>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <a class="gallery_img" href="img/product-img/pro-big-3.jpg">
+                                            <img class="d-block w-100" src="{% static 'amado/img/product-img/pro-big-3.jpg' %}" alt="Third slide">
+                                        </a>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <a class="gallery_img" href="img/product-img/pro-big-4.jpg">
+                                            <img class="d-block w-100" src="{% static 'amado/img/product-img/pro-big-4.jpg' %}" alt="Fourth slide">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-5">
+                        <div class="single-product-wrapper">
+                            <!-- Product Meta Data -->
+                            <div class="product-meta-data">
+                                <div class="line"></div>                               
+                                        <h4 class="product-price" style="color: #93D2FF;">${{product.product_price}}</h4>
+                                        <div class="ratings" style="color: #93D2FF;">
+                                            <i class="fa fa-star" aria-hidden="true"></i>{{average}}
+                                            <!-- <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i> -->
+                                        </div>    
+                                        <br>                          
+                                    <h6>{{product.product_name}}</h6>
+                                <!-- Ratings & Review -->
+                                
+                                <!-- Avaiable -->
+                                <!-- <p class="avaibility"><i class="fa fa-circle"></i> In Stock</p> -->
+                            </div>
+
+                            <div class="short_overview my-5">
+                                <p>{{product.product_description}}</p>
+                            </div>
+
+                            <a data-bs-toggle="modal" href="{% url 'processpayment' biz.slug product.slug %}"  class="btn amado-btn">Buy</a>
+                            
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-12">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb mt-50">
+                                
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <br>
+                <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-7">
+                        <div class="single_product_thumb">
+                            <div>
+                                <h2>Reviews</h2>
+                                <p>{{review_text}}</p>
+                                <br>
+                                {% for rev in review %}
+                                <div>
+                                    <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
+                                        <div class="review">
+                                            <h6>{{rev.creator}}</h6>
+                                        </div>
+                                        <div class="ratings" style="color: #93D2FF;">
+                                            
+                                            <i class="fa fa-star" aria-hidden="true"></i>{{rev.rating}}
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                    <p>{{rev.body}}</p>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                {% endfor %}
+                               
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-5">
+                        <div class="single-product-wrapper">
+                            <!-- Product Meta Data -->
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Name</label>
+                                        <input type="text" class="form-control" name="review_creator" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                                        
+                                      </div>
+                                    <div class="col-6 mb-3">
+                                        <label class="input-group" for="inputGroupSelect01">Rating</label>
+                                        <select class="form-select" name="review_rating" id="inputGroupSelect01">
+                                          <option selected value="1">One</option>
+                                          <option value="2">Two</option>
+                                          <option value="3">Three</option>
+                                          <option value="4">Four</option>
+                                          <option value="5">Five</option>
+                                        </select>
+                                      </div>
+                                </div>
+                                  
+                                  <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">Review</label>
+                                    <textarea class="form-control" aria-label="With textarea" name="review_body" rows="6" required></textarea>
+                                  </div>
+                                  
+                                  
+                                  <div class="text-center"><button type="submit" class="btn btn-primary me-4" >Save</button></div>
+                                
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Main Content Wrapper End ##### -->
+
+   
+
+    <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
+    <script src="{% static 'amado/js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'amado/js/popper.min.js' %}"></script>
+    <!-- Bootstrap js -->
+    <script src="{% static 'amado/js/bootstrap.min.js' %}"></script>
+    <!-- Plugins js -->
+    <script src="{% static 'amado/js/plugins.js' %}"></script>
+    <!-- Active js -->
+    <script src="{% static 'amado/js/active.js' %}"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,770 @@
+<style>
+    .split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  /* Control the left side */
+  .left {
+    left: 0;
+    background-color: #111;
+    
+  }
+  
+  /* Control the right side */
+  .right {
+    right: 0;
+    
+  }
+  
+  /* If you want the content centered horizontally and vertically */
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  /* Style the image inside the centered container, if needed */
+  .centered img {
+    width: 150px;
+    border-radius: 50%;
+  }
+  </style>
+  {% load static %}
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <title>Mezardini.dev</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      
+      <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"> 
+  
+      <link rel="stylesheet" href="{% static 'clark/css/open-iconic-bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'clark/css/animate.css' %}">
+  
+      <link rel="stylesheet" href="{% static 'clark/css/owl.carousel.min.css' %}">
+      <link rel="stylesheet" href="{% static 'clark/css/owl.theme.default.min.css' %}">
+      <link rel="stylesheet" href="{% static 'clark/css/magnific-popup.css' %}">
+  
+      <link rel="stylesheet" href="{% static 'clark/css/aos.css' %}">
+  
+      <link rel="stylesheet" href="{% static 'clark/css/ionicons.min.css' %}">
+      
+      <link rel="stylesheet" href="{% static 'clark/css/flaticon.css' %}">
+      <link rel="stylesheet" href="{% static 'clark/css/icomoon.css' %}">
+      <link rel="stylesheet" href="{% static 'clark/css/style.css' %}">
+    </head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    <div class="split left">
+        <script src="https://kit.fontawesome.com/ee354b4b49.js" crossorigin="anonymous"></script>
+	<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+        <script>
+            var myModal = document.getElementById('myModal')
+            var myInput = document.getElementById('myInput')
+    
+            myModal.addEventListener('shown.bs.modal', function () {
+              myInput.focus()
+            })
+      </script>
+      <script>
+        function displayInput() {
+      var input_headline = document.getElementById("inputField").value;
+      document.getElementById("output_headline").innerHTML = input_headline;
+      var input_hero_image = document.getElementById("inputaboutus").value;
+      document.getElementById("output_hero_image").innerHTML = input_hero_image;
+    }
+    
+      </script>
+      <script>
+        var counter = 1;
+    
+    function addNewElement() {
+      var elementContainer = document.getElementById("elementContainer");
+    
+      // Create a new div element with the desired classes
+      var newDiv = document.createElement("div");
+      newDiv.className = "input-group mb-3 x";
+    
+      // Create the span element for the service title
+      var newTitleSpan = document.createElement("span");
+      newTitleSpan.className = "input-group-text";
+      newTitleSpan.textContent = "Service Title " + (++counter);
+    
+      // Create the input element for the service title
+      var newTitleInput = document.createElement("input");
+      newTitleInput.type = "text";
+      newTitleInput.className = "form-control";
+      newTitleInput.setAttribute("aria-label", "With textarea");
+      newTitleInput.name = "input";
+      newTitleInput.rows = "3";
+    
+      // Create the span element for the service description
+      var newDescriptionSpan = document.createElement("span");
+      newDescriptionSpan.className = "input-group-text";
+      newDescriptionSpan.textContent = "Service Description " + counter;
+    
+      // Create the textarea element for the service description
+      var newDescriptionTextarea = document.createElement("textarea");
+      newDescriptionTextarea.className = "form-control";
+      newDescriptionTextarea.setAttribute("aria-label", "With textarea");
+      newDescriptionTextarea.name = "input2";
+      newDescriptionTextarea.rows = "6";
+    
+      // Append the elements to the new div
+      newDiv.appendChild(newTitleSpan);
+      newDiv.appendChild(newTitleInput);
+      newDiv.appendChild(newDescriptionSpan);
+      newDiv.appendChild(newDescriptionTextarea);
+    
+      // Append the new div to the container
+      elementContainer.appendChild(newDiv);
+    }
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+    
+      var form = new FormData(this);
+    
+      // Send the form data to the server using AJAX or other methods...
+    });
+    
+      </script>
+    <script>
+      var counter = 1;
+    
+    function addNewtestimony() {
+    var elementContainer = document.getElementById("testimonyContainer");
+    
+    // Create a new div element with the desired classes
+    var newDiv = document.createElement("div");
+    newDiv.className = "input-group mb-3";
+    
+    // Create the span element for the Name
+    var newTitleSpan = document.createElement("span");
+    newTitleSpan.className = "input-group-text";
+    newTitleSpan.textContent = "Name " + (++counter);
+    
+    // Create the input element for the Name
+    var newTitleInput = document.createElement("input");
+    newTitleInput.type = "text";
+    newTitleInput.className = "form-control";
+    newTitleInput.setAttribute("aria-label", "With textarea");
+    newTitleInput.name = "testimony_name";
+    newTitleInput.rows = "3";
+    
+    // Create the span element for the testimony
+    var newDescriptionSpan = document.createElement("span");
+    newDescriptionSpan.className = "input-group-text";
+    newDescriptionSpan.textContent = "Testimony " + counter;
+    
+    // Create the textarea element for the testimony
+    var newDescriptionTextarea = document.createElement("textarea");
+    newDescriptionTextarea.className = "form-control";
+    newDescriptionTextarea.setAttribute("aria-label", "With textarea");
+    newDescriptionTextarea.name = "testimony";
+    newDescriptionTextarea.rows = "6";
+    
+    // Append the elements to the new div
+    newDiv.appendChild(newTitleSpan);
+    newDiv.appendChild(newTitleInput);
+    newDiv.appendChild(newDescriptionSpan);
+    newDiv.appendChild(newDescriptionTextarea);
+    
+    // Append the new div to the container
+    elementContainer.appendChild(newDiv);
+    }
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    var form = new FormData(this);
+    
+    // Send the form data to the server using AJAX or other methods...
+    });
+    
+    </script>
+     
+        <section >
+                  <p><a href="">Business</a> <a href="">Hero</a> <a href="">Service</a></p>
+                
+          <div class="sec-4 section bg-light" >
+  
+              <div class="text-center mb-5">
+                  <h2 class="heading mb-5 text-center" style="color: #111;">Business details</h2>
+                  <p>This section contains your headline(s) and your hero image(if you want). Click <a data-bs-toggle="modal" data-bs-target="#herosection" style="color: #133247;">here</a> to see how it looks</p>
+              </div>
+              
+              
+  
+                  <div class="container">
+  
+                    <div class="row">
+                      <div class="col">
+                        <div class="input-group-text">Business Name </div>
+                        <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                        <p>*will appear on the landing page as logo</p>
+                      </div>
+                      <div class="col">
+                        <div class="input-group-text">Email Address </div>
+                        <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                        <p>*used for receiving contact messages, won't appear on page</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="input-group-text">Location</div>
+                        <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                        <p>*will appear on the landing page, not required</p>
+                      </div>
+                      <div class="col">
+                        <div class="input-group-text">Contact Number</div>
+                        <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                        <p>*will appear on the landing page, not required</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <div class="input-group-text">CTA Title  <span><i data-bs-toggle="popover"  data-bs-content="*this will be the phrase on your CTA button, an example is 'Book a consultation'. Not required" class="fa-solid fa-circle-info"></i></span></div>
+                        <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Get Started">
+                        <p>*this will be the phrase on your CTA button, an example is 'Book a consultation'. Not required</p>
+                      </div>
+                      <div class="col">
+                        <div class="input-group-text">CTA Link</div>
+                        <input type="url" class="form-control" id="autoSizingInputGroup" >
+                        <p>*clicking the CTA button will launch this link, an example could be the link to your calendly. Not required</p>
+                      </div>
+                    </div>
+                    
+                    <h4 class="text-center" >Social media accounts</h4>
+                    <p class="text-center" >Helps with SEO and connecting visitors to your social media sites, will appear on page</p>
+  
+                    
+                      <div class="col">
+                    <div class="input-group input-group mb-3">
+                      <div class="input-group-text">Instagram</div>
+                      <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="input-group input-group mb-3">
+                      <div class="input-group-text">Facebook</div>
+                      <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="input-group input-group mb-3">
+                      <div class="input-group-text">Twitter</div>
+                      <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="input-group input-group mb-3">
+                      <div class="input-group-text">LinkedIn</div>
+                      <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="input-group input-group mb-3">
+                      <div class="input-group-text">LinkedIn</div>
+                      <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                    </div>
+                  </div>
+                      
+                      <p class="text-center"><button  class="btn btn-primary me-4" data-bs-toggle="modal" data-bs-target="#hero_preview" onclick="displayInput()" > Preview</button><a type="submit" class="btn btn-primary me-4" >Save</a></p>
+  
+                    
+                  </div>
+  
+          </div>
+      </section>
+          
+              <section >
+                  
+                
+                  <div class="sec-4 section bg-light" >
+  
+                      <div class="text-center mb-5">
+                          <h2 class="heading mb-5 text-center" style="color: #111;">Hero section</h2>
+                          <p>This section contains your headline(s) and your hero image(if you want). Click <a data-bs-toggle="modal" data-bs-target="#herosection" style="color: #133247;">here</a> to see how it looks</p>
+                      </div>
+                      
+                      
+              
+                          <div class="container">
+              
+                              <!-- <div class="input-group mb-3">
+                                  <span class="input-group-text" id="basic-addon1">@</span>
+                                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                </div>
+                                
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                  <span class="input-group-text" id="basic-addon2">@example.com</span>
+                                </div>
+                                
+                                <label for="basic-url" class="form-label">Your vanity URL</label>
+                                <div class="input-group mb-3">
+                                  <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+                                  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                                </div>
+                                
+                                <div class="input-group mb-3">
+                                  <span class="input-group-text">$</span>
+                                  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                  <span class="input-group-text">.00</span>
+                                </div>
+                                
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+                                  <span class="input-group-text">@</span>
+                                  <input type="text" class="form-control" placeholder="Server" aria-label="Server">
+                                </div> -->
+                                
+                                <div class="input-group mb-3">
+                                  <span class="input-group-text">Headline</span>
+                                  <textarea class="form-control" aria-label="With textarea" id="inputField"  rows="3"></textarea>
+                                </div>
+                                <div class="input-group mb-3">
+                                  <span class="input-group-text">Unique Selling Proposition</span>
+                                  <textarea class="form-control" aria-label="With textarea"  rows="3"></textarea>
+                                </div>
+                                <div class="input-group mb-3">
+                                  <label class="input-group-text" for="inputGroupFile02">Hero Image</label>
+                                  <input type="file" class="form-control" id="inputGroupFile02">
+                                  
+                                </div>
+                                <p class="text-center"><button  class="btn btn-primary me-4" data-bs-toggle="modal" data-bs-target="#hero_preview" onclick="displayInput()" > Preview</button><a type="submit" class="btn btn-primary me-4" >Save</a></p>
+                                
+                          </div>
+              
+                      
+                  </div>
+              </section>
+  
+          
+  
+              <div class="sec-4 section bg-light" >
+  
+                  <div class="text-center mb-5">
+                      <h2 class="heading mb-5 text-center" style="color: #111;">About Us section</h2>
+                      <p>This section contains your headline(s) and your hero image(if you want). Click <a data-bs-toggle="modal" data-bs-target="#herosection" style="color: #133247;">here</a> to see how it looks</p>
+                  </div>
+                  
+          
+                  <div class="container">
+          
+                            
+                            <div class="input-group mb-3">
+                              <span class="input-group-text">About Us Headline</span>
+                              <textarea class="form-control" aria-label="With textarea" id="inputaboutus" rows="3"></textarea>
+                            </div>
+                            <div class="input-group mb-3">
+                              <span class="input-group-text">About Us Description</span>
+                              <textarea class="form-control" aria-label="With textarea"  rows="3"></textarea>
+                            </div>
+                            <div class="input-group mb-3">
+                              <label class="input-group-text" for="inputGroupFile02">About Us Image (optional)</label>
+                              <input type="file" class="form-control" id="inputGroupFile02">
+                              
+                            </div>
+                            <p class="text-center"><button  class="btn btn-primary me-4" data-bs-toggle="modal" data-bs-target="#about_us_preview" onclick="displayInput()" > Preview</button><a type="submit" class="btn btn-primary me-4" >Save</a></p>
+                                
+                  </div>
+          
+                
+              </div>
+
+              <div class="sec-4 section bg-light" >
+  
+                  <div class="text-center mb-5">
+                      <h2 class="heading mb-5 text-center" style="color: #111;">Services Offered section</h2>
+                      <p>This section contains your headline(s) and your hero image(if you want). Click <a data-bs-toggle="modal" data-bs-target="#herosection" style="color: #133247;">here</a> to see how it looks</p>
+                  </div>
+                  
+                  
+          
+                      <div class="container">
+          
+                          <!-- <div class="input-group mb-3">
+                              <span class="input-group-text" id="basic-addon1">@</span>
+                              <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                            </div> -->
+                            <form  action="{% url 'processservice' %}" method="POST">
+                              {% csrf_token %}
+                            <div id="elementContainer">
+                              <!-- Existing elements -->
+                              <div class="input-group mb-3 x">
+                                <span class="input-group-text">Service Title 1</span>
+                                <input type="text" class="form-control" aria-label="With textarea" name="input" rows="3"></input>
+                              </div>
+                              <div class="input-group mb-3 x">
+                                <span class="input-group-text">Service Description 1</span>
+                                <textarea class="form-control" aria-label="With textarea" name="input2" rows="6"></textarea>
+                              </div>
+                            </div>
+                            <button type="submit" value="Submit">Submit</button>
+                          </form>
+                          
+                            
+                            <button type="button" onclick="addNewElement()">+</button>
+                              
+                            <p class="text-center"><button  class="btn btn-primary me-4" data-bs-toggle="modal" data-bs-target="#hero_preview" onclick="displayInput()" > Preview</button><a type="submit" class="btn btn-primary me-4" >Save</a></p>
+                                
+                      </div>
+  
+              </div>
+  
+              <div class="sec-4 section bg-light" >
+  
+                <div class="text-center mb-5">
+                    <h2 class="heading mb-5 text-center" style="color: #111;">testimonials section</h2>
+                    <p>This section contains your headline(s) and your hero image(if you want). Click <a data-bs-toggle="modal" data-bs-target="#herosection" style="color: #133247;">here</a> to see how it looks</p>
+                </div>
+                
+                
+        
+                    <div class="container">
+        
+                        <!-- <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                          </div> -->
+                          <form  action="" method="POST">
+                            {% csrf_token %}
+                          <div id="testimonyContainer">
+                            <!-- Existing elements -->
+                            <div class="input-group mb-3">
+                              <span class="input-group-text">Name</span>
+                              <input type="text" class="form-control" aria-label="With textarea" name="testimony_name" rows="3"></input>
+                            </div>
+                            <div class="input-group mb-3">
+                              <span class="input-group-text">Testimony</span>
+                              <textarea class="form-control" aria-label="With textarea" name="testimony" rows="6"></textarea>
+                            </div>
+                          </div>
+                          <button type="submit" value="Submit">Submit</button>
+                        </form>
+                        
+                          
+                          <button class="btn btn-primary me-4" type="button" onclick="addNewtestimony()">+</button>
+                            
+                          <p class="text-center"><button  class="btn btn-primary me-4" data-bs-toggle="modal" data-bs-target="#hero_preview" onclick="displayInput()" > Preview</button><a type="submit" class="btn btn-primary me-4" >Save</a></p>
+                              
+                    </div>
+                    
+  
+            </div>
+  
+              <div class="site-footer bg-light">
+                <div class="container">
+  
+                  
+  
+                  <div class="row justify-content-center text-center copyright">
+                            
+                    <div class="col-md-8" >
+                      <p class="small text-black-50">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a></br>Distributed By <a href="https://themewagon.com/">Themewagon</a> <!-- License information: https://untree.co/license/ -->
+                                    <ul class="social list-unstyled mb-5" style="display:inline">
+                                        <li><a href="#"><span class="icon-facebook"></span></a></li>
+                                        <li><a href="#"><span class="icon-twitter"></span></a></li>
+                                        <li><a href="#"><span class="icon-instagram"></span></a></li>
+                                        <li><a href="#"><span class="icon-dribbble"></span></a></li>
+                                        <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                                    </ul>
+                                </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+    <div class="split right">
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+            <div class="container">
+              <a class="navbar-brand" href="index.html">Mezardini</a>
+              <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+              </button>
+    
+              <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav nav ml-auto">
+                  <!-- <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
+                  <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
+                  <li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
+                  <li class="nav-item"><a href="#tools-section" class="nav-link"><span>Tools</span></a></li>
+                  <li class="nav-item"><a href="#stack-section" class="nav-link"><span>Stack</span></a></li>
+                  <li class="nav-item"><a href="#blog-section" class="nav-link"><span>My Blog</span></a></li> -->
+                  <li class="nav-item"><a href="#contact-section" class="btn btn-primary py-3 px-4"><span>Contact</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        <section class="ftco-section" id="home-section">
+          <div class="container">
+              <div class="row justify-content-center mb-5 pb-5">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <br>
+                    <br>
+                  <h1 class="big big-2">MEZARDINI</h1>
+                  <h2 class="mb-4" id="output_headline">!</h2>
+                  <h1 class="mb-4 mt-3">I am a <span style="color: #5CC72A;">backend developer</span> based in Nigeria</h1>
+                  <p>When you purchase or free download a Theme from ThemeWagon, you are granted a license to use that product. 
+                    All the products in ThemeWagon can be used for personal & commercial purposes. 
+                    To understand our licenses, please read the following details.</p>
+                  <p><a href="#contact" class="btn btn-primary py-3 px-4" style="color: #41ee10;">Hire me</a></p>
+                </div>
+              </div>
+              
+              <!-- <span class="subheading">Hello!</span>
+              <h1 class="mb-4 mt-3">I am a <span>backend developer</span> based in Nigeria</h1>
+              <p><a href="#" class="btn btn-primary py-3 px-4">Hire me</a> <a href="#" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
+            </div> -->
+          </div>
+        </section>
+    
+        <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
+            <div class="container">
+                <div class="row justify-content-center pb-5">
+                    <div class="col-md-6 col-lg-5 d-flex">
+                        <div class="img-about img d-flex align-items-stretch">
+                            <div class="overlay"></div>
+                            <div class="img d-flex align-self-stretch align-items-center" style="background-image:url({% static 'clark/images/bg_1.png' %});">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-7 pl-lg-5 pb-5">
+                        <div class="row justify-content-start pb-3">
+                      <div class="col-md-12 heading-section ">
+                          <h1 class="big">About</h1>
+                        <h2 class="mb-4">About Me</h2>
+                        <p>All themes published on ThemeWagon can be used for free. You can use them for commercial and non-commercial purposes. 
+                            You can use them to make a website for your clients and get paid.
+    
+                            Template authors have different licensing regarding attribution link removal. 
+                            Some authors require you to keep the attribution link in the footer others not. 
+                            Please see the corresponding template author license on their website for this purpose.
+                            
+                            This license does not include the right to compile themes from ThemeWagon to replicate a similar or 
+                            competing service and to use the themes in derivative themes or “generators.”</p>
+                      </div>
+                    </div>
+                  <div class="counter-wrap ftco-animate d-flex mt-md-3">
+                  <div class="text">
+                      <!-- <p class="mb-4">
+                        <span class="number" data-number="120">0</span>
+                        <span>Project complete</span>
+                    </p> -->
+                    <!-- <p><a href="#" class="btn btn-primary py-3 px-3">Download CV</a></p> -->
+                  </div>
+                  </div>
+                </div>
+            </div>
+            </div>
+        </section>
+    
+        <section class="ftco-section ftco-no-pb" id="projects-section">
+            <div class="container">
+                <div class="row justify-content-center pb-5">
+              <div class="col-md-10 heading-section text-center ">
+                  
+                <h2 class="mb-4">Services</h2>
+                <p>These are a few of the projects i have completed</p>
+              </div>
+            </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="resume-wrap ">
+                            <h2 class="text-center">Tixvana</h2>
+                            
+                            <p class="mt-4">With this project,I developed an authentication model that is adequately secure and reliable, I worked with third party APIs like Flutterwave, Paystack </p>
+                            <p>Tools used: Django, Supabase Postgres, AWS, Render, Bootstrap</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="resume-wrap ">
+                            <h2 class="text-center">Realer</h2>
+                            
+                            <p class="mt-4">With this project, I showed my knowledge of CRUD and modules like send_mail to automate the message feature</p>
+                            <p>Tools used: Django, Supabase Postgres, AWS, Render, SMTP</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="resume-wrap ">
+                            <h2 class="text-center">Mezzala</h2>
+                            
+                            <p class="mt-4">The knowledge of CRUD, database was utilised. Authorisation was also used to restrict non authenticated users from certain tasks.</p>
+                            <p>Tools used: Django, Supabase Postgres, AWS, Render, Wasabi, Heroku</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="resume-wrap ">
+                            <h2 class="text-center">Moviehut</h2>
+                            
+                            <p class="mt-4">I showed my familiarity with third party APIs by working with quickteller.</p>
+                            <p>Tools used: Django, Quickteller API, Postgres, AWS, Render</p>
+                        </div>
+                    </div>
+                
+    
+                    
+                </div>
+                <!-- <div class="row justify-content-center mt-5">
+                    <div class="col-md-6 text-center ftco-animate">
+                        <p><a href="https://github.com/mezardini" target="_blank" class="btn btn-primary py-4 px-5">More on Github</a></p>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+    
+        <section class="ftco-section" id="tools-section">
+            <div class="container">
+                <div class="row justify-content-center pb-5">
+              <div class="col-md-10 heading-section text-center ">
+                  
+                <h2 class="mb-4">Testimonials</h2>
+                <p>These are a few of the projects i have completed</p>
+              </div>
+            </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="resume-wrap ">
+                            <h2 class="text-center">Tixvana</h2>
+                            
+                            <p class="mt-4">With this project,I developed an authentication model that is adequately secure and reliable, I worked with third party APIs like Flutterwave, Paystack </p>
+                            <p>Tools used: Django, Supabase Postgres, AWS, Render, Bootstrap</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="resume-wrap ">
+                            <h2 class="text-center">Realer</h2>
+                            
+                            <p class="mt-4">With this project, I showed my knowledge of CRUD and modules like send_mail to automate the message feature</p>
+                            <p>Tools used: Django, Supabase Postgres, AWS, Render, SMTP</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="resume-wrap ">
+                            <h2 class="text-center">Mezzala</h2>
+                            
+                            <p class="mt-4">The knowledge of CRUD, database was utilised. Authorisation was also used to restrict non authenticated users from certain tasks.</p>
+                            <p>Tools used: Django, Supabase Postgres, AWS, Render, Wasabi, Heroku</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="resume-wrap ">
+                            <h2 class="text-center">Moviehut</h2>
+                            
+                            <p class="mt-4">I showed my familiarity with third party APIs by working with quickteller.</p>
+                            <p>Tools used: Django, Quickteller API, Postgres, AWS, Render</p>
+                        </div>
+                    </div>
+                
+    
+                    
+                </div>
+                <!-- <div class="row justify-content-center mt-5">
+                    <div class="col-md-6 text-center ">
+                        <p><a href="https://github.com/mezardini" target="_blank" class="btn btn-primary py-4 px-5">More on Github</a></p>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+        <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+            <div class="container">
+                <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-md-7 heading-section text-center ">
+                  <h1 class="big big-2">Contact</h1>
+                  <h2 class="mb-4">Contact Me</h2>
+                  <p>Impressed with my work? use any of these medium to reach me</p>
+                </div>
+              </div>
+      
+      
+      
+              <div class="row no-gutters block-9" id="contact">
+                  <div class="col-md-6 order-md-last d-flex">
+                    <form action="#" class="bg-light p-4 p-md-5 contact-form">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Your Name">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Your Email">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Subject">
+                      </div>
+                      <div class="form-group">
+                        <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                      </div>
+                      <div class="form-group">
+                        <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                      </div>
+                    </form>
+                  
+                  </div>
+                  <div class="col-md-6 d-flex">
+                      <div class="img" >
+                          <br>
+                          <br>
+                          <br>
+                          <br>
+                          <div class="container">
+                          <div class="row justify-content-center">
+                          <div class="col-md-7  text-center">
+                              <h2>I'm <span>Available</span> for freelancing</h2>
+                              
+                              <p>If you can not offer me full time employment, feel free to contact me as I am also open to freelance offers.</p>
+                              
+                          </div>
+                      </div>
+                  </div>
+                      </div>
+                  </div>
+                  
+                </div>
+            </div>
+          </section>
+      
+          <footer class="ftco-footer ftco-section">
+            <div class="container">
+              
+              <div class="row">
+                <div class="col-md-12 text-center">
+      
+                  <p>
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Mezardini
+                        </p>
+                        <ul class="social list-unstyled mb-5" style="display:inline">
+                          <li><a href="#"><span class="icon-facebook"></span></a></li>
+                          <li><a href="#"><span class="icon-twitter"></span></a></li>
+                          <li><a href="#"><span class="icon-instagram"></span></a></li>
+                          <li><a href="#"><span class="icon-dribbble"></span></a></li>
+                          <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                      </ul>
+                </div>
+              </div>
+            </div>
+          </footer>
+      </div>    
+      <script src="{% static 'clark/js/jquery.min.js' %}"></script>
+  <script src="{% static 'clark/js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'clark/js/popper.min.js' %}"></script>
+  <script src="{% static 'clark/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'clark/js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'clark/js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'clark/js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'clark/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'clark/js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'clark/js/aos.js' %}"></script>
+  <script src="{% static 'clark/js/jquery.animateNumber.min.js' %}"></script>
+  <script src="{% static 'clark/js/scrollax.min.js' %}"></script>
+  
+  <script src="{% static 'clark/js/main.js' %}"></script>
+</body>
+</html>

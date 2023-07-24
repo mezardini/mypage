@@ -1,0 +1,637 @@
+<style>
+  .split {
+  height: 100%;
+  width: 70%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: #111;
+  width: 30%;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  width: 70%;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
+</style>
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<meta name="author" content="Untree.co">
+	<link rel="shortcut icon" href="{% static 'favicon.png' %}">
+
+	<meta name="description" content="" />
+	<meta name="keywords" content="bootstrap, bootstrap5" />
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+  
+
+	<link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+	<link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+	<link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}">
+	<link rel="stylesheet" href="{% static 'css/aos.css' %}">
+	<link rel="stylesheet" href="{% static 'css/glightbox.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'dtox/plugins/bootstrap/bootstrap.min.css' %}">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="{% static 'dtox/plugins/themify-icons/themify-icons.css' %}">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="{% static 'dtox/plugins/slick/slick.css' %}">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="{% static 'dtox/plugins/Venobox/venobox.css' %}">
+  <!-- aos -->
+  <link rel="stylesheet" href="{% static 'dtox/plugins/aos/aos.css' %}">
+
+	<title>MYPAGE</title>
+</head>
+<body>
+  <div class="split left">
+      <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+          </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+      </div>
+
+      <nav class="site-nav" style="background-color: #133247;">
+        <div class="container">
+          <div class="site-navigation">
+            <a href="{% url 'home' %}" class="logo m-0 float-start" >MYPAGE<span class="text-primary">.</span> </a>
+
+            <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu text-center">
+              <!-- <li class="active"><a href="index.html">Home</a></li>
+              -->
+            </ul>
+
+            
+            <ul class="float-end d-none d-md-block">
+              <a href="#" class="btn btn-primary me-4">Full Preview</a>
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+
+      <section style="margin-top: 5%;">
+                
+              
+        <div class="sec-4 section bg-light" >
+
+            <div class="text-center mb-5">
+                <h2 class="heading mb-5 text-center">Business details</h2>
+                <p>This section contains your headline(s) and your hero image(if you want). Click <a data-bs-toggle="modal" data-bs-target="#herosection" style="color: #133247;">here</a> to see how it looks</p>
+            </div>
+            
+            
+
+                <div class="container">
+
+                  <div class="row">
+                    <div class="col">
+                      <div class="input-group-text">Business Name </div>
+                      <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                      <p>*will appear on the landing page as logo</p>
+                    </div>
+                    <div class="col">
+                      <div class="input-group-text">Email Address </div>
+                      <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                      <p>*used for receiving contact messages, won't appear on page</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="input-group-text">Location</div>
+                      <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                      <p>*will appear on the landing page, not required</p>
+                    </div>
+                    <div class="col">
+                      <div class="input-group-text">Contact Number</div>
+                      <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                      <p>*will appear on the landing page, not required</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="input-group-text">CTA Title  <span><i data-bs-toggle="popover"  data-bs-content="*this will be the phrase on your CTA button, an example is 'Book a consultation'. Not required" class="fa-solid fa-circle-info"></i></span></div>
+                      <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Get Started">
+                      <p>*this will be the phrase on your CTA button, an example is 'Book a consultation'. Not required</p>
+                    </div>
+                    <div class="col">
+                      <div class="input-group-text">CTA Link</div>
+                      <input type="url" class="form-control" id="autoSizingInputGroup" >
+                      <p>*clicking the CTA button will launch this link, an example could be the link to your calendly. Not required</p>
+                    </div>
+                  </div>
+                  
+                  <h4 class="text-center" >Social media accounts</h4>
+                  <p class="text-center" >Helps with SEO and connecting visitors to your social media sites, will appear on page</p>
+
+                  <div class="row">
+                    <div class="col">
+                  <div class="input-group input-group mb-3">
+                    <div class="input-group-text">Instagram</div>
+                    <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="input-group input-group mb-3">
+                    <div class="input-group-text">Facebook</div>
+                    <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="input-group input-group mb-3">
+                    <div class="input-group-text">Twitter</div>
+                    <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="input-group input-group mb-3">
+                    <div class="input-group-text">LinkedIn</div>
+                    <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                  </div>
+                </div>
+                    </div>
+                    <p class="text-center"><button  class="btn btn-primary me-4" data-bs-toggle="modal" data-bs-target="#hero_preview" onclick="displayInput()" > Preview</button><a type="submit" class="btn btn-primary me-4" >Save</a></p>
+
+                  
+                </div>
+
+        </div>
+    </section>
+        
+            <section >
+                
+              
+                <div class="sec-4 section bg-light" >
+
+                    <div class="text-center mb-5">
+                        <h2 class="heading mb-5 text-center">Hero section</h2>
+                        <p>This section contains your headline(s) and your hero image(if you want). Click <a data-bs-toggle="modal" data-bs-target="#herosection" style="color: #133247;">here</a> to see how it looks</p>
+                    </div>
+                    
+                    
+            
+                        <div class="container">
+            
+                            <!-- <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">@</span>
+                                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                              </div>
+                              
+                              <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <span class="input-group-text" id="basic-addon2">@example.com</span>
+                              </div>
+                              
+                              <label for="basic-url" class="form-label">Your vanity URL</label>
+                              <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+                                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                              </div>
+                              
+                              <div class="input-group mb-3">
+                                <span class="input-group-text">$</span>
+                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                <span class="input-group-text">.00</span>
+                              </div>
+                              
+                              <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+                                <span class="input-group-text">@</span>
+                                <input type="text" class="form-control" placeholder="Server" aria-label="Server">
+                              </div> -->
+                              
+                              <div class="input-group mb-3">
+                                <span class="input-group-text">Headline</span>
+                                <textarea class="form-control" aria-label="With textarea" id="inputField"  rows="3"></textarea>
+                              </div>
+                              <div class="input-group mb-3">
+                                <span class="input-group-text">Unique Selling Proposition</span>
+                                <textarea class="form-control" aria-label="With textarea"  rows="3"></textarea>
+                              </div>
+                              <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupFile02">Hero Image</label>
+                                <input type="file" class="form-control" id="inputGroupFile02">
+                                
+                              </div>
+                              <p class="text-center"><button  class="btn btn-primary me-4" data-bs-toggle="modal" data-bs-target="#hero_preview" onclick="displayInput()" > Preview</button><a type="submit" class="btn btn-primary me-4" >Save</a></p>
+                              
+                        </div>
+            
+                    
+                </div>
+            </section>
+
+        
+
+            <div class="sec-4 section bg-light" >
+
+                <div class="text-center mb-5">
+                    <h2 class="heading mb-5 text-center">About Us section</h2>
+                    <p>This section contains your headline(s) and your hero image(if you want). Click <a data-bs-toggle="modal" data-bs-target="#herosection" style="color: #133247;">here</a> to see how it looks</p>
+                </div>
+                
+        
+                <div class="container">
+        
+                          
+                          <div class="input-group mb-3">
+                            <span class="input-group-text">About Us Headline</span>
+                            <textarea class="form-control" aria-label="With textarea" id="inputaboutus" rows="3"></textarea>
+                          </div>
+                          <div class="input-group mb-3">
+                            <span class="input-group-text">About Us Description</span>
+                            <textarea class="form-control" aria-label="With textarea"  rows="3"></textarea>
+                          </div>
+                          <div class="input-group mb-3">
+                            <label class="input-group-text" for="inputGroupFile02">About Us Image (optional)</label>
+                            <input type="file" class="form-control" id="inputGroupFile02">
+                            
+                          </div>
+                          <p class="text-center"><button  class="btn btn-primary me-4" data-bs-toggle="modal" data-bs-target="#about_us_preview" onclick="displayInput()" > Preview</button><a type="submit" class="btn btn-primary me-4" >Save</a></p>
+                              
+                </div>
+        
+              
+            </div>
+
+            
+
+
+
+            <div class="sec-4 section bg-light" >
+
+                <div class="text-center mb-5">
+                    <h2 class="heading mb-5 text-center">Services Offered section</h2>
+                    <p>This section contains your headline(s) and your hero image(if you want). Click <a data-bs-toggle="modal" data-bs-target="#herosection" style="color: #133247;">here</a> to see how it looks</p>
+                </div>
+                
+                
+        
+                    <div class="container">
+        
+                        <!-- <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                          </div> -->
+                          <form  action="{% url 'processservice' %}" method="POST">
+                            {% csrf_token %}
+                          <div id="elementContainer">
+                            <!-- Existing elements -->
+                            <div class="input-group mb-3 x">
+                              <span class="input-group-text">Service Title 1</span>
+                              <input type="text" class="form-control" aria-label="With textarea" name="input" rows="3"></input>
+                            </div>
+                            <div class="input-group mb-3 x">
+                              <span class="input-group-text">Service Description 1</span>
+                              <textarea class="form-control" aria-label="With textarea" name="input2" rows="6"></textarea>
+                            </div>
+                          </div>
+                          <button type="submit" value="Submit">Submit</button>
+                        </form>
+                        
+                          
+                          <button type="button" onclick="addNewElement()">+</button>
+                            
+                          <p class="text-center"><button  class="btn btn-primary me-4" data-bs-toggle="modal" data-bs-target="#hero_preview" onclick="displayInput()" > Preview</button><a type="submit" class="btn btn-primary me-4" >Save</a></p>
+                              
+                    </div>
+
+            </div>
+
+            <div class="sec-4 section bg-light" >
+
+              <div class="text-center mb-5">
+                  <h2 class="heading mb-5 text-center">testimonials section</h2>
+                  <p>This section contains your headline(s) and your hero image(if you want). Click <a data-bs-toggle="modal" data-bs-target="#herosection" style="color: #133247;">here</a> to see how it looks</p>
+              </div>
+              
+              
+      
+                  <div class="container">
+      
+                      <!-- <div class="input-group mb-3">
+                          <span class="input-group-text" id="basic-addon1">@</span>
+                          <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                        </div> -->
+                        <form  action="" method="POST">
+                          {% csrf_token %}
+                        <div id="testimonyContainer">
+                          <!-- Existing elements -->
+                          <div class="input-group mb-3">
+                            <span class="input-group-text">Name</span>
+                            <input type="text" class="form-control" aria-label="With textarea" name="testimony_name" rows="3"></input>
+                          </div>
+                          <div class="input-group mb-3">
+                            <span class="input-group-text">Testimony</span>
+                            <textarea class="form-control" aria-label="With textarea" name="testimony" rows="6"></textarea>
+                          </div>
+                        </div>
+                        <button type="submit" value="Submit">Submit</button>
+                      </form>
+                      
+                        
+                        <button class="btn btn-primary me-4" type="button" onclick="addNewtestimony()">+</button>
+                          
+                        <p class="text-center"><button  class="btn btn-primary me-4" data-bs-toggle="modal" data-bs-target="#hero_preview" onclick="displayInput()" > Preview</button><a type="submit" class="btn btn-primary me-4" >Save</a></p>
+                            
+                  </div>
+                  
+
+          </div>
+
+            <div class="site-footer bg-light">
+              <div class="container">
+
+                
+
+                <div class="row justify-content-center text-center copyright">
+                          
+                  <div class="col-md-8" >
+                    <p class="small text-black-50">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a></br>Distributed By <a href="https://themewagon.com/">Themewagon</a> <!-- License information: https://untree.co/license/ -->
+                                  <ul class="social list-unstyled mb-5" style="display:inline">
+                                      <li><a href="#"><span class="icon-facebook"></span></a></li>
+                                      <li><a href="#"><span class="icon-twitter"></span></a></li>
+                                      <li><a href="#"><span class="icon-instagram"></span></a></li>
+                                      <li><a href="#"><span class="icon-dribbble"></span></a></li>
+                                      <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                                  </ul>
+                              </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+  </div>
+  <div class="split right">
+    {{choice}}
+  </div>
+
+
+
+
+
+<!-- <section class="section-lg pb-0 pricing" id="pricing">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">Our Pricing</h2>
+        <p class="mb-50">We have a fair and simple pricing of $5 per month for the first page you create and then $3 per month for subsequent pages </p>
+      </div>
+     
+    </div>
+  </div>
+
+  <img class="pricing-bg-shape-1 up-down-animation" src="{% static 'dtox/images/background-shape/seo-ball-1.png' %}" alt="background-shape">
+  <img class="pricing-bg-shape-2 up-down-animation" src="{% static 'dtox/images/background-shape/seo-half-cycle.png' %}" alt="background-shape">
+  <img class="pricing-bg-shape-3 left-right-animation" src="{% static 'dtox/images/background-shape/team-bg-triangle.png' %}" alt="background-shape">
+</section> -->
+
+<footer class="footer-section footer" style="background-image: url(images/backgrounds/footer-bg.png); margin-top: -2%; margin-bottom: -80%; position: fixed; bottom: 80%;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+        <!-- logo -->
+        <a href="index.html">
+          <img class="img-fluid" src="{% static 'dtox/images/logo.png' %}" alt="logo">
+        </a>
+      </div>
+      <!-- footer menu -->
+      <nav class="col-lg-8 align-self-center mb-5">
+        <ul class="list-inline text-lg-right text-center footer-menu">
+          <li class="list-inline-item active"><a href="index.html">Home</a></li>
+          <li class="list-inline-item"><a class="page-scroll" href="#feature">Feature</a></li>
+          <li class="list-inline-item"><a href="about.html">About</a></li>
+          <li class="list-inline-item"><a class="page-scroll" href="#team">Team</a></li>
+          <li class="list-inline-item"><a class="page-scroll" href="#pricing">Pricing</a></li>
+          <li class="list-inline-item"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- footer social icon -->
+      <nav class="col-12">
+        <ul class="list-inline text-lg-right text-center social-icon">
+          <li class="list-inline-item">
+            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="black" href="#"><i class="ti-github"></i></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="{% static 'dtox/plugins/jQuery/jquery.min.js' %}"></script>
+<!-- Bootstrap JS -->
+<script src="{% static 'dtox/plugins/bootstrap/bootstrap.min.js' %}"></script>
+<!-- slick slider -->
+<script src="{% static 'dtox/plugins/slick/slick.min.js' %}"></script>
+<!-- venobox -->
+<script src="{% static 'dtox/plugins/Venobox/venobox.min.js' %}"></script>
+<!-- aos -->
+<script src="{% static 'dtox/plugins/aos/aos.js' %}"></script>
+<!-- Main Script -->
+<script src="{% static 'dtox/js/script.js' %}"></script>
+
+<script>
+  var myModal = document.getElementById('myModal')
+  var myInput = document.getElementById('myInput')
+
+  myModal.addEventListener('shown.bs.modal', function () {
+  myInput.focus()
+  })
+</script>
+</body>
+</html>
+  </div>
+
+	
+
+
+	<!-- Preloader -->
+	<div id="overlayer"></div>
+	<div class="loader">
+		<div class="spinner-border" role="status">
+			<span class="visually-hidden">Loading...</span>
+		</div>
+	</div>
+  <script src="https://kit.fontawesome.com/ee354b4b49.js" crossorigin="anonymous"></script>
+	<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+	<script src="{% static 'js/tiny-slider.js' %}"></script>
+	<script src="{% static 'js/aos.js' %}"></script>
+	<script src="{% static 'js/glightbox.min.js' %}"></script>
+	<script src="{% static 'js/navbar.js' %}"></script>
+	<script src="{% static 'js/counter.js' %}"></script>
+	<script src="{% static 'js/custom.js' %}"></script>
+
+  <script>
+        var myModal = document.getElementById('myModal')
+        var myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.bs.modal', function () {
+          myInput.focus()
+        })
+  </script>
+  <script>
+    function displayInput() {
+  var input_headline = document.getElementById("inputField").value;
+  document.getElementById("output_headline").innerHTML = input_headline;
+  var input_hero_image = document.getElementById("inputaboutus").value;
+  document.getElementById("output_hero_image").innerHTML = input_hero_image;
+}
+
+  </script>
+  <script>
+    var counter = 1;
+
+function addNewElement() {
+  var elementContainer = document.getElementById("elementContainer");
+
+  // Create a new div element with the desired classes
+  var newDiv = document.createElement("div");
+  newDiv.className = "input-group mb-3 x";
+
+  // Create the span element for the service title
+  var newTitleSpan = document.createElement("span");
+  newTitleSpan.className = "input-group-text";
+  newTitleSpan.textContent = "Service Title " + (++counter);
+
+  // Create the input element for the service title
+  var newTitleInput = document.createElement("input");
+  newTitleInput.type = "text";
+  newTitleInput.className = "form-control";
+  newTitleInput.setAttribute("aria-label", "With textarea");
+  newTitleInput.name = "input";
+  newTitleInput.rows = "3";
+
+  // Create the span element for the service description
+  var newDescriptionSpan = document.createElement("span");
+  newDescriptionSpan.className = "input-group-text";
+  newDescriptionSpan.textContent = "Service Description " + counter;
+
+  // Create the textarea element for the service description
+  var newDescriptionTextarea = document.createElement("textarea");
+  newDescriptionTextarea.className = "form-control";
+  newDescriptionTextarea.setAttribute("aria-label", "With textarea");
+  newDescriptionTextarea.name = "input2";
+  newDescriptionTextarea.rows = "6";
+
+  // Append the elements to the new div
+  newDiv.appendChild(newTitleSpan);
+  newDiv.appendChild(newTitleInput);
+  newDiv.appendChild(newDescriptionSpan);
+  newDiv.appendChild(newDescriptionTextarea);
+
+  // Append the new div to the container
+  elementContainer.appendChild(newDiv);
+}
+document.getElementById("myForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  var form = new FormData(this);
+
+  // Send the form data to the server using AJAX or other methods...
+});
+
+  </script>
+<script>
+  var counter = 1;
+
+function addNewtestimony() {
+var elementContainer = document.getElementById("testimonyContainer");
+
+// Create a new div element with the desired classes
+var newDiv = document.createElement("div");
+newDiv.className = "input-group mb-3";
+
+// Create the span element for the Name
+var newTitleSpan = document.createElement("span");
+newTitleSpan.className = "input-group-text";
+newTitleSpan.textContent = "Name " + (++counter);
+
+// Create the input element for the Name
+var newTitleInput = document.createElement("input");
+newTitleInput.type = "text";
+newTitleInput.className = "form-control";
+newTitleInput.setAttribute("aria-label", "With textarea");
+newTitleInput.name = "testimony_name";
+newTitleInput.rows = "3";
+
+// Create the span element for the testimony
+var newDescriptionSpan = document.createElement("span");
+newDescriptionSpan.className = "input-group-text";
+newDescriptionSpan.textContent = "Testimony " + counter;
+
+// Create the textarea element for the testimony
+var newDescriptionTextarea = document.createElement("textarea");
+newDescriptionTextarea.className = "form-control";
+newDescriptionTextarea.setAttribute("aria-label", "With textarea");
+newDescriptionTextarea.name = "testimony";
+newDescriptionTextarea.rows = "6";
+
+// Append the elements to the new div
+newDiv.appendChild(newTitleSpan);
+newDiv.appendChild(newTitleInput);
+newDiv.appendChild(newDescriptionSpan);
+newDiv.appendChild(newDescriptionTextarea);
+
+// Append the new div to the container
+elementContainer.appendChild(newDiv);
+}
+document.getElementById("myForm").addEventListener("submit", function(event) {
+event.preventDefault();
+
+var form = new FormData(this);
+
+// Send the form data to the server using AJAX or other methods...
+});
+
+</script>
+<script>
+  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+})
+</script>
+</body>
+</html>

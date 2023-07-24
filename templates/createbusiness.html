@@ -1,0 +1,230 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <title>MYPAGE</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static 'dtox/plugins/bootstrap/bootstrap.min.css' %}">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="{% static 'dtox/plugins/themify-icons/themify-icons.css' %}">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="{% static 'dtox/plugins/slick/slick.css' %}">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="{% static 'dtox/plugins/Venobox/venobox.css' %}">
+  <!-- aos -->
+  <link rel="stylesheet" href="{% static 'dtox/plugins/aos/aos.css' %}">
+  
+
+  <!-- Main Stylesheet -->
+  <link href="{% static 'dtox/css/style.css' %}" rel="stylesheet">
+  
+  <!--Favicon-->
+  <!-- <link rel="shortcut icon" href="{% static 'dtox/images/favicon.ico' %}" type="image/x-icon">
+  <link rel="icon" href="{% static 'dtox/images/favicon.ico' %}" type="image/x-icon"> -->
+  <link rel="icon" href="{% static 'dtox/images/favicon.svg' %}">
+
+</head>
+
+<body>
+  
+
+<!-- navigation -->
+<section class="fixed-top navigation " style="justify-items: center;">
+  <div class="container" >
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        
+      <a class="float-end" href="{% url 'home' %}"><img  src="{% static 'dtox/images/mypagelogo.svg' %}" alt="logo"></a>
+
+    </nav>
+  </div>
+</section>
+<!-- /navigation -->
+
+<!-- hero area -->
+<section class="hero-section hero" data-background="" style="margin-top: -10%;">
+
+  
+ <div class="container " style="width: 80%; border: 2px solid #93D2FF;  padding: 2%;">
+
+  <div class="container">
+        
+                <form action="" method="POST">
+                  {% csrf_token %}
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Business Name</label>
+                      <input type="text" class="form-control" name="product_name" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                      <p>Will appear on the page</p>
+                    </div>
+                    <!-- <div class="mb-3">
+                      <label for="business_email" class="form-label">Email Address</label>
+                      <input type="email" class="form-control" name="product_name" id="business_email" aria-describedby="emailHelp" required>
+                      <p>Your login details will be sent to this address</p>
+                    </div> -->
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Business Description</label>
+                      <textarea class="form-control" aria-label="With textarea" name="product_description" rows="6" required></textarea>
+                      <p>Description appears on the top of the page</p>
+                    </div>
+                    <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Stripe Secret Key</label>
+                          <input type="text" class="form-control" name="product_price" id="ConfirmPassword" required>
+                          <small>Necessary to create stripe payment links from the backend. Click <a href="">here</a> to read more about payment links</small>
+                    </div>              
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Business Logo</label>
+                      <input type="file" class="form-control" id="inputGroupFile02" name="images" >
+                    </div>
+                    <p class="text-center">Social Media</p>
+                    <p class="text-center"><small>The links will appear on the page, not required</small></p>
+                    <div class="row">
+                        <div class="col">
+                      <div class="input-group input-group mb-3">
+                        <div class="input-group-text">Instagram</div>
+                        <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="input-group input-group mb-3">
+                        <div class="input-group-text">Facebook</div>
+                        <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="input-group input-group mb-3">
+                        <div class="input-group-text">Twitter</div>
+                        <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="input-group input-group mb-3">
+                        <div class="input-group-text">LinkedIn</div>
+                        <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                      </div>
+                    </div>
+                    </div>
+                    <div class="text-center"><button type="submit" class="btn btn-primary " >Save</button></div>
+                  
+                  </form>
+                
+                
+  </div>
+      
+  </div>
+ 
+ <!-- <div class="container col-4" style="width: 5%; border: 2px solid #93D2FF;  padding: 2%;">
+      
+ <H6>Product Name</H6>
+ <p>This is the simply name of the product.</p>
+ <br>
+ <br>
+ <H6>Product Description</H6>
+ <p>This is the description and the details of the product that convey necessary information about the product.</p>
+ <br>
+ <br>
+ <H6>Product Price</H6>
+ <p>This is the simply price of the product in dollars.</p>
+ <H6>Payment Link</H6>
+ <p>This is the link that customers use to pay for your product, click <a target="_blank" href="https://stripe.com/payments/payment-links">here</a>
+   to read more. Leave empty if you want it created by us</p>
+ <H6>Product Images</H6>
+ <p>These are the images of the product, upload is capped at 5 images for a product.</p>
+
+ <H6>Product Video</H6>
+ <p>This is a video of the product. Upload is optional and the size limit is 2mb.</p>
+  
+ </div> -->
+ </div>
+
+</section>
+
+
+
+
+
+
+
+<!-- <footer class="footer-section footer" style=" margin-top: -40%; margin-bottom: -80%;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+        
+        <a href="index.html">
+          <img class="img-fluid" src="{% static 'dtox/images/mypagelogo.svg' %}" alt="logo">
+        </a>
+      </div>
+    
+      <nav class="col-lg-8 align-self-center mb-5">
+        <ul class="list-inline text-lg-right text-center footer-menu">
+          <li class="list-inline-item active"><a href="index.html">Home</a></li>
+          <li class="list-inline-item"><a class="page-scroll" href="#feature">Feature</a></li>
+          <li class="list-inline-item"><a href="about.html">About</a></li>
+          <li class="list-inline-item"><a class="page-scroll" href="#team">Team</a></li>
+          <li class="list-inline-item"><a class="page-scroll" href="#pricing">Pricing</a></li>
+          <li class="list-inline-item"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <nav class="col-12">
+        <ul class="list-inline text-lg-right text-center social-icon">
+          <li class="list-inline-item">
+            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="black" href="#"><i class="ti-github"></i></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer> -->
+
+
+<!-- jQuery -->
+<script src="{% static 'dtox/plugins/jQuery/jquery.min.js' %}"></script>
+<!-- Bootstrap JS -->
+<script src="{% static 'dtox/plugins/bootstrap/bootstrap.min.js' %}"></script>
+<!-- slick slider -->
+<script src="{% static 'dtox/plugins/slick/slick.min.js' %}"></script>
+<!-- venobox -->
+<script src="{% static 'dtox/plugins/Venobox/venobox.min.js' %}"></script>
+<!-- aos -->
+<script src="{% static 'dtox/plugins/aos/aos.js' %}"></script>
+<!-- Main Script -->
+<script src="{% static 'dtox/js/script.js' %}"></script>
+
+<script>
+  var myModal = document.getElementById('myModal')
+  var myInput = document.getElementById('myInput')
+
+  myModal.addEventListener('shown.bs.modal', function () {
+  myInput.focus()
+  })
+</script>
+<script>
+  var uploadField = document.getElementById("product_video");
+
+uploadField.onchange = function() {
+    if(this.files[0].size > 2097152){
+       alert("File is too big!");
+       this.value = "";
+    };
+};
+</script>
+</body>
+</html>

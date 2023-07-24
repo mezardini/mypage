@@ -1,0 +1,421 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <title>MYPAGE</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static 'dtox/plugins/bootstrap/bootstrap.min.css' %}">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="{% static 'dtox/plugins/themify-icons/themify-icons.css' %}">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="{% static 'dtox/plugins/slick/slick.css' %}">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="{% static 'dtox/plugins/Venobox/venobox.css' %}">
+  <!-- aos -->
+  <link rel="stylesheet" href="{% static 'dtox/plugins/aos/aos.css' %}">
+  
+
+  <!-- Main Stylesheet -->
+  <link href="{% static 'dtox/css/style.css' %}" rel="stylesheet">
+  
+  <!--Favicon-->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+  
+
+<!-- navigation -->
+<section class="fixed-top navigation">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'dtox/images/mypagelogo.svg' %}" alt="logo"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- navbar -->
+      <div class="collapse navbar-collapse text-center" id="navbar">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link page-scroll" href="#feature">Feature</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="service.html">Service</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link page-scroll" href="#team">Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link page-scroll" href="#pricing">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+          {% if request.user_is.authenticated %}
+					<a href="" class="btn btn-primary me-4">Sign Up</a>
+					{% else %}
+					<a href="" class="btn btn-success">Sign In</a>
+					{% endif %}
+      </div>
+    </nav>
+  </div>
+</section>
+<!-- /navigation -->
+
+<!-- hero area -->
+<section class="hero-section hero" data-background="" style="margin-top: -7%;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 text-center zindex-1">
+        <br>
+        <br>
+        <br>
+        <h1 class="mb-3" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Create a page to display your products</h1>
+        <p class="mb-4">Give your business a share of the internet with a simple, fast and responsive landing page to increase conversion.</p>
+        <!-- <p>No need to register a domain name</p> -->
+        <a  class="btn btn-secondary btn-lg" href="{% url 'home' %}" >Get Started</a>
+         <!-- <span class=""><a class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#cartItemmodal">Receipt template</a></span> -->
+         
+        <!-- banner image -->
+      </div>
+      <div class="col-lg-5 text-center zindex-1">
+        <img src="{% static 'images/hero_image.png' %}" height="600" alt="">
+        
+      </div>
+    </div>
+  </div>
+  <!-- background shapes -->
+  
+
+</section>
+<section class="section feature mb-0" id="feature" style="margin-top: -20%;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">Awesome Features</h2>
+        <p class="mb-100">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>Excepteur sint occaecat cupidatat non proident</p>
+      </div>
+      <!-- feature item -->
+      <div class="col-md-6 mb-80">
+        <div class="d-flex feature-item">
+          <div>
+            <i class="ti-ruler-pencil feature-icon mr-4"></i>
+          </div>
+          <div>
+            <h4>Awesome Design</h4>
+            <p>Consectetur adipiscing elit donec tempus
+              pellentesque dui.</p>
+          </div>
+        </div>
+      </div>
+      <!-- feature item -->
+      <div class="col-md-6 mb-80">
+        <div class="d-flex feature-item">
+          <div>
+            <i class="ti-layout-cta-left feature-icon mr-4"></i>
+          </div>
+          <div>
+            <h4>Easy Customize</h4>
+            <p>Consectetur adipiscing elit donec tempus
+              pellentesque dui.</p>
+          </div>
+        </div>
+      </div>
+      <!-- feature item -->
+      <div class="col-md-6 mb-80">
+        <div class="d-flex feature-item">
+          <div>
+            <i class="ti-split-v-alt feature-icon mr-4"></i>
+          </div>
+          <div>
+            <h4>No Code</h4>
+            <p>Consectetur adipiscing elit donec tempus
+              pellentesque dui.</p>
+          </div>
+        </div>
+      </div>
+      <!-- feature item -->
+      <div class="col-md-6 mb-80">
+        <div class="d-flex feature-item">
+          <div>
+            <i class="ti-layers-alt feature-icon mr-4"></i>
+          </div>
+          <div>
+            <h4>Customer Review</h4>
+            <p>Consectetur adipiscing elit donec tempus
+              pellentesque dui.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<section class="section-lg seo" style="margin-top: -20%;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="seo-image">
+            <img class="img-fluid" src="{% static 'dtox/images/marketing/marketing.png' %}" alt="form-img">
+          </div>
+        </div>
+        <div class="col-md-5">
+          <h2 class="section-title">Connect your stripe payment link with ease!</h2>
+          <p>Having a strong landing page helps convince customers to try out your business as it exudes professionalism.
+            <br>Convert viewers to your prefered channel with a strong Call To Action button.
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+<section class="section-lg seo" style="margin-top: -20%;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <h2 class="section-title">Set up and get it running in 5 minutes!</h2>
+          <p>Having a strong landing page helps convince customers to try out your business as it exudes professionalism.
+            <br>Convert viewers to your prefered channel with a strong Call To Action button.
+          </p>
+        </div>
+        <div class="col-md-7">
+          <div class="seo-image">
+            <img class="img-fluid" src="{% static 'dtox/images/marketing/marketing.png' %}" alt="form-img">
+          </div>
+        </div>
+        
+      </div>
+    </div>
+</section>
+<section class="section-lg seo" style="margin-top: -20%;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="seo-image">
+          <img class="img-fluid" src="{% static 'dtox/images/marketing/marketing.png' %}" alt="form-img">
+        </div>
+      </div>
+      <div class="col-md-5">
+        <h2 class="section-title">Collect customer details when they make a purchase</h2>
+        <p>Capturing a customer's details like delivery address, contact number, email address and 
+          name can help make your delivery process smoothly.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section-lg seo" style="margin-top: -20%;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <h2 class="section-title">Create a stripe payment link for products dynamically!</h2>
+        <p>A stripe payment link helps you accept payment from customers for your product.
+          <br>We help create the payment link once your product has been created.
+        </p>
+      </div>
+      <div class="col-md-7">
+        <div class="seo-image">
+          <img class="img-fluid" src="{% static 'dtox/images/marketing/marketing.png' %}" alt="form-img">
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section class="section-lg team" id="team" style="margin-bottom: -30%; margin-top: -20%;">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-title">Our Creators</h2>
+            <p class="mb-100">We have <strong style="font-weight: bold;">500+</strong> creators who use <b style="font-weight: bold;">MYPAGE</b> to make their businesses look professional and trustworthy.
+              <br>Here is what a couple of them have to say:
+            </p>
+          </div>
+        </div>
+        <div class="col-10 mx-auto">
+          <div class="team-slider">
+            <!-- team-member -->
+            <div class="team-member">
+              <div class="d-flex mb-4">
+                <div class="mr-3">
+                  <img class="rounded-circle img-fluid" src="{% static 'dtox/images/team/team-1.jpg' %}" alt="team-member">
+                </div>
+                <div class="align-self-center">
+                  <h4>Becroft</h4>
+                  <h6 class="text-color">web designer</h6>
+                </div>
+              </div>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. S eparated they</p>
+            </div>
+            <!-- team-member -->
+            <div class="team-member">
+              <div class="d-flex mb-4">
+                <div class="mr-3">
+                  <img class="rounded-circle img-fluid" src="{% static 'dtox/images/team/team-2.jpg' %}" alt="team-member">
+                </div>
+                <div class="align-self-center">
+                  <h4>John Doe</h4>
+                  <h6 class="text-color">web developer</h6>
+                </div>
+              </div>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. S eparated they</p>
+            </div>
+            <!-- team-member -->
+            <div class="team-member">
+              <div class="d-flex mb-4">
+                <div class="mr-3">
+                  <img class="rounded-circle img-fluid" src="{% static 'dtox/images/team/team-3.jpg' %}" alt="team-member">
+                </div>
+                <div class="align-self-center">
+                  <h4>Erik Ligas</h4>
+                  <h6 class="text-color">Programmer</h6>
+                </div>
+              </div>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+                the blind texts. S eparated they</p>
+            </div>
+            <!-- team-member -->
+            <div class="team-member">
+              <div class="d-flex mb-4">
+                <div class="mr-3">
+                  <img class="rounded-circle img-fluid" src="{% static 'dtox/images/team/team-1.jpg' %}" alt="team-member">
+                </div>
+                <div class="align-self-center">
+                  <h4>Erik Ligas</h4>
+                  <h6 class="text-color">Programmer</h6>
+                </div>
+              </div>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+                the blind texts. S eparated they</p>
+            </div>
+            <!-- team-member -->
+            <div class="team-member">
+              <div class="d-flex mb-4">
+                <div class="mr-3">
+                  <img class="rounded-circle img-fluid" src="{% static 'dtox/images/team/team-2.jpg' %}" alt="team-member">
+                </div>
+                <div class="align-self-center">
+                  <h4>John Doe</h4>
+                  <h6 class="text-color">web developer</h6>
+                </div>
+              </div>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. S eparated they</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+</section>
+ 
+
+
+
+
+
+<!-- <section class="section-lg pb-0 pricing" id="pricing">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">Our Pricing</h2>
+        <p class="mb-50">We have a fair and simple pricing of $5 per month for the first page you create and then $3 per month for subsequent pages </p>
+      </div>
+     
+    </div>
+  </div>
+
+  <img class="pricing-bg-shape-1 up-down-animation" src="{% static 'dtox/images/background-shape/seo-ball-1.png' %}" alt="background-shape">
+  <img class="pricing-bg-shape-2 up-down-animation" src="{% static 'dtox/images/background-shape/seo-half-cycle.png' %}" alt="background-shape">
+  <img class="pricing-bg-shape-3 left-right-animation" src="{% static 'dtox/images/background-shape/team-bg-triangle.png' %}" alt="background-shape">
+</section> -->
+
+<footer class="footer-section footer" style=" margin-top: -2%; margin-bottom: -80%;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
+        <!-- logo -->
+        <a href="index.html">
+          <img class="img-fluid" src="{% static 'dtox/images/mypagelogo.svg' %}" alt="logo">
+        </a>
+      </div>
+      <!-- footer menu -->
+      <nav class="col-lg-8 align-self-center mb-5">
+        <ul class="list-inline text-lg-right text-center footer-menu">
+          <li class="list-inline-item active"><a href="index.html">Home</a></li>
+          <li class="list-inline-item"><a class="page-scroll" href="#feature">Feature</a></li>
+          <li class="list-inline-item"><a href="about.html">About</a></li>
+          <li class="list-inline-item"><a class="page-scroll" href="#team">Team</a></li>
+          <li class="list-inline-item"><a class="page-scroll" href="#pricing">Pricing</a></li>
+          <li class="list-inline-item"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- footer social icon -->
+      <nav class="col-12">
+        <ul class="list-inline text-lg-right text-center social-icon">
+          <li class="list-inline-item">
+            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a class="black" href="#"><i class="ti-github"></i></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="{% static 'dtox/plugins/jQuery/jquery.min.js' %}"></script>
+<!-- Bootstrap JS -->
+<script src="{% static 'dtox/plugins/bootstrap/bootstrap.min.js' %}"></script>
+<!-- slick slider -->
+<script src="{% static 'dtox/plugins/slick/slick.min.js' %}"></script>
+<!-- venobox -->
+<script src="{% static 'dtox/plugins/Venobox/venobox.min.js' %}"></script>
+<!-- aos -->
+<script src="{% static 'dtox/plugins/aos/aos.js' %}"></script>
+<!-- Main Script -->
+<script src="{% static 'dtox/js/script.js' %}"></script>
+<script>
+  var myDropdown = document.getElementById('dropdownMenuLinkn')
+myDropdown.addEventListener('show.bs.dropdown', function () {
+  // do something...
+})
+</script>
+
+<script>
+  var myModal = document.getElementById('myModal')
+  var myInput = document.getElementById('myInput')
+
+  myModal.addEventListener('shown.bs.modal', function () {
+  myInput.focus()
+  })
+</script>
+</body>
+</html>
