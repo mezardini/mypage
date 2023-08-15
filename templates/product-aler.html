@@ -1,0 +1,305 @@
+<style>
+    .biz_logo{
+        font-size: 150%;
+        font-weight: 400;
+        
+    }
+    .owl-dot {
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+}
+.center-cropped {
+  width: 100%;
+  height: 300px;
+  
+  background-position: center center; 
+  background-repeat: no-repeat;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+</style>
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Aler Template">
+    <meta name="keywords" content="Aler, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{biz.business_name.upper|truncatewords:2}}</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'aler/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/style.css' %}" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Wrapper Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="canvas-close">
+            <span class="icon_close"></span>
+        </div>
+        <div class="logo">
+            <a href="./index.html">
+                <!-- <img src="{% static 'dtox/images/mypagelogo.svg' %}" alt=""> -->
+                <p class="biz_logo"> <strong>{{biz.business_name.upper}}</strong></p>
+            </a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="om-widget">
+            <ul>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Offcanvas Menu Wrapper End -->
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="hs-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="logo">
+                            <a href="./index.html"><p class="biz_logo"> <strong>{{biz.business_name.upper}}</strong></p></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="ht-widget" >
+                            <ul>
+                                <li style="margin-left: -10%;"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li style="margin-left: -10%;"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li style="margin-left: -10%;"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li style="margin-left: -10%;"><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+                            </ul>
+                            <!-- <a href="#" class="hw-btn">Submit property</a> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="canvas-open">
+                    <span class="icon_menu"></span>
+                </div>
+            </div>
+        </div>
+        </div>
+       
+    </header>
+
+    <section class="container hero-section" >
+        <div class="hs-slider owl-carousel owl-stage-outer">
+                {% for product_image in product_media %}
+                    <div class="as-item" >
+                        <div  class="center-cropped" style=" background-image: url('{{product_image.product_image.url}}');">
+                            <!-- <img  src="{{product_image.product_image.url}}" alt=""> -->
+                        </div>
+                    </div>
+                {% endfor %}
+                {% for video in product_media|slice:1%}
+                    <div class="as-item">
+                        <div  class="center-cropped" >
+                            <video width="100%" height="300px" id="player" playsinline controls >
+                                <source class="" src="{{video.video.url}}" type="video/mp4" />
+                                
+                                <track kind="captions" label="English captions" src="#" srclang="en" default />
+                            </video> 
+                        </div>
+                    
+                </div>
+
+                {% endfor %}
+        </div>
+    </section>
+    
+
+        <!-- <div class="container">
+                <div class="row testimonial-slider owl-carousel" >
+                    {% for product_image in product_media %}
+                    <div class="ti-text" style="margin-left: 2%;">
+                        <img  src="{{product_image.product_image.url}}" alt="" >
+                    </div>
+                    {% endfor %}
+                    {% for video in product_media|slice:1%}
+                    
+                    <div class="ti-text" style="margin-left: 2%;">
+                        <video width="100%" height="auto" id="player" playsinline controls >
+                            <source class="" src="{{video.video.url}}" type="video/mp4" />
+                            
+                            <track kind="captions" label="English captions" src="#" srclang="en" default />
+                        </video> 
+                    </div>
+                    
+                    {% endfor %}
+                </div> 
+        </div> -->
+
+      
+        <div class="container">
+            <section class="blog-details-section spad">
+                <div class="container">
+                    <div class=" container">
+                        <div class="pd-text">
+                            <div class="text-center">
+                                    <div class="pd-title">
+                                        
+                                        <!-- <div class="label">For rent</div> -->
+                                        <div class="pt-price">${{product.product_price}}</div>
+                                        <h3>{{product.product_name}}</h3>
+                                        <p class="text-center"><button type="button" class="site-btn" style="border-radius: 5%;">Contact Us</button></p>
+                                        <!-- <p><span class="icon_pin_alt"></span> 3 Middle Winchendon Rd, Rindge, NH 03463</p> -->
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 m-auto p-0">
+                            <div class="blog-details-content">
+                                <div class="bc-top">
+                                    <p>{{product.product_description}}</p>
+                                </div>
+                               
+                                <br>
+                                <br>
+                                <br>
+                               
+                                <div class="dropdown-divider"></div>
+                                <br>
+                                <div class="bc-widget">
+                                    
+                                    <h4>{{review_text}}</h4>
+                                    <div class="comment-option">
+                                        {% for rev in review %}
+                                        <div class="co-item">
+                                            
+                                            <div class="ci-text">
+                                                <h5>{{rev.creator}}</h5>
+                                                <p>{{rev.body}}</p>
+                                                <ul>
+                                                    <li><i class="fa fa-clock-o"></i> {{rev.created|date}}</li>
+                                                    <li><i class="fa fa-star-o"></i> {{rev.rating}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="bc-widget">
+                                    <h4>Leave a comment</h4>
+                                    <form action=" " method="POST" class="leave-comment-form">
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-6 mb-3">
+                                                <label for="exampleInputEmail1" class="form-label">Name</label>
+                                                <input type="text" class="form-control" name="review_creator" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                                                
+                                              </div>
+                                            <div class="col-6 mb-3">
+                                                <label class="input-group" for="inputGroupSelect01">Rating</label>
+                                                <select class="form-select" name="review_rating"  id="inputGroupSelect01">
+                                                  <option selected >Choose a rating</option>
+                                                  <option value="1">One</option>
+                                                  <option value="2">Two</option>
+                                                  <option value="3">Three</option>
+                                                  <option value="4">Four</option>
+                                                  <option value="5">Five</option>
+                                                </select>
+                                              </div>
+                                        </div>
+                                        <textarea name="review_body" placeholder="Comment"></textarea>
+                                        <button type="submit" class="site-btn">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    
+        <footer class="footer-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="fs-about">
+                            <div class="fs-logo">
+                                <a href="#">
+                                    <p class="biz_logo"> <strong>{{biz.business_name.upper}}</strong></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-6">
+                        <div class="fs-about">
+                            <div class="fs-logo">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua ut aliquip ex ea</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </footer>
+    
+    <script src="{% static 'aler/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'aler/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'aler/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'aler/js/mixitup.min.js' %}"></script>
+    <script src="{% static 'aler/js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'aler/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'aler/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'aler/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'aler/js/jquery.richtext.min.js' %}"></script>
+    <script src="{% static 'aler/js/image-uploader.min.js' %}"></script>
+    <script src="{% static 'aler/js/main.js' %}"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> -->
+    <script>
+        $(document).ready(function() {
+          var owl = $('.owl-carousel');
+          owl.owlCarousel({
+            items: 1, // Set the number of items to display (1 item at a time)
+            loop: true, // Enable the infinite loop
+            autoplay: true, // Enable autoplay
+            autoplayTimeout: 12000, // Set the slide time in milliseconds (5 seconds in this example)
+            autoplayHoverPause: true // Pause autoplay when the mouse hovers over the carousel
+            // You can add other options and settings as needed
+            // ...
+          });
+        });
+      </script>
+    
+</body>
+
+</html>

@@ -1280,9 +1280,10 @@ a:hover {
 }
 
 .form-control {
-  height: 65px;
-  width: 100%;
+  height: 50px;
+  width: 40%;
   background: #f7fafc;
+  border-radius: 5px #000 solid;
 }
 
 .form-control:focus {

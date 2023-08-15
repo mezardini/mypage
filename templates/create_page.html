@@ -1,5 +1,11 @@
 {% load static %}
 
+<style>
+   .biz_logo{
+        font-size: 150%;
+        font-weight: 400;
+    }
+</style>
 
 <!DOCTYPE html>
 <html lang="zxx">
@@ -23,6 +29,18 @@
   <link rel="stylesheet" href="{% static 'dtox/plugins/Venobox/venobox.css' %}">
   <!-- aos -->
   <link rel="stylesheet" href="{% static 'dtox/plugins/aos/aos.css' %}">
+  <link rel="stylesheet" href="{% static 'ccs/image-uploader.min.css' %}">
+  <link rel="stylesheet" href="{% static 'aler/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/head.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/pillmart.css' %}" type="text/css">
   
 
   <!-- Main Stylesheet -->
@@ -39,15 +57,58 @@
   
 
 <!-- navigation -->
-<section class="fixed-top navigation " style="justify-items: center;">
-  <div class="container" >
-    <nav class="navbar navbar-expand-lg navbar-light ">
-        
-      <a class="float-end" href="{% url 'home' %}"><img  src="{% static 'dtox/images/mypagelogo.svg' %}" alt="logo"></a>
+<div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="canvas-close">
+            <span class="icon_close"></span>
+        </div>
+        <div class="logo">
+            
+                <p class="biz_logo"> <strong>{{biz.business_name.upper}}</strong></p>
 
-    </nav>
-  </div>
-</section>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="om-widget">
+            <ul>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Offcanvas Menu Wrapper End -->
+
+    <header class="header-section">
+        <div class="hs-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        
+                         <p class="biz_logo"> <strong>{{biz.business_name.upper}}</strong></p>
+                        
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="ht-widget" >
+                            <ul>
+                                <li style="margin-left: -10%;"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li style="margin-left: -10%;"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li style="margin-left: -10%;"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li style="margin-left: -10%;"><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+                            </ul>
+                            <!-- <a href="#" class="hw-btn">Submit property</a> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="canvas-open">
+                    <span class="icon_menu"></span>
+                </div>
+            </div>
+        </div>
+        </div>
+       
+    </header>
 <!-- /navigation -->
 
 <!-- hero area -->
@@ -58,7 +119,7 @@
 
   <div class="container">
         
-                <form action="" method="POST">
+                <form action="" method="POST" enctype="multipart/form-data">
                   {% csrf_token %}
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Product Name</label>
@@ -67,7 +128,7 @@
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Product description</label>
-                      <textarea class="form-control" aria-label="With textarea" name="product_description" rows="6" required></textarea>
+                      <textarea class="form-control texteditor-content" class="texteditor-content" aria-label="With textarea" name="product_description" rows="6" required></textarea>
                     </div>
                     <div class="mb-3">
                           <label for="exampleInputPassword1" class="form-label">Product Price</label>
@@ -80,6 +141,7 @@
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Product Images</label>
                       <input type="file" class="form-control" id="inputGroupFile02" name="images" multiple required>
+                       
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Product Video</label>
@@ -180,6 +242,8 @@
 <script src="{% static 'dtox/plugins/aos/aos.js' %}"></script>
 <!-- Main Script -->
 <script src="{% static 'dtox/js/script.js' %}"></script>
+<script src="{% static 'aler/js/jquery.slicknav.js' %}"></script>
+<script src="{% static 'aler/js/main.js' %}"></script>
 
 <script>
   var myModal = document.getElementById('myModal')
@@ -199,5 +263,6 @@ uploadField.onchange = function() {
     };
 };
 </script>
+
 </body>
 </html>

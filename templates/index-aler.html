@@ -1,0 +1,309 @@
+{% load static %}
+
+<style>
+    .biz_logo{
+        font-size: 150%;
+        font-weight: 400;
+    }
+    .blog_section {
+    width: 100%;
+    float: left;
+    padding-bottom: 90px;
+}
+    .blog_taital {
+    width: 100%;
+    float: left;
+    font-size: 40px;
+    color: #181717;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.blog_text {
+    width: 100%;
+    float: left;
+    font-size: 16px;
+    color: #2d2d2d;
+    margin-left: 0px;
+    text-align: center;
+    font-weight: 400;
+}
+a.no-hover-effect {
+  color: black;
+  text-decoration: none;
+}
+
+a.no-hover-effect:hover {
+  color: black;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+.line{
+    height: 5px;
+    width: 100%;
+}
+
+</style>
+
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Aler Template">
+    <meta name="keywords" content="Aler, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{biz.business_name.upper}}</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'aler/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/head.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/pillmart.css' %}" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Wrapper Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="canvas-close">
+            <span class="icon_close"></span>
+        </div>
+        <div class="logo">
+            
+                <p class="biz_logo"> <strong>{{biz.business_name.upper}}</strong></p>
+
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="om-widget">
+            <ul>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Offcanvas Menu Wrapper End -->
+
+    <header class="header-section" s>
+        <div class="hs-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        
+                         <p class="biz_logo"> <strong>{{biz.business_name.upper}}</strong></p>
+                        
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="ht-widget" >
+                            <ul>
+                                <li style="margin-left: -10%;"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li style="margin-left: -10%;"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li style="margin-left: -10%;"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li style="margin-left: -10%;"><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+                            </ul>
+                            <!-- <a href="#" class="hw-btn">Submit property</a> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="canvas-open">
+                    <span class="icon_menu"></span>
+                </div>
+            </div>
+        </div>
+        </div>
+       
+    </header>
+
+
+    
+    <div class="container" >
+            <div class="about_section layout_padding"  >
+                <div class="" >
+                    <!-- <h1 class="about_taital">About <span class="us_text">Us</span></h1>  -->
+                    <p class="about_text" style="border-bottom: 2px #888888 solid;">In HTML, an anchor tag disappears when you hover over it because the default behavior for an anchor tag with an href attribute is to change its appearance when it is being interacted with (such as on hover).
+
+                        If you want to prevent the anchor tag from disappearing or changing its appearance when you hover over it, you can use CSS to style the anchor tag and override its default behavior. Specifically, you can use the :hover pseudo-class to set the styles for the anchor tag when it is being hovered.
+                        
+                        Here's an example of how you can style an anchor tag to prevent it from disappearing when hovered</p>
+                        <div class="line"></div> 
+                </div>
+            </div>
+    </div>
+        
+    
+
+    <h1 class="blog_taital"> <b style="color: #888888;">PRODUCTS</b> </h1>
+        
+
+    <section class="product_list section_padding">
+        
+        <div class="container">
+            <div class="row">
+            <div class="col-md-12">
+                <div class="product_sidebar" >
+                    <div class="row">
+                    <div class="col-lg-4 col-sm-4">
+                    <div class="single_sedebar" >
+                        <form action="{% url 'product_list' biz.slug %}?q=search" >
+                            <input type="text" name="search" placeholder="Search keyword">
+                            <i class="ti-search"></i>
+                        </form>
+                    </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-4">
+                    <div class="single_sedebar">
+                        <div class="select_option">
+                            <div class="select_option_list">Sort by Date: <i class="fa fa-caret-down"></i> </div>
+                            <div class="select_option_dropdown">
+                                <p><a href="{% url 'product_list' biz.slug %}?sort=newest">Newest to Oldest</a></p>
+                                <p><a href="{% url 'product_list' biz.slug %}?sort=oldest">Oldest to Newest</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-4">
+                    <div class="single_sedebar">
+                        <div class="select_option">
+                            <div class="select_option_list">Sort by Price: <i class="fa fa-caret-down"></i> </div>
+                            <div class="select_option_dropdown">
+                                <p><a href="{% url 'product_list' biz.slug %}?price=highest">Highest to Lowest</a></p>
+                                <p><a href="{% url 'product_list' biz.slug %}?price=lowest">Lowest to Highest</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    
+                </div>
+            </div>
+            </div>
+            <div class="row">
+                
+                <div class="col-md-12">
+                    <div class="product_list" >
+                    <div class="blog_section layout-padding" >
+                            <div class="row">
+
+                                {% for product in  page %} 
+                                
+                                <div class="col-lg-4 col-sm-4" >
+                                    <div class="box_main" style="box-shadow: 0px 1px 10px 1px #888888; margin-top: 5px; border: 2px #888888 solid;">
+                                    <div class="student_bg"  style="border-bottom: 2px #888888 solid;"><img src="{{product.product_image.url}}" class="student_bg"></div>
+                                    <div class="hannery_text" style="color: #18a732;">${{product.product_price}}</div>
+                                    
+                                    <h4 class="hannery_text"><a class="no-hover-effect" href="{% url 'product_page' biz.slug product.slug %}">{{product.product_name}}</a></h4>
+                                    <p class="fact_text">{{product.product_description|truncatewords:20}}</p>
+                                        <br>
+                                   
+                                    </div>
+                                    
+                                </div>
+                                {% endfor %}
+                            </div>
+                    </div>
+                    </div>
+                    <div class="text-center">
+                        {% if page.has_previous %}
+                        <!-- <a href="?page=1">&laquo; first</a> -->
+                        <a href="?page={{ page.previous_page_number }}" class="btn btn-primary">Previous</a>
+                        {% endif %}
+                        <!-- <button class="btn btn-primary">Load More</button> -->
+                        {% if page.has_next %}
+                        <a href="?page={{ page.next_page_number }}" class="btn btn-primary">Next</a>
+                        <!-- <a href="?page={{ your_objects.paginator.num_pages }}">last &raquo;</a> -->
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+
+    <!-- <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="fs-about">
+                        <div class="fs-logo">
+                            <a href="#">
+                                <img src="{% static 'dtox/images/mypagelogo.svg' %}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <div class="fs-about">
+                        <div class="fs-logo">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua ut aliquip ex ea</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </footer> -->
+
+    <!-- Js Plugins -->
+    <script src="{% static 'aler/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'aler/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'aler/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'aler/js/mixitup.min.js' %}"></script>
+    <script src="{% static 'aler/js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'aler/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'aler/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'aler/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'aler/js/jquery.richtext.min.js' %}"></script>
+    <script src="{% static 'aler/js/image-uploader.min.js' %}"></script>
+    <script src="{% static 'aler/js/main.js' %}"></script>
+    <script src="{% static 'pillowmart/js/jquery-1.12.1.min.js' %}"></script>
+    <!-- popper js -->
+    <script src="{% static 'pillowmart/js/popper.min.js' %}"></script>
+    <!-- bootstrap js -->
+    <script src="{% static 'pillowmart/js/bootstrap.min.js' %}"></script>
+    <!-- easing js -->
+    <script src="{% static 'pillowmart/js/jquery.magnific-popup.js' %}"></script>
+    <!-- swiper js -->
+    <script src="{% static 'pillowmart/js/swiper.min.js' %}"></script>
+    <!-- swiper js -->
+    <script src="{% static 'pillowmart/js/mixitup.min.js' %}"></script>
+    <!-- particles js -->
+    <script src="{% static 'pillowmart/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'pillowmart/js/jquery.nice-select.min.js' %}"></script>
+    <!-- slick js -->
+    <script src="{% static 'pillowmart/js/slick.min.js' %}"></script>
+    <script src="{% static 'pillowmart/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'pillowmart/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'pillowmart/js/contact.js' %}"></script>
+    <script src="{% static 'pillowmart/js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'pillowmart/js/jquery.form.js' %}"></script>
+    <script src="{% static 'pillowmart/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'pillowmart/js/mail-script.js' %}"></script>
+    <script src="{% static 'pillowmart/js/custom.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+{% load static %}
+
+<!doctype html>
+<html class="h-100" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="A well made and handcrafted Bootstrap 5 template">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+  <meta name="author" content="Holger Koenemann">
+  <meta name="generator" content="Eleventy v2.0.0">
+  <meta name="HandheldFriendly" content="true">
+  <title>Klar HTML Template - Frontpage one</title>
+  <link rel="stylesheet" href="{% static 'klar/css/theme.min.css' %}">
+  <link rel="stylesheet" href="{% static 'klar/css/theme.css' %}">
+
+  <style>
+    /* inter-300 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-300.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-300.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    /* inter-400 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-regular.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-regular.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-500.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-500.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-700.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-700.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+  </style>
+
+
+</head>
+
+<body class="bg-black text-white mt-0" >
+
+  <div class="container text-center">
+    <a  href="{% url 'home' %}">
+    <img src="{% static 'dtox/images/mypagelogo.svg' %}" alt="">
+    </a>
+  </div>
+  
+  <div class="bg-black">
+    <div class="container px-vw-5 py-vh-5">
+      <div class="row d-flex align-items-center">
+        <div class="col-12 col-lg-6 " data-aos="zoom-in-right">
+          <div class="row d-flex  py-vh-5">
+            <h1 class="text-center">Welcome</h1>
+            {% if messages %}
+              {% for message in messages %}
+              <div class="alert alert-danger" role="alert">
+              <P {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</P>
+              </div>
+              {% endfor %}
+          {% endif %}
+            <form method="POST" action="">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" id="Password">
+              </div>
+              <div class="text-center"><button type="submit" class="btn btn-xl btn-outline-dark" >Sign In</button></div>
+            </form>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6 d-flex align-items-center bg-dark shadow rounded-5 p-0" data-aos="zoom-in-up">
+          <div class="row d-flex justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-8 text-center my-5">
+              <p class="lead border-bottom pb-4 border-secondary">
+                We're excited to have you back. 
+                Sign in now to access your dashboard, where you can monitor your listings, respond to inquiries, and track your sales. 
+                Thank you for choosing <strong>MYPAGE</strong>. We're here to support you every step of the way on your selling journey.</p>
+                <p class="text-secondary text-center">MeZard, CEO</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <script src="{% static 'klar/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'klar/js/aos.js' %}"></script>
+  <script>
+    AOS.init({
+      duration: 800, // values from 0 to 3000, with step 50ms
+    });
+  </script>
+  <script>
+    let scrollpos = window.scrollY;
+    const header = document.querySelector(".navbar");
+    const header_height = header.offsetHeight;
+
+    const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm");
+    const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm");
+
+    window.addEventListener('scroll', function () {
+      scrollpos = window.scrollY;
+
+      if (scrollpos >= header_height) { add_class_on_scroll(); }
+      else { remove_class_on_scroll(); }
+
+      console.log(scrollpos);
+    })
+  </script>
+
+</body>
+
+</html>

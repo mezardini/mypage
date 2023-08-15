@@ -1,0 +1,173 @@
+{% load static %}
+
+<!doctype html>
+<html class="h-100" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="A well made and handcrafted Bootstrap 5 template">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+  <meta name="author" content="Holger Koenemann">
+  <meta name="generator" content="Eleventy v2.0.0">
+  <meta name="HandheldFriendly" content="true">
+  <title>Klar HTML Template - Frontpage one</title>
+  <link rel="stylesheet" href="{% static 'klar/css/theme.min.css' %}">
+  <link rel="stylesheet" href="{% static 'klar/css/theme.css' %}">
+
+  <style>
+    /* inter-300 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-300.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-300.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    /* inter-400 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-regular.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-regular.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-500.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-500.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-700.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-700.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+  </style>
+
+
+</head>
+
+<body class="bg-black text-white mt-0" >
+
+  <div class="container text-center">
+      <a  href="{% url 'home' %}">
+      <img src="{% static 'dtox/images/mypagelogo.svg' %}" alt="">
+      </a>
+  </div>
+  
+  <div class="bg-black">
+    <div class="container px-vw-5 py-vh-5">
+      <div class="row d-flex align-items-center">
+        <div class="col-12" data-aos="zoom-in-right">
+          <div class="row d-flex  py-vh-5">
+            <p class="text-center">Note: For ''some'' reasons, you are not allowed to edit photos of products. Delete a product or change its status to Hidden and create a new one.
+            </p>
+            <form action="" method="POST">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label class="input-group" for="inputGroupSelect01">Status</label>
+                <select class="form-select" name="status" id="inputGroupSelect01">
+                  <option selected value="Active">Active</option>
+                  <option value="Hidden">Hidden</option>
+                  <!-- <option value="3">Three</option>
+                  <option value="4">Four</option>
+                  <option value="5">Five</option> -->
+                </select>
+              </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Product Name</label>
+                  <input type="text" class="form-control" name="product_name" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{product.product_name}}">
+                  
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Product description</label>
+                  <textarea class="form-control" aria-label="With textarea" value="{{product.product_description}}" placeholder="{{product.product_description}}" name="product_description" rows="6" >{{product.product_description}}</textarea>
+                </div>
+                <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Product Price</label>
+                      <input type="text" class="form-control" name="product_price" id="ConfirmPassword" value="{{product.product_price}}" required>
+                </div>     
+                <!-- <img src="{{product.product_image.url}}" alt="Default Image" width="100" height="100">        
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Product Images</label>
+                  <input type="file" class="form-control" id="inputGroupFile02"  name="images"  multiple >
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Product Video</label>
+                  <input type="file" class="form-control" id="product_video" name="video" >
+                </div> -->
+                <div class="text-center"><button type="submit" class="btn btn-xl btn-outline-dark" >Save</button></div>
+              
+              </form>
+          </div>
+        </div>
+        <!-- <div class="col-12 col-lg-6 d-flex align-items-center bg-dark shadow rounded-5 p-0" data-aos="zoom-in-up">
+          <div class="row d-flex justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-8 text-center my-5">
+              <p class="lead border-bottom pb-4 border-secondary">We're thrilled to have you here. By signing up, you're not just joining a platform – you're becoming a part of a dynamic and diverse community of like-minded individuals who are passionate about improving sales.
+
+                At <strong>MYPAGE</strong> , we believe in the power of connection and collaboration. So, what are you waiting for? Join us today and let's start shaping the future together.</p>
+                <p class="text-secondary text-center">MeZard, CEO</p>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+  </div>
+
+
+  <script src="{% static 'klar/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'klar/js/aos.js' %}"></script>
+  <script>
+    AOS.init({
+      duration: 800, // values from 0 to 3000, with step 50ms
+    });
+  </script>
+  <script>
+    let scrollpos = window.scrollY;
+    const header = document.querySelector(".navbar");
+    const header_height = header.offsetHeight;
+
+    const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm");
+    const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm");
+
+    window.addEventListener('scroll', function () {
+      scrollpos = window.scrollY;
+
+      if (scrollpos >= header_height) { add_class_on_scroll(); }
+      else { remove_class_on_scroll(); }
+
+      console.log(scrollpos);
+    })
+  </script>
+
+</body>
+
+</html>

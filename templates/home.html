@@ -1,332 +1,580 @@
 {% load static %}
+
 <!doctype html>
-<html lang="en">
+<html class="h-100" lang="en">
+
 <head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<meta name="author" content="Untree.co">
-	<link rel="shortcut icon" href="favicon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="A well made and handcrafted Bootstrap 5 template">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+  <meta name="author" content="Holger Koenemann">
+  <meta name="generator" content="Eleventy v2.0.0">
+  <meta name="HandheldFriendly" content="true">
+  <title>Klar HTML Template - Frontpage one</title>
+  <link rel="stylesheet" href="{% static 'klar/css/theme.min.css' %}">
+  <link rel="stylesheet" href="{% static 'klar/css/theme.css' %}">
 
-	<meta name="description" content="" />
-	<meta name="keywords" content="bootstrap, bootstrap5" />
-	
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    /* inter-300 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-300.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-300.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
 
-	<link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
-	<link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
-	<link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}">
-	<link rel="stylesheet" href="{% static 'css/aos.css' %}">
-	<link rel="stylesheet" href="{% static 'css/glightbox.min.css' %}">
-	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    /* inter-400 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-regular.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-regular.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
 
-	<title>Archiark &mdash; Free Bootstrap 5 Website Template by Untree.co</title>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-500.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-500.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-700.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-700.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+  </style>
+
+
 </head>
-<body>
 
-	<div class="site-mobile-menu site-navbar-target">
-		<div class="site-mobile-menu-header">
-			<div class="site-mobile-menu-close">
-				<span class="icofont-close js-menu-toggle"></span>
-			</div>
-		</div>
-		<div class="site-mobile-menu-body"></div>
-	</div>
+<body class="bg-black text-white mt-0" data-bs-spy="scroll" data-bs-target="#navScroll" style="background-color: beige;">
 
-	<nav class="site-nav">
-		<div class="container">
-			<div class="site-navigation">
-				<a href="index.html" class="logo m-0 float-start">Archiark<span class="text-primary">.</span> </a>
+  <nav id="navScroll" class="navbar navbar-dark bg-black fixed-top px-vw-5" tabindex="0">
+    <div class="container">
+      <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center" href="index.html">
+        <img src="{% static 'dtox/images/mypagelogo.svg' %}" alt="">
+      </a>
 
-				<ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-start">
-					<li><a href="index.html">Home</a></li>
-					<li class="has-children">
-						<a href="projects.html">Projects</a>
-						<ul class="dropdown">
-							<li><a href="#">Commercial Building</a></li>
-							<li><a href="#">Cultural Lifestyle</a></li>
-							<li class="has-children">
-								<a href="#">Dropdown</a>
-								<ul class="dropdown">
-									<li><a href="#">Sub Menu One</a></li>
-									<li><a href="#">Sub Menu Two</a></li>
-									<li><a href="#">Sub Menu Three</a></li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-					<li><a href="services.html">Services</a></li>
-					<li class="active"><a href="about.html">About</a></li>
-					<li><a href="contact.html">Contact Us</a></li>
-				</ul>
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 list-group list-group-horizontal">
+        <li class="nav-item">
+          <a class="nav-link fs-5" style="color: black;" href="index.html" aria-label="Homepage">
+            Marketplace
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-5"  style="color: black;" href="content.html" aria-label="A sample content page">
+            Content
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-5"  style="color: black;" href="system.html" aria-label="A system message page">
+            System
+          </a>
+        </li>
 
-				
+      </ul>
+      <a href="https://templatedeck.com/klar-html-template.html" aria-label="Download this template"
+        class="btn  btn-outline-dark" style="justify-content: center;">
+        <small>Start for free</small>
+      </a>
+    </div>
+  </nav>
 
-				<a href="#" class="burger ml-auto float-end site-menu-toggle light js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
-					<span></span>
-				</a>
-				<ul class="site-menu float-end d-none d-md-block">
-					<li><a href="#" class="d-flex align-items-center text-white h2 fw-bold"><span class="icon-phone me-2"></span> <span>+ 2 292 4392 327</span></a></li>
-				</ul>
+  <main >
+    <div  class="w-100 overflow-hidden position-relative bg-black text-white" data-aos="fade">
+      <div class="position-absolute w-100 h-100 bg-black opacity-75 top-0 start-0"></div>
+      <div class="container py-vh-4 position-relative mt-5 px-vw-5 text-center">
+        <div class="row d-flex align-items-center justify-content-center py-vh-5">
+          <div class="col-12 col-xl-10">
+            <h1 class="display-huge mt-3 mb-3 lh-1">Streamline Your Sales: Display All Products in a Single Link!</h1>
+          </div>
+          <div class="col-12 col-xl-8">
+            <p class="">Give your business a share of the internet with a simple, fast and responsive products listing page to improve your customer experience.</p>
+          </div>
+          <div class="col-12 text-center">
+            <a href="#" class="btn btn-xl btn-outline-dark">Get Started
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
 
-			</div>
-		</div>
-	</nav>
+    </div>
 
-	<div class="hero-2 overlay" style="background-image: url('images/img_3.jpg');">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-5 mx-auto ">
-					<h1 class="mb-5 text-center"><span>About Us</span></h1>
+  
+    <div class="bg-dark" style="justify-content: center;" >
+      <div class="container px-vw-5 py-vh-5">
+        <img src="{% static 'images/hero.png' %}"  alt="abstract image"
+                  class="img-fluid rounded-5 no-bottom-radius" loading="lazy">
+      </div>
+    </div>
 
+    <div class="bg-black py-vh-3">
+      <div class="container bg-black px-vw-5 py-vh-3 rounded-5 shadow">
 
-					<div class="intro-desc text-left">
-						<div class="line"></div>
-						<p>Delectus voluptatum distinctio quos eius excepturi sunt pariatur, aut, doloribus officia ea molestias beatae laudantium, quam odio ipsum veritatis est maiores velit quasi blanditiis et natus accusamus itaque.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+        <div class="row gx-5">
+          <div class="col-12 col-md-6">
+            <div class="card bg-transparent mb-5" data-aos="zoom-in-up">
+              <div class="bg-dark shadow rounded-5 p-0">
+                <img src="{% static 'images/choose_rating.png' %}"  width="582" height="327" alt="abstract image"
+                  class="img-fluid rounded-5 no-bottom-radius" loading="lazy">
+                <div class="p-5">
+                  <h2 class="fw-lighter"><strong>Collect reviews on your product and get notified when there is a new one</strong></h2>
+                  <p class="pb-4 text-secondary">Your customers can easily drop reviews on your products and you can also hide the ones you don't want public.</p>
+                </div>
+              </div>
+            </div>
 
+            <div class="card bg-transparent mb-5" data-aos="zoom-in-up">
+              <div class="bg-dark shadow rounded-5 p-0">
+                <img src="{% static 'images/ctabtn_frame.png' %}" width="582" height="442" alt="abstract image"
+                  class="img-fluid rounded-5 no-bottom-radius" loading="lazy">
+                <div class="p-5">
+                  <h2 class="fw-lighter"><strong>Customized Call To Action button</strong></h2>
+                  <p class="pb-4 text-secondary">Personalize the CTA button on your product page so you can serve your customers better.
+                    <br>
+                    Direct your customers to any URL from your Social Media DM to your stripe payment portal. 
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            
+            <div class="card bg-transparent mb-5 mt-5" data-aos="zoom-in-up">
+              <div class="bg-dark shadow rounded-5 p-0">
+                <img src="{% static 'images/display_prod.png' %}" width="582" height="390" alt="abstract image"
+                  class="img-fluid rounded-5 no-bottom-radius" loading="lazy">
+                <div class="p-5">
+                  <h2 class="fw-lighter"><strong>Beautiful and responsive product listing page </strong></h2>
+                  <p class="pb-4 text-secondary"> The MYPAGE dashboard allows you track how your products are faring over time with information like; page views, CTA clicks, Click through rate and others.
+                  </p>
+                </div>
+              </div>
+            </div>
 
-	<div class="section sec-4">
-		<div class="container">
-			<div class="row border-bottom mb-5 pb-5 justify-content-between">
-				<div class="col-lg-4 align-self-center mb-5">
-					<h2 class="heading mb-4">We create architectural designs</h2>
-					<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-				</div>
-				<div class="col-lg-7">
-					<a href="https://www.youtube.com/watch?v=mwtbEGNABWU" class="video-wrap glightbox">
-						<span class="icon-play"></span>
-						<img src="{% static 'images/img_7.jpg' %}" alt="Image" class="img-fluid">
-					</a>
-				</div>
-			</div>
-			<div class="row g-5">
-				<div class="col-lg-4">
+            <div class="card bg-transparent" data-aos="zoom-in-up">
+              <div class="bg-dark shadow rounded-5 p-0">
+                <img src="{% static 'images/url_frame.png' %}" width="582" height="327" alt="abstract image"
+                  class="img-fluid rounded-5 no-bottom-radius" loading="lazy">
+                <div class="p-5">
+                  <h2 class="fw-lighter"><strong>Personalized URL</strong></h2>
+                  <p class="pb-4 text-secondary">Your unique business name appears in the url to your listing page so your customers can easily identify and remember your MYPAGE portal.</p>
+                </div>
+              </div>
+            </div>
+          </div>         
+        </div>
+      </div>
+    </div>
+    <div class="bg-dark position-relative">
+      <div class="container px-vw-5 py-vh-5">
+        <div class="row d-flex align-items-center">
 
-					<div class="d-flex custom-card">
-						<div class="img">
-							<i class="flaticon-compass"></i>
-						</div>
-						<div class="text">
-							<h3 class="h6 fw-bold text-black">We provide best services</h3>
-							<p class="text-black-50">Delectus voluptatum distinctio quos eius excepturi sunt pariatur, aut, doloribus officia ea molestias beatae laudantium.</p>
-							<p>
-								<a href="#" class="more-2">Learn more <span class="icon-arrow_forward"></span></a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="d-flex custom-card">
-						<div class="img">
-							<i class="flaticon-plan"></i>
-						</div>
-						<div class="text">
-							<h3 class="h6 fw-bold text-black">We provide best services</h3>
-							<p class="text-black-50">Delectus voluptatum distinctio quos eius excepturi sunt pariatur, aut, doloribus officia ea molestias beatae laudantium.</p>
-							<p>
-								<a href="#" class="more-2">Learn more <span class="icon-arrow_forward"></span></a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="d-flex custom-card">
-						<div class="img">
-							<i class="flaticon-architect"></i>
-						</div>
-						<div class="text">
-							<h3 class="h6 fw-bold text-black">We provide best services</h3>
-							<p class="text-black-50">Delectus voluptatum distinctio quos eius excepturi sunt pariatur, aut, doloribus officia ea molestias beatae laudantium.</p>
-							<p>
-								<a href="#" class="more-2">Learn more <span class="icon-arrow_forward"></span></a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+          <div class="col-12 col-lg-7">
+            <img class="img-fluid rounded-5 mb-n5 shadow" src="{% static 'img/webp/person9.webp' %}" width="512" height="512"
+              alt="a nice person" loading="lazy" data-aos="zoom-in-right">
+            <img class="img-fluid rounded-5 ms-5 mb-n5 shadow" src="{% static 'img/webp/person11.webp' %}" width="512" height="512"
+              alt="another nice person" loading="lazy" data-aos="zoom-in-up">
+          </div>
+          <div class="col-12 col-lg-5 bg-dark rounded-5 py-5" data-aos="fade">
+            <span class="h5 text-secondary fw-lighter">Do you like faces?</span>
+            <h2 class="display-4">Put the templates on here</h2>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="bg-black">
+      <div class="container px-vw-5 py-vh-5">
+        <div class="row d-flex align-items-center">
+          <div class="col-12 col-lg-5 text-center text-lg-end" data-aos="zoom-in-right">
+            <span class="h5 text-secondary fw-lighter">What we charge</span>
+            <h2 class="display-4">Revolutionize Your Selling Strategy!</h2>
+          </div>
+          <div class="col-12 col-lg-7 bg-dark rounded-5 py-vh-3 text-center my-5" data-aos="zoom-in-up">
+            <h2 class="display-huge mb-5">
+              <span class="fs-4 me-2 fw-light">$</span><span class="border-bottom border-5">15</span><span
+                class="fs-6 fw-light">/month</span>
+            </h2>
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    Unlimited products
+                  </li>
+                  <li class="nav-item">
+                    Upload 20 images and 1 video per products
+                  </li>
+                  <li class="nav-item">
+                    Hide reviews on your product
+                  </li>
+                </ul>
+                <br>
+              <a href="" aria-label=""
+              class="btn  btn-outline-dark">
+              <small>Start for free</small>
+            </a>
+          </div>
+        </div>
+      </div>
 
-	<div class="section sec-team sec-4 pb-5">
-		<div class="container">
-			<div class="row mb-5">
-				<div class="col-lg-6 mx-auto text-center">
-					<h2 class="heading">We Are The Team</h2>
-				</div>
-				
-			</div>
-			<div class="row g-5">
-				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-					<div class="person">
-						<img src="{% static 'images/person_1.jpg' %}" alt="Image" class="img-fluid rounded-circle mx-auto w-50 mb-3">
-						<h3 class="mb-1">Jayson Campbell</h3>
-						<span class="d-block text-black-50 mb-3">CEO, Partner</span>
-						<p class="text-black-50">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						<ul class="social-2 list-unstyled mb-5">
-							<li><a href="#"><span class="icon-facebook"></span></a></li>
-							<li><a href="#"><span class="icon-twitter"></span></a></li>
-							<li><a href="#"><span class="icon-instagram"></span></a></li>
-							<li><a href="#"><span class="icon-dribbble"></span></a></li>
-							<li><a href="#"><span class="icon-linkedin"></span></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-					<div class="person">
-						<img src="{% static 'images/person_2.jpg' %}" alt="Image" class="img-fluid rounded-circle mx-auto w-50 mb-3">
-						<h3 class="mb-1">Jayson Campbell</h3>
-						<span class="d-block text-black-50 mb-3">CEO, Partner</span>
-						<p class="text-black-50">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						<ul class="social-2 list-unstyled mb-5">
-							<li><a href="#"><span class="icon-facebook"></span></a></li>
-							<li><a href="#"><span class="icon-twitter"></span></a></li>
-							<li><a href="#"><span class="icon-instagram"></span></a></li>
-							<li><a href="#"><span class="icon-dribbble"></span></a></li>
-							<li><a href="#"><span class="icon-linkedin"></span></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-					<div class="person">
-						<img src="{% static 'images/person_3.jpg' %}" alt="Image" class="img-fluid rounded-circle mx-auto w-50 mb-3">
-						<h3 class="mb-1">Jayson Campbell</h3>
-						<span class="d-block text-black-50 mb-3">CEO, Partner</span>
-						<p class="text-black-50">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						<ul class="social-2 list-unstyled mb-5">
-							<li><a href="#"><span class="icon-facebook"></span></a></li>
-							<li><a href="#"><span class="icon-twitter"></span></a></li>
-							<li><a href="#"><span class="icon-instagram"></span></a></li>
-							<li><a href="#"><span class="icon-dribbble"></span></a></li>
-							<li><a href="#"><span class="icon-linkedin"></span></a></li>
-						</ul>
-					</div>
-				</div>
+    </div>
+    <div class="container-fluid px-vw-5 position-relative" data-aos="fade">
+      <div class="position-absolute w-100 h-50 bg-black top-0 start-0"></div>
+      <div class="position-relative py-vh-5 bg-cover bg-center rounded-5"
+        style="background-image: url(img/webp/abstract12.webp)">
+        <div class="container bg-black px-vw-5 py-vh-3 rounded-5 shadow">
+          <div class="row d-flex align-items-center">
 
-				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-					<div class="person">
-						<img src="{% static 'images/person_4.jpg' %}" alt="Image" class="img-fluid rounded-circle mx-auto w-50 mb-3">
-						<h3 class="mb-1">Jayson Campbell</h3>
-						<span class="d-block text-black-50 mb-3">CEO, Partner</span>
-						<p class="text-black-50">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						<ul class="social-2 list-unstyled mb-5">
-							<li><a href="#"><span class="icon-facebook"></span></a></li>
-							<li><a href="#"><span class="icon-twitter"></span></a></li>
-							<li><a href="#"><span class="icon-instagram"></span></a></li>
-							<li><a href="#"><span class="icon-dribbble"></span></a></li>
-							<li><a href="#"><span class="icon-linkedin"></span></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+            <div class="col-6 d-flex align-items-center bg-dark shadow rounded-5 p-0" data-aos="zoom-in-up">
+              <div class="row d-flex justify-content-center">
+                <div class="col-12">
+                  <img src="{% static 'img/webp/person103.webp' %}" width="684" height="457" alt="our CEO with some nice numbers"
+                    class="img-fluid rounded-5" loading="lazy">
+                </div>
+                <div class="col-12 col-lg-10 col-xl-8 text-center my-5">
+                  <p class="lead border-bottom pb-4 border-secondary">"Lorem ipsum dolor sit amet, consetetur sadipscing
+                    elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+                    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                    takimata sanctus est Lorem ipsum dolor sit amet."</p>
+                  <p class="text-secondary text-center">Jane Doe, CEO</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-5 offset-1">
+              <span class="h5 text-secondary fw-lighter">The numbers</span>
+              <h2 class="display-huge fw-bolder" data-aos="zoom-in-left">+400</h2>
+              <p class="h4 fw-lighter text-secondary">
+                Numbers of sellers using MYPAGE to power their sales.
+              </p>
 
-		</div>
-	</div>
+              <h2 class="display-huge fw-bolder border-top border-secondary pt-5 mt-5" data-aos="zoom-in-left">7880+
+              </h2>
+              <p class="h4 fw-lighter text-secondary">
+                Products listed in total.
+              </p>
+              <h2 class="display-huge fw-bolder border-top border-secondary pt-5 mt-5" data-aos="zoom-in-left">35%</h2>
+              <p class="h4 fw-lighter text-secondary">
+                Average increase in sales after joining MYPAGE.
+              </p>
+            </div>
+          </div>
+        </div>
 
-
-	
-
-	<div class="site-footer bg-light">
-		<div class="container">
-
-			<div class="row justify-content-between">
-				<div class="col-lg-4">
-					<div class="widget">
-						<h3 class="line-top">About</h3>
-						<p class="mb-5">Delectus voluptatum distinctio quos eius excepturi sunt pariatur, aut, doloribus officia ea molestias beatae laudantium, quam odio ipsum veritatis est maiores velit quasi blanditiis et natus accusamus itaque. Veniam quidem debitis odio amet voluptas distinctio dicta placeat! Et pariatur doloremque ea veniam. Separated they live.</p>
-
-					</div>
-					<div class="widget">
-						<h3 class="line-top">Connect with us</h3>
-						<ul class="social list-unstyled mb-5">
-							<li><a href="#"><span class="icon-facebook"></span></a></li>
-							<li><a href="#"><span class="icon-twitter"></span></a></li>
-							<li><a href="#"><span class="icon-instagram"></span></a></li>
-							<li><a href="#"><span class="icon-dribbble"></span></a></li>
-							<li><a href="#"><span class="icon-linkedin"></span></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="row">
-						<div class="col-12">
-							<div class="widget">
-								<h3 class="line-top">Navigations</h3>
-							</div>
-						</div>
-						<div class="col-6 col-sm-6 col-md-4">
-							<div class="widget">
-								<ul class="links list-unstyled">
-									<li><a href="#">Home</a></li>
-									<li><a href="#">Services</a></li>
-									<li><a href="#">Work</a></li>
-									<li><a href="#">Process</a></li>
-									<li><a href="#">About Us</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-6 col-sm-6 col-md-4">
-							<div class="widget">
-								<ul class="links list-unstyled">
-									<li><a href="#">Press</a></li>
-									<li><a href="#">Blog</a></li>
-									<li><a href="#">Contact</a></li>
-									<li><a href="#">Support</a></li>
-									<li><a href="#">Privacy</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-6 col-sm-6 col-md-4">
-							<div class="widget">
-								<ul class="links list-unstyled">
-									<li><a href="#">Privacy</a></li>
-									<li><a href="#">FAQ</a></li>
-									<li><a href="#">Careers</a></li>
-									<li><a href="#">Process</a></li>
-									<li><a href="#">About Us</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="row justify-content-center text-center copyright">
-				<div class="col-md-8">
-					<p class="small text-black-50">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a>
-					</br>Distributed By <a href="https://themewagon.com/">Themewagon</a> <!-- License information: https://untree.co/license/ -->
-					</p>
-					
-				</div>
-			</div>
-		</div>
-	</div>
+      </div>
+    </div>
+    <div class="bg-dark py-vh-5">
+      <div class="container px-vw-5">
+        <div class="row d-flex gx-5 align-items-center">
+          <div class="col-12 col-lg-6">
+            <div class="rounded-5 bg-black p-5 shadow" data-aos="zoom-in-right">
+              <div class="fs-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-star-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                </svg>
 
 
-	
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-star-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                </svg>
 
 
-	<!-- Preloader -->
-	<div id="overlayer"></div>
-	<div class="loader">
-		<div class="spinner-border" role="status">
-			<span class="visually-hidden">Loading...</span>
-		</div>
-	</div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-star-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                </svg>
 
-	<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-	<script src="{% static 'js/tiny-slider.js' %}"></script>
-	<script src="{% static 'js/aos.js' %}"></script>
-	<script src="{% static 'js/glightbox.min.js' %}"></script>
-	<script src="{% static 'js/navbar.js' %}"></script>
-	<script src="{% static 'js/counter.js' %}"></script>
-	<script src="{% static 'js/custom.js' %}"></script>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-star-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                </svg>
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-star-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                </svg>
+
+
+              </div>
+              <p class="text-secondary lead">"Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore et
+                dolore magna aliqua ullamco laboris nisi ut aliquip ex ea commodo consequat."</p>
+              <div class="d-flex justify-content-start align-items-center border-top border-secondary pt-3">
+                <img src="{% static 'img/webp/person14.webp' %}" width="96" height="96" class="rounded-circle me-3" alt="a nice person"
+                  data-aos="fade" loading="lazy">
+                <div>
+                  <span class="h6 fw-5">Jane Doemunsky</span><br>
+                  <small class="text-secondary">COO, The Boo Corp.</small>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-5 bg-black p-5 shadow mt-5" data-aos="zoom-in-right">
+              <div class="fs-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-star-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                </svg>
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-star-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                </svg>
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-star-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                </svg>
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-star-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                </svg>
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-star-half" viewBox="0 0 16 16">
+                  <path
+                    d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                </svg>
+
+              </div>
+              <p class="text-secondary lead">"Lorem ipsum dolor sit amet, consectetur tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam. quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat."</p>
+              <div class="d-flex justify-content-start align-items-center border-top border-secondary pt-3">
+                <img src="{% static 'img/webp/person13.webp' %}" width="96" height="96" class="rounded-circle me-3" alt="a nice person"
+                  data-aos="fade" loading="lazy">
+                <div>
+                  <span class="h6 fw-5">Jane Doemunsky</span><br>
+                  <small class="text-secondary">COO, The Boo Corp.</small>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-12 col-lg-6">
+            <div class="p-5 pt-0" data-aos="fade">
+              <span class="h5 text-secondary fw-lighter">What others have to say</span>
+              <h2 class="display-4">Invidunt ut labore et dolore magna aliquyam erat.</h2>
+            </div>
+            <div class="rounded-5 bg-black p-5 shadow mt-5 gradient" data-aos="zoom-in-left">
+              <div class="fs-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-star-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                </svg>
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-star-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                </svg>
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-star-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                </svg>
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-star-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                </svg>
+
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-star-fill" viewBox="0 0 16 16">
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                </svg>
+
+
+              </div>
+              <p class="lead">"Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat."</p>
+              <div class="d-flex justify-content-start align-items-center border-top pt-3">
+                <img src="{% static 'img/webp/person16.webp' %}" width="96" height="96" class="rounded-circle me-3" alt="a nice person"
+                  data-aos="fade" loading="lazy">
+                <div>
+                  <span class="h6 fw-5">Jane Doemunsky</span><br>
+                  <small>COO, The Boo Corp.</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="bg-black border-top border-dark">
+    <div class="container py-vh-4 text-secondary fw-lighter">
+      <div class="row">
+        <div class="col-12 col-lg-5 py-4 text-center text-lg-start">
+          <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center" href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-stack"
+              viewBox="0 0 16 16">
+              <path
+                d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z" />
+              <path
+                d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z" />
+            </svg>
+            <span class="ms-md-1 mt-1 fw-bolder me-md-5">Klar</span>
+          </a>
+
+        </div>
+        <div class="col border-end border-dark">
+          <span class="h6">Company</span>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">About us</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Legal</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Career</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col border-end border-dark">
+          <span class="h6">Services</span>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Products</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Customers</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Success Stories</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">More</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col">
+          <span class="h6">Support</span>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">About us</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Legal</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Career</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container text-center small py-vh-2 border-top border-dark">Made by
+      <a href="https://templatedeck.com" class="link-fancy link-fancy-light" target="_blank">templatedeck.com</a>
+      Distributed by <a href="https://themewagon.com" class="link-fancy link-fancy-light" target="_blank">ThemeWagon</a>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+  <script src="{% static 'klar/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'klar/js/aos.js' %}"></script>
+  <script>
+    AOS.init({
+      duration: 800, // values from 0 to 3000, with step 50ms
+    });
+  </script>
+  <script>
+    let scrollpos = window.scrollY;
+    const header = document.querySelector(".navbar");
+    const header_height = header.offsetHeight;
+
+    const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm");
+    const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm");
+
+    window.addEventListener('scroll', function () {
+      scrollpos = window.scrollY;
+
+      if (scrollpos >= header_height) { add_class_on_scroll(); }
+      else { remove_class_on_scroll(); }
+
+      console.log(scrollpos);
+    })
+  </script>
+
 </body>
+
 </html>

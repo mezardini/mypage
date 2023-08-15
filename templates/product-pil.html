@@ -1,0 +1,350 @@
+{% load static %}
+
+<style>
+    .biz_logo{
+        font-size: 150%;
+        font-weight: 400;
+        
+    }
+    .owl-dot {
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+}
+.center-cropped {
+  width: 100%;
+  height: 400px;
+  
+  background-position: center center; 
+  background-repeat: no-repeat;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+/* textarea {
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    height: auto;
+    overflow: auto;
+} */
+textarea {
+        width: 100%; /* Set the width to fill the container */
+        min-height: 100px; /* Set the minimum height */
+        max-height: 4100px; /* Set the maximum height */
+        border: none;
+        background-color: transparent;
+        resize: none;
+        outline: none;
+        height: auto;
+        overflow: auto;
+        
+        }
+</style>
+
+<!doctype html>
+<html lang="zxx">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{biz.business_name.upper|truncatewords:2}}</title>
+    <link rel="icon" href="img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'pillowmart/css/bootstrap.min.css' %}">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="{% static 'pillowmart/css/animate.css' %}">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{% static 'pillowmart/css/owl.carousel.min.css' %}">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{% static 'pillowmart/css/all.css' %}">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="{% static 'pillowmart/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'pillowmart/css/themify-icons.css' %}">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{% static 'pillowmart/css/magnific-popup.css' %}">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="{% static 'pillowmart/css/slick.css' %}">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{% static 'pillowmart/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'aler/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'aler/css/style.css' %}" type="text/css">
+</head>
+
+<body>
+    
+
+    <!-- Offcanvas Menu Wrapper Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="canvas-close">
+            <span class="icon_close"></span>
+        </div>
+        <div class="logo">
+            <a href="./index.html">
+                <!-- <img src="{% static 'dtox/images/mypagelogo.svg' %}" alt=""> -->
+                <p class="biz_logo"> <strong>{{biz.business_name.upper}}</strong></p>
+            </a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="om-widget">
+            <ul>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Offcanvas Menu Wrapper End -->
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="hs-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="logo">
+                            <a href="{% url 'product_list' biz.slug %}"><p class="biz_logo"> <strong>{{biz.business_name.upper}}</strong></p></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="ht-widget" >
+                            <ul>
+                                <li style="margin-left: -10%;"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li style="margin-left: -10%;"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li style="margin-left: -10%;"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li style="margin-left: -10%;"><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+                            </ul>
+                            <!-- <a href="#" class="hw-btn">Submit property</a> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="canvas-open">
+                    <span class="icon_menu"></span>
+                </div>
+            </div>
+        </div>
+        </div>
+       
+    </header>
+
+    <!-- breadcrumb part start-->
+    <section class="breadcrumb_part single_product_breadcrumb" style="background-color: #fff;">
+        <div class="container">
+            <div class="row">
+               
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb part end-->
+
+  <!--================Single Product Area =================-->
+  <div class="product_image_area" style="background-color: #fff;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="product_img_slide owl-carousel" style="background-color: #fff;">
+            {% for product_image in product_media %}
+            <div  class="center-cropped" style=" background-image: url('{{product_image.product_image.url}}');">
+                <!-- <img  src="{{product_image.product_image.url}}" alt=""> -->
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="single_product_text text-center">
+            <h3><strong>{{product.product_name}}</strong></h3>
+            <br>
+            <h6 ><b>${{product.product_price}}</b></h6>
+           
+            <br>
+            <textarea readonly id="myTextarea" oninput="adjustHeight(this)">{{product.product_description}}</textarea>
+
+            <div class="card_area">
+                
+                <div class="add_to_cart">
+                    <a href="{% url 'cta-click' product.slug %}" class="btn_3">add to cart</a>
+                </div>
+            </div>
+            <!-- <div class="inline-group card_area" style="justify-content: center;">
+                <div class=" add_to_cart">
+                    <button class="btn_3">5 Day Refund window</button>
+                </div>
+                <div class=" add_to_cart">
+                    <button class="btn_3">Free delivery</button>
+                </div>
+                <div class=" add_to_cart">
+                    <button class="btn_3">Not negotiable</button>
+                </div>
+            </div> -->
+          </div>
+          
+        </div>   
+        <div class="container">
+            <div class="dropdown-divider" ></div>
+            <div class="row">
+                <div class="col-md-8 col-lg-7">
+                    <div class="single_product_thumb">
+                        <div>
+                            <h2>Reviews</h2>
+                            <p>{{review_text}}</p>
+                            <br>
+                            {% for rev in review %}
+                            <div>
+                                <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
+                                    <div class="review">
+                                        <h6>{{rev.creator}} </h6>
+                                        <small>-{{rev.created}}</small>
+                                    </div>
+                                    <!-- <div class="review">
+                                        <p>-{{rev.created|date}}</p>
+                                    </div> -->
+                                    <div class="ratings" >
+                                        
+                                        <i class="fa fa-star" style="color: #f2ea0b;" aria-hidden="true"></i>{{rev.rating}}
+                                        
+                                    </div>
+                                    
+                                </div>
+                                <p>{{rev.body}}</p>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            {% endfor %}
+                           
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-5">
+                    <div class="single-product-wrapper" >
+                        <!-- Product Meta Data -->
+                        <form action="" method="POST" >
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Name</label>
+                                    <input type="text" class="form-control" name="review_creator" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                                    
+                                  </div>
+                                <div class="col-6 mb-3">
+                                    <label class="input-group" for="inputGroupSelect01">Rating</label>
+                                    <select class="form-select" name="review_rating" id="inputGroupSelect01">
+                                      <option selected >Choose a rating</option>
+                                      <option value="1">One</option>
+                                      <option value="2">Two</option>
+                                      <option value="3">Three</option>
+                                      <option value="4">Four</option>
+                                      <option value="5">Five</option>
+                                    </select>
+                                  </div>
+                            </div>
+                              
+                              <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Review</label>
+                                <textarea class="form-control" aria-label="With textarea" name="review_body" rows="6" required></textarea>
+                              </div>
+                              
+                              
+                              <div class="text-center"><button type="submit" class="btn_3" >Save</button></div>
+                            
+                        </form>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+   
+    </div>
+    
+  </div>
+  
+  <!--================End Single Product Area =================-->
+  <footer class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="fs-about">
+                    <div class="fs-logo">
+                        <a href="#">
+                            <p class="biz_logo"> <strong>{{biz.business_name.upper}}</strong></p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-6">
+                <div class="fs-about">
+                    <div class="fs-logo">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua ut aliquip ex ea</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</footer>
+
+    <!-- jquery plugins here-->
+    <script src="{% static 'pillowmart/js/jquery-1.12.1.min.js' %}"></script>
+    <!-- popper js -->
+    <script src="{% static 'pillowmart/js/popper.min.js' %}"></script>
+    <!-- bootstrap js -->
+    <script src="{% static 'pillowmart/js/bootstrap.min.js' %}"></script>
+    <!-- easing js -->
+    <script src="{% static 'pillowmart/js/jquery.magnific-popup.js' %}"></script>
+    <!-- swiper js -->
+    <script src="{% static 'pillowmart/js/swiper.min.js' %}"></script>
+    <!-- swiper js -->
+    <script src="{% static 'pillowmart/js/mixitup.min.js' %}"></script>
+    <!-- particles js -->
+    <script src="{% static 'pillowmart/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'pillowmart/js/jquery.nice-select.min.js' %}"></script>
+    <!-- slick js -->
+    <script src="{% static 'pillowmart/js/slick.min.js' %}"></script>
+    <script src="{% static 'pillowmart/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'pillowmart/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'pillowmart/js/contact.js' %}"></script>
+    <script src="{% static 'pillowmart/js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'pillowmart/js/jquery.form.js' %}"></script>
+    <script src="{% static 'pillowmart/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'pillowmart/js/mail-script.js' %}"></script>
+    <!-- custom js -->
+    <script src="{% static 'pillowmart/js/custom.js' %}"></script>
+    <script src="{% static 'aler/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'aler/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'aler/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'aler/js/mixitup.min.js' %}"></script>
+    <script src="{% static 'aler/js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'aler/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'aler/js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'aler/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'aler/js/jquery.richtext.min.js' %}"></script>
+    <script src="{% static 'aler/js/image-uploader.min.js' %}"></script>
+    <script src="{% static 'aler/js/main.js' %}"></script>
+    <script>
+        function adjustHeight(textarea) {
+            textarea.style.height = 'auto'; // Reset the height to auto to calculate the content height
+            textarea.style.height = textarea.scrollHeight + 'px'; // Set the height to match the content
+        }
+
+        // Initial call to adjust height when the page loads
+        adjustHeight(document.getElementById('myTextarea'));
+    </script>
+    
+</body>
+
+</html>

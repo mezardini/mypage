@@ -1,0 +1,115 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <title>MYPAGE</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static 'dtox/plugins/bootstrap/bootstrap.min.css' %}">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="{% static 'dtox/plugins/themify-icons/themify-icons.css' %}">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="{% static 'dtox/plugins/slick/slick.css' %}">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="{% static 'dtox/plugins/Venobox/venobox.css' %}">
+  <!-- aos -->
+  <link rel="stylesheet" href="{% static 'dtox/plugins/aos/aos.css' %}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"> 
+  
+
+  <!-- Main Stylesheet -->
+  <link href="{% static 'dtox/css/style.css' %}" rel="stylesheet">
+  
+  <!--Favicon-->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+  
+
+<!-- navigation -->
+<section class="fixed-top navigation">
+  <div class="container text-center" >
+    <nav class="navbar navbar-expand-lg navbar-light " style="display: flex; justify-content: center;">
+        
+      <a class="navbar-brand " href="{% url 'home' %}"><img src="{% static 'dtox/images/mypagelogo.svg' %}" alt="logo"></a>
+
+    </nav>
+  </div>
+</section>
+<!-- /navigation -->
+
+<!-- hero area -->
+<section class="hero-section hero" data-background="" style="margin-top: -10%;">
+  <div class="container">
+    
+    <h1 class="text-center">Welcome</h1>
+    
+    </div>
+    <div class="container" style="border: 2px solid #93D2FF; width: auto;">
+        
+    
+      
+      <div class="container">
+        
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Verify Code</label>
+                      <input type="text" class="form-control" name="token" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      
+                    </div>
+                    <p class="text-center"><button type="submit" class="btn btn-primary me-4" >Save</button></p>
+                </form>
+              
+              <div class="dropdown-divider"></div>
+
+                
+      </div>
+      
+      
+    </div>
+  
+
+</section>
+
+
+
+
+
+
+<script src="https://kit.fontawesome.com/ee354b4b49.js" crossorigin="anonymous"></script>
+<!-- jQuery -->
+<script src="{% static 'dtox/plugins/jQuery/jquery.min.js' %}"></script>
+<!-- Bootstrap JS -->
+<script src="{% static 'dtox/plugins/bootstrap/bootstrap.min.js' %}"></script>
+<!-- slick slider -->
+<script src="{% static 'dtox/plugins/slick/slick.min.js' %}"></script>
+<!-- venobox -->
+<script src="{% static 'dtox/plugins/Venobox/venobox.min.js' %}"></script>
+<!-- aos -->
+<script src="{% static 'dtox/plugins/aos/aos.js' %}"></script>
+<!-- Main Script -->
+<script src="{% static 'dtox/js/script.js' %}"></script>
+
+<script>
+  var myModal = document.getElementById('myModal')
+  var myInput = document.getElementById('myInput')
+
+  myModal.addEventListener('shown.bs.modal', function () {
+  myInput.focus()
+  })
+</script>
+</body>
+</html>

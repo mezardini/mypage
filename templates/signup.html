@@ -1,166 +1,156 @@
 {% load static %}
 
-
-<!DOCTYPE html>
-<html lang="zxx">
+<!doctype html>
+<html class="h-100" lang="en">
 
 <head>
   <meta charset="utf-8">
-  <title>MYPAGE</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="A well made and handcrafted Bootstrap 5 template">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+  <meta name="author" content="Holger Koenemann">
+  <meta name="generator" content="Eleventy v2.0.0">
+  <meta name="HandheldFriendly" content="true">
+  <title>Klar HTML Template - Frontpage one</title>
+  <link rel="stylesheet" href="{% static 'klar/css/theme.min.css' %}">
+  <link rel="stylesheet" href="{% static 'klar/css/theme.css' %}">
 
-  <!-- mobile responsive meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
-  <!-- ** Plugins Needed for the Project ** -->
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="{% static 'dtox/plugins/bootstrap/bootstrap.min.css' %}">
-  <!-- themefy-icon -->
-  <link rel="stylesheet" href="{% static 'dtox/plugins/themify-icons/themify-icons.css' %}">
-  <!-- slick slider -->
-  <link rel="stylesheet" href="{% static 'dtox/plugins/slick/slick.css' %}">
-  <!-- venobox popup -->
-  <link rel="stylesheet" href="{% static 'dtox/plugins/Venobox/venobox.css' %}">
-  <!-- aos -->
-  <link rel="stylesheet" href="{% static 'dtox/plugins/aos/aos.css' %}">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"> 
-  
+  <style>
+    /* inter-300 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-300.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-300.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
 
-  <!-- Main Stylesheet -->
-  <link href="{% static 'dtox/css/style.css' %}" rel="stylesheet">
-  
-  <!--Favicon-->
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    /* inter-400 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-regular.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-regular.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-500.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-500.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-700.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-700.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+  </style>
+
 
 </head>
 
-<body>
-  
+<body class="bg-black text-white mt-0" >
 
-<!-- navigation -->
-<section class="fixed-top navigation">
-  <div class="container text-center" >
-    <nav class="navbar navbar-expand-lg navbar-light " style="display: flex; justify-content: center;">
-        
-      <a class="navbar-brand " href="{% url 'home' %}"><img src="{% static 'dtox/images/mypagelogo.svg' %}" alt="logo"></a>
-
-    </nav>
+  <div class="container text-center">
+      <a  href="{% url 'home' %}">
+      <img src="{% static 'dtox/images/mypagelogo.svg' %}" alt="">
+      </a>
   </div>
-</section>
-<!-- /navigation -->
-
-<!-- hero area -->
-<section class="hero-section hero" data-background="" style="margin-top: -10%;">
- <div class="container" style="width: 40%; border: 2px solid #93D2FF; border-radius: 5%;">
-    
-  <div class="container">
-    
-    <h4 class="text-center">Sign Up</h4>
-    
-    </div>
   
-  <div class="container">
-    
-            <form>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <p>*We'll never share your email with anyone else.</p>
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="Password">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" id="ConfirmPassword">
-                </div>
-               
-              </form>
-            <p class="text-center"><a type="submit" class="btn btn-primary me-4" >Save</a></p>
-            
-  </div>
-  <div class="dropdown-divider"></div>
-  <div class="container">
-    
-    <p class="text-center"><a style="background-color: #795af6;" class="btn btn-dark btn-lg" href="{% url 'home' %}" ><img src="{% static 'images/google.svg' %}" alt=""> Sign In With Google</a></p>
-    <p class="text-center"><a style="background-color: #795af6;" class="btn btn-dark btn-lg" href="{% url 'home' %}" ><img src="{% static 'images/Microsoft.svg' %}" alt="">Sign In With Apple</a></p>
-    </div>
-  
- </div>
-  
+  <div class="bg-black">
+    <div class="container px-vw-5 py-vh-5">
+      <div class="row d-flex align-items-center">
+        <div class="col-12 col-lg-6 " data-aos="zoom-in-right">
+          <div class="row d-flex  py-vh-5">
+            <h1 class="text-center">Welcome</h1>
+            <form method="POST" action="">
+              {% csrf_token %}
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Name</label>
+                        <input type="text" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp">                    
+                      </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Email address</label>
+                          <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                          <small>*A verification code will be sent to the address.</small>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Password</label>
+                          <input type="password" class="form-control" name="password1" id="Password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" name="password2" id="ConfirmPassword">
+                        </div>
+                        <div class="text-center"><button type="submit" class="btn btn-xl btn-outline-dark" >Sign Up</button></div>
+            </form>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6 d-flex align-items-center bg-dark shadow rounded-5 p-0" data-aos="zoom-in-up">
+          <div class="row d-flex justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-8 text-center my-5">
+              <p class="lead border-bottom pb-4 border-secondary">We're thrilled to have you here. By signing up, you're not just joining a platform – you're becoming a part of a dynamic and diverse community of like-minded individuals who are passionate about improving sales.
 
-</section>
-
-
-
-
-
-
-
-<!-- <footer class="footer-section footer" style=" margin-top: -40%; margin-bottom: -80%;">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
-        
-        <a href="index.html">
-          <img class="img-fluid" src="{% static 'dtox/images/mypagelogo.svg' %}" alt="logo">
-        </a>
+                At <strong>MYPAGE</strong> , we believe in the power of connection and collaboration. So, what are you waiting for? Join us today and let's start shaping the future together.</p>
+                <p class="text-secondary text-center">MeZard, CEO</p>
+            </div>
+          </div>
+        </div>
       </div>
-    
-      <nav class="col-lg-8 align-self-center mb-5">
-        <ul class="list-inline text-lg-right text-center footer-menu">
-          <li class="list-inline-item active"><a href="index.html">Home</a></li>
-          <li class="list-inline-item"><a class="page-scroll" href="#feature">Feature</a></li>
-          <li class="list-inline-item"><a href="about.html">About</a></li>
-          <li class="list-inline-item"><a class="page-scroll" href="#team">Team</a></li>
-          <li class="list-inline-item"><a class="page-scroll" href="#pricing">Pricing</a></li>
-          <li class="list-inline-item"><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      
-      <nav class="col-12">
-        <ul class="list-inline text-lg-right text-center social-icon">
-          <li class="list-inline-item">
-            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
-          </li>
-          <li class="list-inline-item">
-            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
-          </li>
-          <li class="list-inline-item">
-            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
-          </li>
-          <li class="list-inline-item">
-            <a class="black" href="#"><i class="ti-github"></i></a>
-          </li>
-        </ul>
-      </nav>
     </div>
+
   </div>
-</footer> -->
 
-<script src="https://kit.fontawesome.com/ee354b4b49.js" crossorigin="anonymous"></script>
-<!-- jQuery -->
-<script src="{% static 'dtox/plugins/jQuery/jquery.min.js' %}"></script>
-<!-- Bootstrap JS -->
-<script src="{% static 'dtox/plugins/bootstrap/bootstrap.min.js' %}"></script>
-<!-- slick slider -->
-<script src="{% static 'dtox/plugins/slick/slick.min.js' %}"></script>
-<!-- venobox -->
-<script src="{% static 'dtox/plugins/Venobox/venobox.min.js' %}"></script>
-<!-- aos -->
-<script src="{% static 'dtox/plugins/aos/aos.js' %}"></script>
-<!-- Main Script -->
-<script src="{% static 'dtox/js/script.js' %}"></script>
 
-<script>
-  var myModal = document.getElementById('myModal')
-  var myInput = document.getElementById('myInput')
+  <script src="{% static 'klar/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'klar/js/aos.js' %}"></script>
+  <script>
+    AOS.init({
+      duration: 800, // values from 0 to 3000, with step 50ms
+    });
+  </script>
+  <script>
+    let scrollpos = window.scrollY;
+    const header = document.querySelector(".navbar");
+    const header_height = header.offsetHeight;
 
-  myModal.addEventListener('shown.bs.modal', function () {
-  myInput.focus()
-  })
-</script>
+    const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm");
+    const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm");
+
+    window.addEventListener('scroll', function () {
+      scrollpos = window.scrollY;
+
+      if (scrollpos >= header_height) { add_class_on_scroll(); }
+      else { remove_class_on_scroll(); }
+
+      console.log(scrollpos);
+    })
+  </script>
+
 </body>
+
 </html>
