@@ -43,6 +43,14 @@ a.no-hover-effect:hover {
     width: 100%;
 }
 
+#fa-instagram {
+
+background: #d6249f;
+background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+}
 </style>
 
 
@@ -91,21 +99,22 @@ a.no-hover-effect:hover {
         <div class="logo">
             
                 <p class="biz_logo"> <strong>{{biz.business_name.upper}}</strong></p>
+                <ul>
+                    <li><a href="#"><i style="color: #3b5998; font-size: 30px;" class="fa fa-facebook-square"></i></a></li>
+                    <li><a href="#"><i style="color: #00acee; font-size: 30px;" class="fa fa-twitter-square"></i></a></li>
+                    <li><a href="#" ><i style="font-size: 30px;" id="fa-instagram" class="fa fa-instagram"></i></a></li>
+                    <li><a href="#"><i style="color: #25CF43; font-size: 30px;" class="fa fa-whatsapp"></i></a></li>
+                </ul>
 
         </div>
         <div id="mobile-menu-wrap"></div>
-        <div class="om-widget">
-            <ul>
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
-            </ul>
+        <div class="h-widget">
+            
         </div>
     </div>
     <!-- Offcanvas Menu Wrapper End -->
 
-    <header class="header-section" s>
+    <header class="header-section" >
         <div class="hs-top">
             <div class="container">
                 <div class="row">
@@ -116,13 +125,12 @@ a.no-hover-effect:hover {
                     </div>
                     <div class="col-lg-4">
                         <div class="ht-widget" >
-                            <ul>
-                                <li style="margin-left: -10%;"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li style="margin-left: -10%;"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li style="margin-left: -10%;"><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                <li style="margin-left: -10%;"><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+                            <ul class="main-menu" >
+                                <li><a href="#"><i style="color: #3b5998; font-size: 30px;" class="fa fa-facebook-square"></i></a></li>
+                                <li><a href="#"><i style="color: #00acee; font-size: 30px;" class="fa fa-twitter-square"></i></a></li>
+                                <li><a href="#" ><i style="font-size: 30px;" id="fa-instagram" class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i style="color: #25CF43; font-size: 30px;" class="fa fa-whatsapp"></i></a></li>
                             </ul>
-                            <!-- <a href="#" class="hw-btn">Submit property</a> -->
                         </div>
                     </div>
                 </div>
@@ -141,7 +149,7 @@ a.no-hover-effect:hover {
     <div class="container" >
             <div class="about_section layout_padding"  >
                 <div class="" >
-                    <!-- <h1 class="about_taital">About <span class="us_text">Us</span></h1>  -->
+                    <h1 class="">Welcome To Our Store</h1> 
                     <p class="about_text" style="border-bottom: 2px #888888 solid;">In HTML, an anchor tag disappears when you hover over it because the default behavior for an anchor tag with an href attribute is to change its appearance when it is being interacted with (such as on hover).
 
                         If you want to prevent the anchor tag from disappearing or changing its appearance when you hover over it, you can use CSS to style the anchor tag and override its default behavior. Specifically, you can use the :hover pseudo-class to set the styles for the anchor tag when it is being hovered.
@@ -206,7 +214,6 @@ a.no-hover-effect:hover {
                             <div class="row">
 
                                 {% for product in  page %} 
-                                
                                 <div class="col-lg-4 col-sm-4" >
                                     <div class="box_main" style="box-shadow: 0px 1px 10px 1px #888888; margin-top: 5px; border: 2px #888888 solid;">
                                     <div class="student_bg"  style="border-bottom: 2px #888888 solid;"><img src="{{product.product_image.url}}" class="student_bg"></div>
@@ -217,7 +224,6 @@ a.no-hover-effect:hover {
                                         <br>
                                    
                                     </div>
-                                    
                                 </div>
                                 {% endfor %}
                             </div>
@@ -243,30 +249,56 @@ a.no-hover-effect:hover {
 
 
 
-    <!-- <footer class="footer-section">
+    <footer class="footer-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="fs-about">
                         <div class="fs-logo">
-                            <a href="#">
-                                <img src="{% static 'dtox/images/mypagelogo.svg' %}" alt="">
+                            <a href="{% url 'product_list' biz.slug %}">
+                                <p class="biz_logo"> <strong>{{biz.business_name.upper}}</strong></p>
                             </a>
                         </div>
+                        <p data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Contact Seller</p>
+                            <div  class="collapse" id="collapseExample">
+                            
+                                    <!-- Product Meta Data -->
+                                    <form action="" method="POST" >
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-6 mb-3">
+                                                <label for="exampleInputEmail1" class="form-label">Name</label>
+                                                <input type="text" class="form-control" name="review_creator" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mb-3">
+                                            <label for="exampleInputPassword1" class="form-label">Review</label>
+                                            <textarea class="form-control" aria-label="With textarea" name="review_body" rows="2" required></textarea>
+                                        </div>
+                                        
+                                        
+                                        <div class="text-center"><button type="submit" class="btn_3" >Save</button></div>
+                                        
+                                    </form>
+                    
+                            </div>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-6">
                     <div class="fs-about">
                         <div class="fs-logo">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua ut aliquip ex ea</p>
+                            <p class="about_text" style="border-bottom: 2px #888888 solid;">In HTML, an anchor tag disappears when you hover over it because the default behavior for an anchor tag with an href attribute is to change its appearance when it is being interacted with (such as on hover).
+    
+                                If you want to prevent the anchor tag from disappearing or changing its appearance when you hover over it</p>
+                                <div class="line"></div> 
                         </div>
                     </div>
                 </div>
             </div>
             
         </div>
-    </footer> -->
+    </footer>
 
     <!-- Js Plugins -->
     <script src="{% static 'aler/js/jquery-3.3.1.min.js' %}"></script>

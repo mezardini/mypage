@@ -1,225 +1,249 @@
 {% load static %}
 
-
-<!DOCTYPE html>
-<html lang="zxx">
+<!doctype html>
+<html class="h-100" lang="en">
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="A well made and handcrafted Bootstrap 5 template">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+  <meta name="author" content="Holger Koenemann">
+  <meta name="generator" content="Eleventy v2.0.0">
+  <meta name="HandheldFriendly" content="true">
   <title>MYPAGE</title>
+  <link rel="stylesheet" href="{% static 'klar/css/theme.min.css' %}">
+  <link rel="stylesheet" href="{% static 'klar/css/theme.css' %}">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-  <!-- mobile responsive meta -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  
-  <!-- ** Plugins Needed for the Project ** -->
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="{% static 'dtox/plugins/bootstrap/bootstrap.min.css' %}">
-  <!-- themefy-icon -->
-  <link rel="stylesheet" href="{% static 'dtox/plugins/themify-icons/themify-icons.css' %}">
-  <!-- slick slider -->
-  <link rel="stylesheet" href="{% static 'dtox/plugins/slick/slick.css' %}">
-  <!-- venobox popup -->
-  <link rel="stylesheet" href="{% static 'dtox/plugins/Venobox/venobox.css' %}">
-  <!-- aos -->
-  <link rel="stylesheet" href="{% static 'dtox/plugins/aos/aos.css' %}">
-  
+  <style>
+    /* inter-300 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-300.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-300.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
 
-  <!-- Main Stylesheet -->
-  <link href="{% static 'dtox/css/style.css' %}" rel="stylesheet">
-  
-  <!--Favicon-->
-  <!-- <link rel="shortcut icon" href="{% static 'dtox/images/favicon.ico' %}" type="image/x-icon">
-  <link rel="icon" href="{% static 'dtox/images/favicon.ico' %}" type="image/x-icon"> -->
-  <link rel="icon" href="{% static 'dtox/images/favicon.svg' %}">
+    /* inter-400 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-regular.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-regular.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-500.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-500.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-700.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-700.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+  </style>
+
 
 </head>
 
-<body>
-  
+<body class="bg-black text-white mt-0" >
 
-<!-- navigation -->
-<section class="fixed-top navigation " style="justify-items: center;">
-  <div class="container" >
-    <nav class="navbar navbar-expand-lg navbar-light ">
-        
-      <a class="float-end" href="{% url 'home' %}"><img  src="{% static 'dtox/images/mypagelogo.svg' %}" alt="logo"></a>
-
-    </nav>
+  <div class="container text-center">
+      <a  href="{% url 'home' %}">
+      <img src="{% static 'dtox/images/mypagelogo.svg' %}" alt="">
+      </a>
   </div>
-</section>
-<!-- /navigation -->
-
-<!-- hero area -->
-<section class="hero-section hero" data-background="" style="margin-top: -10%;">
-
   
- <div class="container " style="width: 80%; border: 2px solid #93D2FF;  padding: 2%;">
-
-  <div class="container">
-        
-                <form action="" method="POST">
-                  {% csrf_token %}
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Business Name</label>
-                      <input type="text" class="form-control" name="product_name" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-                      <p>Will appear on the page</p>
-                    </div>
-                    <!-- <div class="mb-3">
-                      <label for="business_email" class="form-label">Email Address</label>
-                      <input type="email" class="form-control" name="product_name" id="business_email" aria-describedby="emailHelp" required>
-                      <p>Your login details will be sent to this address</p>
-                    </div> -->
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Business Description</label>
-                      <textarea class="form-control" aria-label="With textarea" name="product_description" rows="6" required></textarea>
-                      <p>Description appears on the top of the page</p>
-                    </div>           
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Business Logo</label>
-                      <input type="file" class="form-control" id="inputGroupFile02" name="images" >
-                    </div>
-                    <p class="text-center">Social Media</p>
-                    <p class="text-center"><small>The links will appear on the page, not required</small></p>
-                    <div class="row">
-                        <div class="col">
-                      <div class="input-group input-group mb-3">
-                        <div class="input-group-text">Instagram</div>
-                        <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="input-group input-group mb-3">
-                        <div class="input-group-text">Facebook</div>
-                        <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="input-group input-group mb-3">
-                        <div class="input-group-text">Twitter</div>
-                        <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="input-group input-group mb-3">
-                        <div class="input-group-text">LinkedIn</div>
-                        <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
-                      </div>
-                    </div>
-                    </div>
-                    <div class="text-center"><button type="submit" class="btn btn-primary " >Save</button></div>
-                  
-                  </form>
+  <div class="bg-black">
+    <div class="container px-vw-5 py-vh-5">
+      <div class="row d-flex align-items-center">
+        <div class="col-12 col-lg-12 " data-aos="zoom-in-right">
+          <div class="row d-flex  py-vh-5">
+            <h1 class="text-center">Become a seller today!</h1>
+            <form action="" method="POST">
+              {% csrf_token %}
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Business Name</label>
+                  <input type="text" class="form-control" name="product_name" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                  <small>Will appear on the page and the url, the shorter the better</small>
+                </div>
+                <!-- <div class="mb-3">
+                  <label for="business_email" class="form-label">Email Address</label>
+                  <input type="email" class="form-control" name="product_name" id="business_email" aria-describedby="emailHelp" required>
+                  <p>Your login details will be sent to this address</p>
+                </div> -->
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Business Description</label>
+                  <textarea class="form-control" aria-label="With textarea" name="product_description" rows="6" required></textarea>
+                  <p>Description appears on the page</p>
+                </div>           
+                <!-- <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Business Logo</label>
+                  <input type="file" class="form-control" id="inputGroupFile02" name="images" >
+                </div> -->
+                <p class="text-center">Social Media</p>
+                <p class="text-center"><small>The links will appear on the page, not required</small></p>
                 
                 
-  </div>
-      
-  </div>
- 
- <!-- <div class="container col-4" style="width: 5%; border: 2px solid #93D2FF;  padding: 2%;">
-      
- <H6>Product Name</H6>
- <p>This is the simply name of the product.</p>
- <br>
- <br>
- <H6>Product Description</H6>
- <p>This is the description and the details of the product that convey necessary information about the product.</p>
- <br>
- <br>
- <H6>Product Price</H6>
- <p>This is the simply price of the product in dollars.</p>
- <H6>Payment Link</H6>
- <p>This is the link that customers use to pay for your product, click <a target="_blank" href="https://stripe.com/payments/payment-links">here</a>
-   to read more. Leave empty if you want it created by us</p>
- <H6>Product Images</H6>
- <p>These are the images of the product, upload is capped at 5 images for a product.</p>
+                  <div class="input-group input-group mb-3">
+                    <div class="input-group-text">Instagram</div>
+                    <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Url">
+                  </div>
+               
+                
+                  <div class="input-group input-group mb-3">
+                    <div class="input-group-text">Facebook</div>
+                    <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Url">
+                  </div>
+               
+                
+                  <div class="input-group input-group mb-3">
+                    <div class="input-group-text">Twitter</div>
+                    <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Url">
+                  </div>
+               
+                
+                  <div class="input-group input-group mb-3">
+                    <div class="input-group-text">LinkedIn</div>
+                    <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Url">
+                  </div>
+                  <p class="text-center">Choose Template</p>
+                  <div class="input-group input-group mb-3">
+                    <div class="input-group-text">Template</div>
+                    <select class="form-select" name="status" id="autoSizingInputGroup">
+                      <option selected value="Active">Babeje</option>
+                      <option value="Hidden">Fekomi</option>
+                      <option value="3">Burantashi</option>
+                      <!-- <option value="4">Four</option>
+                      <option value="5">Five</option> -->
+                    </select>
+                  </div>
+                  <div class="row text-center">
+                    <div class="col-md-4 slick3 gallery-lb">
+                        <div class="item-slick3" data-thumb="{% static 'images/choose_rating.png' %}">
+                              <div class="block2-pic hov-img0">
+                                <img src="{% static 'images/choose_rating.png' %}" data-toggle="modal" data-target="#exampleModal" style="max-width: 200px; max-height: 200px;" alt="IMG-PRODUCT">
+                              </div>
+                            </a>
+                          </div>
+                    </div>
+                    <div class="col-md-4 slick3 gallery-lb">
+                          <div class="item-slick3" data-thumb="{% static 'images/choose_rating.png' %}">
+                                <div class="block2-pic hov-img0">
+                                  <img src="{% static 'images/choose_rating.png' %}" data-toggle="modal" data-target="#exampleModal" style="max-width: 200px; max-height: 200px;" alt="IMG-PRODUCT">
+                                </div>
+                              </a>
+                            </div>
+                    </div>
+                    <div class="col-md-4 slick3 gallery-lb">
+                      <div class="item-slick3" data-thumb="{% static 'images/choose_rating.png' %}">
+                            <div class="block2-pic hov-img0">
+                              <img src="{% static 'images/choose_rating.png' %}" data-toggle="modal" data-target="#exampleModal" style="max-width: 200px; max-height: 200px;" alt="IMG-PRODUCT">
+                            </div>
+                          </a>
+                        </div>
+                    </div>
+                  </div>
+                  <br>
+                <div class="text-center"><button type="submit" class="btn btn-xl btn-outline-dark" >Save</button></div>
+              
+              </form>
+          </div>
+        </div>
+        <!-- <div class="col-12 col-lg-6 d-flex align-items-center bg-dark shadow rounded-5 p-0" data-aos="zoom-in-up">
+          <div class="row d-flex justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-8 text-center my-5">
+              <p class="lead border-bottom pb-4 border-secondary">We're thrilled to have you here. By signing up, you're not just joining a platform – you're becoming a part of a dynamic and diverse community of like-minded individuals who are passionate about improving sales.
 
- <H6>Product Video</H6>
- <p>This is a video of the product. Upload is optional and the size limit is 2mb.</p>
-  
- </div> -->
- </div>
-
-</section>
-
-
-
-
-
-
-
-<!-- <footer class="footer-section footer" style=" margin-top: -40%; margin-bottom: -80%;">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-4 text-center text-lg-left mb-4 mb-lg-0">
-        
-        <a href="index.html">
-          <img class="img-fluid" src="{% static 'dtox/images/mypagelogo.svg' %}" alt="logo">
-        </a>
+                At <strong>MYPAGE</strong> , we believe in the power of connection and collaboration. So, what are you waiting for? Join us today and let's start shaping the future together.</p>
+                <p class="text-secondary text-center">MeZard, CEO</p>
+            </div>
+          </div>
+        </div> -->
       </div>
-    
-      <nav class="col-lg-8 align-self-center mb-5">
-        <ul class="list-inline text-lg-right text-center footer-menu">
-          <li class="list-inline-item active"><a href="index.html">Home</a></li>
-          <li class="list-inline-item"><a class="page-scroll" href="#feature">Feature</a></li>
-          <li class="list-inline-item"><a href="about.html">About</a></li>
-          <li class="list-inline-item"><a class="page-scroll" href="#team">Team</a></li>
-          <li class="list-inline-item"><a class="page-scroll" href="#pricing">Pricing</a></li>
-          <li class="list-inline-item"><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      
-      <nav class="col-12">
-        <ul class="list-inline text-lg-right text-center social-icon">
-          <li class="list-inline-item">
-            <a class="facebook" href="#"><i class="ti-facebook"></i></a>
-          </li>
-          <li class="list-inline-item">
-            <a class="twitter" href="#"><i class="ti-twitter-alt"></i></a>
-          </li>
-          <li class="list-inline-item">
-            <a class="linkedin" href="#"><i class="ti-linkedin"></i></a>
-          </li>
-          <li class="list-inline-item">
-            <a class="black" href="#"><i class="ti-github"></i></a>
-          </li>
-        </ul>
-      </nav>
+    </div>
+
+  </div>
+
+  
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="card card-rounded" style="border: #ADE1F5 2px solid;">
+            <div class="card-body">
+              <div class="d-sm-flex justify-content-between align-items-start">
+                <div>
+                  <h4 class="card-title card-title-dash">Analytics</h4>
+                 <p class="card-subtitle card-subtitle-dash">Views, Reviews and Clicks across your products in the last 30 days</p>
+                </div>
+                
+              </div>
+              <div class="table-responsive  mt-1 text-center">
+                <canvas id="chart"></canvas>
+              </div>
+            </div>
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
   </div>
-</footer> -->
 
+  <script src="{% static 'klar/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'klar/js/aos.js' %}"></script>
+  <script>
+    AOS.init({
+      duration: 800, // values from 0 to 3000, with step 50ms
+    });
+  </script>
+  <script>
+    let scrollpos = window.scrollY;
+    const header = document.querySelector(".navbar");
+    const header_height = header.offsetHeight;
 
-<!-- jQuery -->
-<script src="{% static 'dtox/plugins/jQuery/jquery.min.js' %}"></script>
-<!-- Bootstrap JS -->
-<script src="{% static 'dtox/plugins/bootstrap/bootstrap.min.js' %}"></script>
-<!-- slick slider -->
-<script src="{% static 'dtox/plugins/slick/slick.min.js' %}"></script>
-<!-- venobox -->
-<script src="{% static 'dtox/plugins/Venobox/venobox.min.js' %}"></script>
-<!-- aos -->
-<script src="{% static 'dtox/plugins/aos/aos.js' %}"></script>
-<!-- Main Script -->
-<script src="{% static 'dtox/js/script.js' %}"></script>
+    const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm");
+    const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm");
 
-<script>
-  var myModal = document.getElementById('myModal')
-  var myInput = document.getElementById('myInput')
+    window.addEventListener('scroll', function () {
+      scrollpos = window.scrollY;
 
-  myModal.addEventListener('shown.bs.modal', function () {
-  myInput.focus()
-  })
-</script>
-<script>
-  var uploadField = document.getElementById("product_video");
+      if (scrollpos >= header_height) { add_class_on_scroll(); }
+      else { remove_class_on_scroll(); }
 
-uploadField.onchange = function() {
-    if(this.files[0].size > 2097152){
-       alert("File is too big!");
-       this.value = "";
-    };
-};
-</script>
+      console.log(scrollpos);
+    })
+  </script>
+
 </body>
+
 </html>

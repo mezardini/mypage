@@ -1,0 +1,424 @@
+{% load static %}
+
+<!doctype html>
+<html class="h-100" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="A well made and handcrafted Bootstrap 5 template">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
+  <meta name="author" content="Holger Koenemann">
+  <meta name="generator" content="Eleventy v2.0.0">
+  <meta name="HandheldFriendly" content="true">
+  <title>MYPAGE</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'aler/css/font-awesome.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'klar/css/theme.min.css' %}">
+  <link rel="stylesheet" href="{% static 'klar/css/theme.css' %}">
+  <link rel="icon" href="{% static 'dtox/images/favicon.svg' %}">
+  <link rel="stylesheet" href="{% static 'admin/vendors/feather/feather.css' %}">
+  <link rel="stylesheet" href="{% static 'admin/vendors/mdi/css/materialdesignicons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'admin/vendors/ti-icons/css/themify-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'admin/vendors/typicons/typicons.css' %}">
+  <link rel="stylesheet" href="{% static 'admin/vendors/simple-line-icons/css/simple-line-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'admin/vendors/css/vendor.bundle.base.css' %}">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="{% static 'admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css' %}">
+  <link rel="stylesheet" href="{% static 'admin/js/select.dataTables.min.css' %}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'admin/css/vertical-layout-light/style.css' %}">
+
+  <style>
+    a.no-hover-effect {
+    color: black;
+    text-decoration: none;
+    }
+    /* inter-300 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-300.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-300.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    /* inter-400 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-regular.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-regular.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-500.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-500.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-700.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-700.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+  </style>
+
+
+</head>
+
+<body class="bg-light text-white mt-0" >
+
+  <div class="container text-center">
+    <a  href="{% url 'home' %}">
+    <img src="{% static 'dtox/images/mypagelogo.svg' %}" alt="">
+    </a>
+  </div>
+
+
+  <div class="bg-light py-vh-5">
+    <div class="container px-vw-5">
+      <div class="row d-flex gx-5 align-items-center">
+        <div class="col-lg-12 d-flex flex-column">
+            <div class="row flex-grow">
+                <div class="col-12 grid-margin stretch-card">
+                    <div class="card card-rounded" style="border: #ADE1F5 2px solid;">
+                      <div class="card-body">
+                        <div class="d-sm-flex justify-content-between align-items-start">
+                          <div>
+                            <h4 data-toggle="modal" data-target="#exampleModal" aria-hidden="true" class="card-title card-title-dash">Analytics</h4>
+                           <p class="card-subtitle card-subtitle-dash">Views, Reviews and Clicks across your products in the last 30 days</p>
+                          </div>
+                          
+                        </div>
+                        <div class="table-responsive  mt-1 text-center">
+                            <canvas id="chart"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>              
+          </div>
+          
+      </div>
+    </div>
+    
+  </div>
+
+
+  <div class="bg-light py-vh-5">
+    <div class="container px-vw-5">
+      <div class="row d-flex gx-5 align-items-center">
+        <div class="col-lg-12 d-flex flex-column">
+            <div class="row flex-grow">
+                <div class="col-12 grid-margin stretch-card">
+                  <div class="card card-rounded" style="border: #ADE1F5 2px solid;">
+                    <div class="card-body">
+                      <div class="d-sm-flex justify-content-between align-items-start">
+                        <div >
+                          <h4 class="card-title card-title-dash" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Edit Product 
+                          <!-- <p class="col-md-3 text-end">Drop</p> -->
+                        </div>
+                        
+                      </div>
+                      <div class="table-responsive  mt-1" class="collapse" id="collapseExample">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                              <label class="input-group" for="inputGroupSelect01" style="color: black;">Status</label>
+                              <select class="form-select" name="status" id="inputGroupSelect01">
+                                <option selected value="Active">Active</option>
+                                <option value="Hidden">Hidden</option>
+                                <!-- <option value="3">Three</option>
+                                <option value="4">Four</option>
+                                <option value="5">Five</option> -->
+                              </select>
+                            </div>
+                              <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label" style="color: black;">Product Name</label>
+                                <input type="text" class="form-control" name="product_name" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{product.product_name}}">
+                                
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label"  style="color: black;">Product description</label>
+                                <textarea class="form-control" aria-label="With textarea" value="{{product.product_description}}" placeholder="{{product.product_description}}" name="product_description" rows="6" >{{product.product_description}}</textarea>
+                              </div>
+                              <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label" style="color: black;"> Product Price</label>
+                                    <input type="text" class="form-control" name="product_price" id="ConfirmPassword" value="{{product.product_price}}" required>
+                              </div>     
+                              <!-- <img src="{{product.product_image.url}}" alt="Default Image" width="100" height="100">        
+                              <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Product Images</label>
+                                <input type="file" class="form-control" id="inputGroupFile02"  name="images"  multiple >
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Product Video</label>
+                                <input type="file" class="form-control" id="product_video" name="video" >
+                              </div> -->
+                              <div class="text-center"><button type="submit" class="btn btn-xl btn-outline-dark" >Update</button></div>
+                            
+                            </form>
+                      </div> 
+                    </div>
+                  </div>
+                </div>
+            </div>              
+          </div>
+          
+      </div>
+    </div>
+  </div>
+
+  <div class="container px-vw-5">
+    <div class="row d-flex gx-5 align-items-center">
+      <div class="col-lg-12 d-flex flex-column">
+          <div class="row flex-grow">
+              <div class="col-12 grid-margin stretch-card">
+                <div class="card card-rounded" style="border: #ADE1F5 2px solid;">
+                  <div class="card-body">
+                    <div class="d-sm-flex justify-content-between align-items-start">
+                      <div>
+                        <h4 class="card-title card-title-dash" data-toggle="collapse" data-target="#collapseDelete" aria-expanded="false" aria-controls="collapseDelete">Delete Product 
+                         
+                      </div>
+                      
+                    </div>
+                    <div class="table-responsive  mt-1" class="collapse" id="collapseDelete">
+                      <form action="{% url 'deleteproduct' biz.slug product.slug %}" method="POST">
+                            {% csrf_token %}
+                            {% if messages %}
+                            <ul class="mb-4">
+                                {% for message in messages %}
+                                <div class="alert alert-danger" role="alert">
+                                <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                                </div>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                            <div class="mb-3">
+                                <p><div class="alert alert-info" role="alert">
+                                    Type <b>'{{product.product_name}}'</b>  in the text box below to delete this product
+                                    </div></p>
+                              <input type="text" class="form-control" name="delete_text" placeholder="Type product name" id="exampleInputEmail1" aria-describedby="emailHelp" >
+                              
+                            </div>
+                           
+                            <div class="text-center"><button type="submit" class="btn btn-xl btn-outline-dark" >Delete</button></div>
+                          
+                          </form>
+                    </div> 
+                  </div>
+                </div>
+              </div>
+          </div>              
+        </div>
+        
+    </div>
+  </div>
+
+  <div class="bg-light py-vh-5">
+    <div class="container px-vw-5">
+      <div class="row d-flex gx-5 align-items-center">
+        <div class="col-lg-12 d-flex flex-column">
+            <div class="row flex-grow">
+                <div class="col-12 grid-margin stretch-card">
+                  <div class="card card-rounded" style="border: #ADE1F5 2px solid;">
+                    <div class="dropdown show">
+                    <div class="card-body">
+                      <div class="d-sm-flex justify-content-between align-items-start">
+                        <div>
+                          <h4 class="card-title card-title-dash" data-toggle="collapse" data-target="#collapseReview" aria-expanded="false" aria-controls="collapseReview">Reviews</h4>
+                         <p class="card-subtitle card-subtitle-dash">You have  {{reviews.count}} reviews on your products in total</p>
+                        </div>
+                        
+                      </div>
+                      <div class="table-responsive  mt-1" class="collapse" id="collapseReview">
+                        <table class="table select-table">
+                          <thead>
+                            <tr>
+                              
+                              <th >Creator</th>
+                              <th class="text-center">Review</th>
+                              <th class="text-center">Rating</th>
+                              
+                              <th class="text-center">Date</th>
+                              <th class="text-center">Status</th>
+                              <th class="text-center">Change Status</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for review in reviews %}
+                            <tr>
+                              
+                              <td>
+                                <div class="d-flex ">
+                                  
+                                  <div>
+                                    <h6>{{review.creator}}  </h6>
+                                    
+                                  </div>
+                                </div>
+                              </td>
+                              <td class="text-center">
+                                <h6>{{review.body}}</h6>
+                                
+                              </td>
+                              <td class="text-center">
+                                <h6>{{review.rating}}</h6>
+                                
+                              </td>
+                              
+                              <td class="text-center">
+                                <h6>{{review.created|date}}</h6>
+                                
+                              </td>
+                              <td class="text-center">
+                                <h6>{{review.status}}</h6>
+                                
+                              </td>
+                              <td class="text-center">
+                                {% if review.status == 'Active' %}
+                                <div class="hannery_text" style="color: #18a732;"><a href="{% url 'hidereview' biz.slug product.slug review.pk  %}?status=active" class="no-hover-effect" style="color: #18a732;">Hide</a> </div>               
+                                
+                                {% else %} 
+                                <div class="hannery_text" style="color: #18a732;"><a href="{% url 'hidereview' biz.slug product.slug review.pk  %}?status=hidden" class="no-hover-effect" style="color: #18a732;">Show</a></div>               
+                                
+                                {% endif %}                                
+                                <!-- <h6>Hide</h6> -->
+                                
+                              </td>
+                            </tr>
+                            {% endfor %}
+                            
+                          </tbody>
+                        </table>
+                        <div class="text-end" >
+                            <a href="{% url 'createpage' biz.slug %}" style="color: #18a732;" >See all
+                            </a>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+            </div>              
+          </div>
+          
+      </div>
+    </div>
+    
+  </div>
+
+
+  <script src="{% static 'klar/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'klar/js/aos.js' %}"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+  </script>
+  
+  <script>
+    AOS.init({
+      duration: 800, // values from 0 to 3000, with step 50ms
+    });
+  </script>
+  <script>
+    let scrollpos = window.scrollY;
+    const header = document.querySelector(".navbar");
+    const header_height = header.offsetHeight;
+
+    const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm");
+    const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm");
+
+    window.addEventListener('scroll', function () {
+      scrollpos = window.scrollY;
+
+      if (scrollpos >= header_height) { add_class_on_scroll(); }
+      else { remove_class_on_scroll(); }
+
+      console.log(scrollpos);
+    })
+  </script>
+  <script>
+    $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+    })
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+  <script>
+    let start = new Date('{{product.date_created|date:"Y-m-d"}}');
+    let end = new Date("2023-08-09");
+
+    
+    new Chart(document.getElementById("chart"), {
+    type: "line",
+    data: {
+        labels: [start, end],  // Set labels to the start and end dates
+        datasets: [{
+        label: "Reviews",
+        data: [860, 1140, 1060, 1060, 1070, 1110, 1330, 2210, 783, 2478],
+        borderColor: "red",
+        fill: false
+        },{
+        label: "Views",
+        data: [1600, 1700, 1700, 1900, 2000, 2700, 4000, 500, 600, 700],
+        borderColor: "green",
+        fill: false
+        },{
+        label: "Clicks",
+        data: [300, 700, 2000, 500, 600, 4000, 2000, 1000, 200, 100],
+        borderColor: "blue",
+        fill: false
+        }]
+    },
+    options: {
+        scales: {
+        xAxes: [{
+            type: "time",
+            time: {
+            min: start,
+            max: end,
+            unit: "day",
+            displayFormats: {
+                day: "MM-DD"
+            }
+            }
+        }]
+        }
+    }
+    });
+
+
+</script>
+</body>
+
+</html>

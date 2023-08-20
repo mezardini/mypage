@@ -14,7 +14,7 @@
   <meta name="author" content="Holger Koenemann">
   <meta name="generator" content="Eleventy v2.0.0">
   <meta name="HandheldFriendly" content="true">
-  <title>Klar HTML Template - Frontpage one</title>
+  <title>MYPAGE</title>
   <link rel="stylesheet" href="{% static 'klar/css/theme.min.css' %}">
   <link rel="stylesheet" href="{% static 'klar/css/theme.css' %}">
 
@@ -97,16 +97,18 @@
             <form method="POST" action="">
               {% csrf_token %}
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <label for="exampleInputEmail1" class="form-label">Email Address</label>
                 <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
               </div>
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" class="form-control" name="password" id="Password">
               </div>
+              
               <div class="text-center"><button type="submit" class="btn btn-xl btn-outline-dark" >Sign In</button></div>
             </form>
           </div>
+          <p>Not a member? Click <a href="{% url 'signup' %}">here</a> to sign up</p>
         </div>
         <div class="col-12 col-lg-6 d-flex align-items-center bg-dark shadow rounded-5 p-0" data-aos="zoom-in-up">
           <div class="row d-flex justify-content-center">

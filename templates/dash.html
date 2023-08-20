@@ -16,7 +16,7 @@
   <meta name="HandheldFriendly" content="true">
   <title>MYPAGE</title>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="{% static 'aler/css/font-awesome.min.css' %}" type="text/css">
   <link rel="stylesheet" href="{% static 'klar/css/theme.min.css' %}">
   <link rel="stylesheet" href="{% static 'klar/css/theme.css' %}">
@@ -170,7 +170,7 @@
                             <tr>
                               
                               <th >Product </th>
-                              <th class="text-center">Views</th>
+                              <th class="text-center">Total Views</th>
                               <th class="text-center">CTA Clicks</th>
                               <th class="text-center">Reviews</th>
                               <th class="text-center">Edit Product</th>
@@ -187,17 +187,17 @@
                                 <div class="d-flex ">
                                   
                                   <div>
-                                    <h6> <img src="{{product.product_image.url}}" width="20" height="20" alt=""> <a class="no-hover-effect" href="{% url 'product_page' biz.slug product.slug %}">{{product.product_name}} </a> </h6>
+                                    <h6> <img src="{{product.product_image.url}}" width="20" height="20" alt=""> <a class="no-hover-effect" href="{% url 'productdashboard' biz.slug product.slug %}">{{product.product_name}} </a> </h6>
                                     
                                   </div>
                                 </div>
                               </td>
                               <td class="text-center">
-                                <h6>{{product.views}} {{ product.date_created|date:"Y-m-d"}}</h6>
+                                <h6>{{product.views}} </h6>
                                 
                               </td>
                               <td class="text-center">
-                                <h6>{{product.cta_click}} {{date}}</h6>
+                                <h6>{{product.cta_click}} </h6>
                                 
                               </td>
                               <td class="text-center">
@@ -213,7 +213,7 @@
                                 
                               </td>
                               <td class="text-center">
-                                <h6><i class="fa fa-bar-chart" data-toggle="modal" data-target="#exampleModal" aria-hidden="true"></i></h6>
+                                <h6><i class="fa fa-expand" data-toggle="modal" data-target="#exampleModal" aria-hidden="true"></i></h6>
                                 
                               </td>
                               
@@ -221,50 +221,7 @@
                                
                             </tr>
 
-                            <script>
-                                let start = new Date('{{product.date_created|date:"Y-m-d"}}');
-                            let end = new Date("2023-08-09");
-
-                            console.log('{{product.date_created|date:"Y-m-d"}}')
-                            new Chart(document.getElementById("chart"), {
-                            type: "line",
-                            data: {
-                                labels: [start, end],  // Set labels to the start and end dates
-                                datasets: [{
-                                data: [860, 1140, 1060, 1060, 1070, 1110, 1330, 2210, 783, 2478],
-                                borderColor: "red",
-                                fill: false
-                                },{
-                                label: "Views",
-                                data: [1600, 1700, 1700, 1900, 2000, 2700, 4000, 500, 600, 700],
-                                borderColor: "green",
-                                fill: false
-                                },{
-                                label: "Clicks",
-                                data: [300, 700, 2000, 500, 600, 4000, 2000, 1000, 200, 100],
-                                borderColor: "blue",
-                                fill: false
-                                }]
-                            },
-                            options: {
-                                scales: {
-                                xAxes: [{
-                                    type: "time",
-                                    time: {
-                                    min: start,
-                                    max: end,
-                                    unit: "day",
-                                    displayFormats: {
-                                        day: "MM-DD"
-                                    }
-                                    }
-                                }]
-                                }
-                            }
-                            });
-
-
-                            </script>
+                          
                             {% endfor %}
                             
                           </tbody>
@@ -457,7 +414,50 @@
     })
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
-  
+  <script>
+    let start = new Date('2023-08-05');
+let end = new Date("2023-08-09");
+
+console.log('{{product.date_created|date:"Y-m-d"}}')
+new Chart(document.getElementById("chart"), {
+type: "line",
+data: {
+    labels: [start, end],  // Set labels to the start and end dates
+    datasets: [{
+    data: [860, 1140, 1060, 1060, 1070, 1110, 1330, 2210, 783, 2478],
+    borderColor: "red",
+    fill: false
+    },{
+    label: "Views",
+    data: [1600, 1700, 1700, 1900, 2000, 2700, 4000, 500, 600, 700],
+    borderColor: "green",
+    fill: false
+    },{
+    label: "Clicks",
+    data: [300, 700, 2000, 500, 600, 4000, 2000, 1000, 200, 100],
+    borderColor: "blue",
+    fill: false
+    }]
+},
+options: {
+    scales: {
+    xAxes: [{
+        type: "time",
+        time: {
+        min: start,
+        max: end,
+        unit: "day",
+        displayFormats: {
+            day: "MM-DD"
+        }
+        }
+    }]
+    }
+}
+});
+
+
+</script>
 </body>
 
 </html>

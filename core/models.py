@@ -39,6 +39,7 @@ class Product(models.Model):
     ]
     product_name = models.TextField(null=True)
     product_description = models.TextField(null=True)
+    product_terms = models.TextField(null=True)
     product_price = models.FloatField(null=True)
     product_redirect_url = models.URLField(null=True, blank=True)
     business = models.ForeignKey(Business, on_delete=models.CASCADE)

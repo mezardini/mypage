@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponse, get_object_or_404
 from django.urls import reverse
+from django.contrib.auth.mixins import LoginRequiredMixin
 import random
 from django.views import View
 from django.contrib.auth.decorators import login_required
@@ -24,6 +25,13 @@ def home(request):
 
     return render(request, 'home.html')
 
+def reroutedashboard(request, pk):
+    user = User.objects.get(id=pk)
+    business = Business.objects.get(user=user)
+
+    my_view = Dashboard()
+    return my_view.get(request, business.slug)
+
 def dash(request, slug):
     biz =  Business.objects.get(slug=slug) 
     products = Product.objects.filter(business=biz)
@@ -33,7 +41,8 @@ def dash(request, slug):
     context = {'biz':biz, 'products':products, 'reviews':reviews}
     return render(request, 'dash.html', context)
 
-class Dashboard(View):
+class Dashboard(LoginRequiredMixin, View):
+    login_url = 'signin'  
     template_name = 'dash.html'
 
     def get(self, request, slug):
@@ -46,6 +55,33 @@ class Dashboard(View):
         return render(request, Dashboard.template_name, context)
 
 
+class ProductDashboard(View):
+    template_name = 'product-dash.html'
+
+    def get(self, request, slug, slugx):
+        biz = Business.objects.get(slug=slug)
+        product = Product.objects.get(slug = slugx)
+        reviews = Product_review.objects.filter(product=product)
+
+        context = {'biz':biz, 'product':product, 'reviews':reviews}    
+        return render(request, ProductDashboard.template_name, context)
+    
+    def post(self, request, slug, slugx):
+        biz = Business.objects.get(slug=slug)
+        product = Product.objects.get(slug = slugx)
+        if request.method == 'POST':
+            specific_product = Product.objects.filter(slug = slugx)
+            product_update = specific_product.update(
+                    product_name = request.POST['product_name'],
+                    product_description = request.POST['product_description'],
+                    product_price = request.POST['product_price'],
+                    business = biz,
+                    slug = slugify(request.POST['product_name']),
+                    status = request.POST['status'],
+                )
+            
+            my_view = ProductPage()
+            return my_view.get(request, biz.slug, product.slug)
 
 def editproduct(request, slug, slugx):
     
@@ -91,25 +127,33 @@ def deleteproduct(request, slug, slugx):
 
             product.delete()
        
-            my_view = ProductList()
+            my_view = Dashboard()
             return my_view.get(request, biz.slug)
         else:
             messages.error(request, "The input does not match the product name")
-            return redirect('deleteproduct', biz.slug, product.slug)
+            my_view = ProductDashboard()
+            return my_view.get(request, biz.slug, product.slug)
         
 
     context = {'biz':biz, 'product':product}    
     return render(request, 'delete-product.html', context)
 
-def hideproduct(request, slug, slugx):
+def hidereview(request, slug, slugx, pk):
     biz = Business.objects.get(slug=slug)
     product = Product.objects.get(slug = slugx)
+    review = Product_review.objects.get(id=pk)
 
+    sort_param = request.GET.get('status')
 
-    product_status = Product.objects.filter(slug=slugx).update(status='Hidden')
+    if sort_param == 'active':
+        product_review = Product_review.objects.filter(pk=pk).update(status='Hidden')
+    elif sort_param == 'hidden':
+        product_review = Product_review.objects.filter(pk=pk).update(status='Active')
 
-    my_view = ProductList()
-    return my_view.get(request, biz.slug)
+    
+
+    my_view = ProductDashboard()
+    return my_view.get(request, biz.slug, product.slug)
 
 
 
@@ -180,7 +224,7 @@ def signin(request):
     return render(request, 'login.html')
 
 class ProductList(View):
-    template_name = 'index-aler.html'
+    template_name = 'product-coza.html'
     items_per_page = 12
     # text = 'SHOWING 1-8 0F 25'
 
@@ -269,7 +313,7 @@ class ProductList(View):
         if request.user == biz.user:
             ProductList.template_name = 'dashboard.html'
         else:
-            ProductList.template_name = 'index-aler.html'
+            ProductList.template_name = 'product-coza.html'
 
         
         context = {'biz':biz, 'products':products, 'page':page_obj, 
@@ -277,14 +321,15 @@ class ProductList(View):
         return render(request, ProductList.template_name, context)
     
 class ProductPage(View):
-    template_name = 'product-pil.html'
+    template_name = 'product_detail_coza.html'
 
     average = 1
     def get(self, request, slug, slugx):
         biz = Business.objects.get(slug=slug)
         productx = Product.objects.get(slug=slugx)
         product_media = Product_Media.objects.filter(product=productx)
-        review = Product_review.objects.filter(product=productx)
+        review = Product_review.objects.filter(product=productx).filter(status="Active")
+        related_products = Product.objects.filter(business=biz).filter(status="Active")
         if request.user != biz.user:
             product_views = Product.objects.filter(slug=slugx).update(views=F('views') +1)
         
@@ -298,7 +343,7 @@ class ProductPage(View):
             ProductPage.average = 0 
 
         context = {'biz':biz,'product':productx,'product_media':product_media, 'review':review, 
-                   'review_text':review_text, 'average':ProductPage.average}
+                   'review_text':review_text, 'average':ProductPage.average, 'related_products':related_products}
         return render(request, ProductPage.template_name, context)
     def post(self, request, slug, slugx):
         biz = Business.objects.get(slug=slug)
@@ -315,15 +360,15 @@ class ProductPage(View):
             )
             review.save()
             review_count = Product.objects.filter(slug=slugx).update(reviews_count=F('reviews_count') +1)
-            mail = EmailMessage(
-                "New comment on your product",
-                creator + ' commented: ' + body + ' on your product: ' + productx.product_name,
-                'settings.EMAIL_HOST_USER',
-                [biz.user.email],
-            )
-            mail.fail_silently = False
-            mail.content_subtype = 'html'
-            mail.send()
+            # mail = EmailMessage(
+            #     "New comment on your product",
+            #     creator + ' commented: ' + body + ' on your product: ' + productx.product_name,
+            #     'settings.EMAIL_HOST_USER',
+            #     [biz.user.email],
+            # )
+            # mail.fail_silently = False
+            # mail.content_subtype = 'html'
+            # mail.send()
         my_view = ProductPage()
         return my_view.get(request, biz.slug, productx.slug)
    
