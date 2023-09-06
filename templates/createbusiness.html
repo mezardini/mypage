@@ -17,9 +17,8 @@
   <title>MYPAGE</title>
   <link rel="stylesheet" href="{% static 'klar/css/theme.min.css' %}">
   <link rel="stylesheet" href="{% static 'klar/css/theme.css' %}">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+  
+ 
   <style>
     /* inter-300 - latin */
     @font-face {
@@ -83,8 +82,8 @@
       </a>
   </div>
   
-  <div class="bg-black">
-    <div class="container px-vw-5 py-vh-5">
+  <div class="bg-black" >
+    <div class="container ">
       <div class="row d-flex align-items-center">
         <div class="col-12 col-lg-12 " data-aos="zoom-in-right">
           <div class="row d-flex  py-vh-5">
@@ -140,7 +139,7 @@
                   <div class="input-group input-group mb-3">
                     <div class="input-group-text">Template</div>
                     <select class="form-select" name="status" id="autoSizingInputGroup">
-                      <option selected value="Active">Babeje</option>
+                      <option selected value="Active">Standard</option>
                       <option value="Hidden">Fekomi</option>
                       <option value="3">Burantashi</option>
                       <!-- <option value="4">Four</option>
@@ -150,18 +149,18 @@
                   <div class="row text-center">
                     <div class="col-md-4 slick3 gallery-lb">
                         <div class="item-slick3" data-thumb="{% static 'images/choose_rating.png' %}">
-                              <div class="block2-pic hov-img0">
-                                <img src="{% static 'images/choose_rating.png' %}" data-toggle="modal" data-target="#exampleModal" style="max-width: 200px; max-height: 200px;" alt="IMG-PRODUCT">
+                              <div class="block2-pic hov-img0" data-bs-toggle="modal" data-bs-target="#StandardModal" style="border: #ADE1F5 2px solid;">
+                                <img src="{% static 'images/Standard-Template.png' %}"  style="max-width: 200px; max-height: 200px;" alt="IMG-PRODUCT">
                               </div>
-                            </a>
+                              <p class="text-center">Standard</p>
                           </div>
                     </div>
                     <div class="col-md-4 slick3 gallery-lb">
                           <div class="item-slick3" data-thumb="{% static 'images/choose_rating.png' %}">
-                                <div class="block2-pic hov-img0">
-                                  <img src="{% static 'images/choose_rating.png' %}" data-toggle="modal" data-target="#exampleModal" style="max-width: 200px; max-height: 200px;" alt="IMG-PRODUCT">
+                                <div class="block2-pic hov-img0" data-bs-toggle="modal" data-bs-target="#ClassicModal" style="border: #ADE1F5 2px solid;">
+                                  <img src="{% static 'images/Classic-Template.png' %}"  style="max-width: 200px; max-height: 200px;" alt="IMG-PRODUCT">
                                 </div>
-                              </a>
+                                <p class="text-center">Classic</p>
                             </div>
                     </div>
                     <div class="col-md-4 slick3 gallery-lb">
@@ -169,7 +168,7 @@
                             <div class="block2-pic hov-img0">
                               <img src="{% static 'images/choose_rating.png' %}" data-toggle="modal" data-target="#exampleModal" style="max-width: 200px; max-height: 200px;" alt="IMG-PRODUCT">
                             </div>
-                          </a>
+                            <p class="text-center">Babeje</p>
                         </div>
                     </div>
                   </div>
@@ -195,15 +194,18 @@
   </div>
 
   
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="StandardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="card card-rounded" style="border: #ADE1F5 2px solid;">
+        <!-- <div class="card card-rounded" style="border: #ADE1F5 2px solid;">
             <div class="card-body">
-              <div class="d-sm-flex justify-content-between align-items-start">
-                <div>
-                  <h4 class="card-title card-title-dash">Analytics</h4>
-                 <p class="card-subtitle card-subtitle-dash">Views, Reviews and Clicks across your products in the last 30 days</p>
+              <div class="d-sm-flex justify-content-between align-items-start"> -->
+                <div class="text-center">
+                  <img class="text-center" src="{% static 'images/Standard-Template.png' %}" width="800px" height="800px" alt="">
+                </div>
+                <p>Product Viewing Page</p>
+                <div class="text-center">
+                  <img class="text-center" src="{% static 'images/Standard-Template-Product.png' %}" width="800px" height="800px" alt="">
                 </div>
                 
               </div>
@@ -211,14 +213,34 @@
                 <canvas id="chart"></canvas>
               </div>
             </div>
-          </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
+  </div>
+  <div class="modal fade" id="ClassicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <!-- <div class="card card-rounded" style="border: #ADE1F5 2px solid;">
+            <div class="card-body"> -->
+              <div class="container" > 
+                <div class="text-center">
+                  <img class="text-center" src="{% static 'images/Classic-Template.png' %}" width="80%" height="800px" alt="">
+                </div>
+                <p>Product Viewing Page</p>
+                <div class="text-center">
+                  <img class="text-center" src="{% static 'images/Classic-Template-Product.png' %}" width="80%" height="800px" alt="">
+                </div>
+                
+              </div>
+            </div>
+  </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div> -->
       </div>
     </div>
   </div>
 
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="{% static 'klar/js/bootstrap.bundle.min.js' %}"></script>
   <script src="{% static 'klar/js/aos.js' %}"></script>
   <script>

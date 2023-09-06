@@ -123,15 +123,20 @@
           </div>
           <div class="col-12 col-xl-8">
             <p class="">Give your business a share of the internet with a simple, fast and responsive products listing page to improve your customer experience.</p>
+                {% comment %} <div class="input-group input-group mb-3">
+                  <div class="input-group-text">mypage.com/</div>
+                <input type="text" class="form-control" name="product_name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="your business name">
+                </div>  {% endcomment %}
           </div>
-          <div class="col-12 text-center">
-            <a href="#" class="btn btn-xl btn-outline-dark">Get Started
+          <div class="col-md-12">
+            <a href="{% url 'signup' %}" class="btn btn-xl btn-outline-dark">Claim your page
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-arrow-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
-              </svg>
+              class="bi bi-arrow-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+            </svg> 
             </a>
+          </div>
           </div>
         </div>
       </div>
@@ -239,10 +244,13 @@
                     Unlimited products
                   </li>
                   <li class="nav-item">
-                    Upload 20 images and 1 video per products
+                    20 images and 1 video for a product
                   </li>
                   <li class="nav-item">
                     Hide reviews on your product
+                  </li>
+                  <li class="nav-item">
+                    Get featured on the marketplace to increase visibility
                   </li>
                 </ul>
                 <br>

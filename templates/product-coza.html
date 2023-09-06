@@ -177,11 +177,11 @@ a.no-hover-effect:hover {
 						<i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
 						 Sort by
 					</div>
-					<div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
+					<!-- <div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
 						<i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
 						<i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
 						 Filter
-					</div>
+					</div> -->
 
 					<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
 						<i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
@@ -270,11 +270,11 @@ a.no-hover-effect:hover {
 					<!-- Block2 -->
 					<div class="block2 how-shadow1">
 						<div class="block2-pic hov-img0">
-							<img src="{{product.product_image.url}}" style="max-width: 400px; max-height: 400px;" alt="IMG-PRODUCT">
+							<img src="{{product.product_image.url}}" style="max-width: 400px; max-height: 400px; border:#888888 1px solid" alt="IMG-PRODUCT">
 
-							<a href="{% url 'product_page' biz.slug product.slug %}" style="justify-content: center;" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+							{% comment %} <a href="{% url 'product_page' biz.slug product.slug %}" style="justify-content: center;" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
-							</a>
+							</a> {% endcomment %}
 						</div>
 
 						<div class="block2-txt flex-w flex-t p-t-14">
@@ -321,7 +321,7 @@ a.no-hover-effect:hover {
 	<!-- Footer -->
 	<footer class="bg3 p-t-15 p-b-15">
 		<div class="container">
-			<div class="col-sm-12 col-lg-12 p-b-50">
+			{% comment %} <div class="col-sm-12 col-lg-12 p-b-50">
 				<h4 class="stext-301 cl0 p-b-30">
 					Contact Seller
 				</h4>
@@ -342,7 +342,7 @@ a.no-hover-effect:hover {
 						</button>
 					</div>
 				</form>
-			</div>
+			</div> {% endcomment %}
 		</div>
 	</footer>
 

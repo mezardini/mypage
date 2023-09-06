@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponse, get_object_or_404
 from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponseRedirect
 import random
 from django.views import View
 from django.contrib.auth.decorators import login_required
@@ -18,6 +19,7 @@ from PIL import Image
 from io import BytesIO
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.paginator import Paginator 
+from django.core.mail import send_mail
 # Create your views here.
 
 
@@ -39,24 +41,45 @@ def dash(request, slug):
 
 
     context = {'biz':biz, 'products':products, 'reviews':reviews}
-    return render(request, 'dash.html', context)
+    return render(request, 'admindash.html', context)
 
-class Dashboard(LoginRequiredMixin, View):
-    login_url = 'signin'  
-    template_name = 'dash.html'
+# class Dashboard(LoginRequiredMixin, View):
+class Dashboard(View):
+    # login_url = 'signin'  
+    template_name = 'admindash.html'
 
     def get(self, request, slug):
         biz =  Business.objects.get(slug=slug) 
         products = Product.objects.filter(business=biz)
         reviews = Product_review.objects.filter(product__business=biz)
         date = biz.date_created.strftime('%Y-%m-%d')
+        product_count = products.count()
+        text = 'SHOWING ALL'
+        # if product_count > 10:
+        #     text = 'SHOWING 1-10 0F ' + str(product_count)
 
-        context = {'biz':biz, 'products':products, 'reviews':reviews, 'date':date}
+        context = {'biz':biz,'text':text, 'products':products, 'reviews':reviews, 'date':date}
         return render(request, Dashboard.template_name, context)
+    
+    def update(self, request, slug):
+        biz =  Business.objects.get(slug=slug) 
+        if request.method == 'POST':
+            business = Business.objects.filter(slug = slug)
+            product_update = business.update(
+                    product_name = request.POST['product_name'],
+                    product_description = request.POST['product_description'],
+                    product_price = request.POST['product_price'],
+                    business = biz,
+                    slug = slugify(request.POST['product_name']),
+                    status = request.POST['status'],
+                )
+            
+            my_view = Dashboard()
+            return my_view.get(request, biz.slug)
 
 
 class ProductDashboard(View):
-    template_name = 'product-dash.html'
+    template_name = 'product-admindash.html'
 
     def get(self, request, slug, slugx):
         biz = Business.objects.get(slug=slug)
@@ -108,8 +131,11 @@ def editproduct(request, slug, slugx):
         #             product = product
         #         )
         #         media.save()
-        my_view = ProductList()
+        my_view = Dashboard()
         return my_view.get(request, biz.slug)
+        # pre_url = request.META.get('HTTP_REFERER')
+        # return redirect(pre_url)
+        
         
 
     context = {'biz':biz, 'product':product, 'reviews':reviews}    
@@ -300,7 +326,7 @@ class ProductList(View):
             # return render(request, 'search-filter.html', context)
 
 
-
+        # f = PriceFilter({'request.GET': '1800000', 'request.GET': '5000000'}, queryset=products)
         # Create a Paginator object
         paginator = Paginator(products, self.items_per_page)
 
@@ -321,27 +347,30 @@ class ProductList(View):
         return render(request, ProductList.template_name, context)
     
 class ProductPage(View):
-    template_name = 'product_detail_coza.html'
+    template_name = 'product-pil.html'
 
     average = 1
     def get(self, request, slug, slugx):
-        biz = Business.objects.get(slug=slug)
-        productx = Product.objects.get(slug=slugx)
-        product_media = Product_Media.objects.filter(product=productx)
-        review = Product_review.objects.filter(product=productx).filter(status="Active")
-        related_products = Product.objects.filter(business=biz).filter(status="Active")
-        if request.user != biz.user:
-            product_views = Product.objects.filter(slug=slugx).update(views=F('views') +1)
-        
-        review_text = str(review.count()) + ' Reviews'
-        product_rating = Product_review.objects.filter(product=productx)
-        total_sum = sum(obj.rating for obj in product_rating)
-        total_count = product_rating.count()
-        if total_count > 0:
-           ProductPage.average = total_sum / total_count
-        else:
-            ProductPage.average = 0 
-
+        try :
+            biz = Business.objects.get(slug=slug)
+            productx = Product.objects.get(slug=slugx)
+            product_media = Product_Media.objects.filter(product=productx)
+            review = Product_review.objects.filter(product=productx).filter(status="Active")
+            related_products = Product.objects.filter(business=biz).filter(status="Active")
+            if request.user != biz.user:
+                product_views = Product.objects.filter(slug=slugx).update(views=F('views') +1)
+            
+            review_text = str(review.count()) + ' Reviews'
+            product_rating = Product_review.objects.filter(product=productx)
+            total_sum = sum(obj.rating for obj in product_rating)
+            total_count = product_rating.count()
+            if total_count > 0:
+                ProductPage.average = total_sum / total_count
+            else:
+                ProductPage.average = 0 
+        except Business.DoesNotExist : 
+            messages.error(request, "Business does not exist.")
+            return redirect('home')
         context = {'biz':biz,'product':productx,'product_media':product_media, 'review':review, 
                    'review_text':review_text, 'average':ProductPage.average, 'related_products':related_products}
         return render(request, ProductPage.template_name, context)
@@ -459,20 +488,24 @@ class Creator(View):
             
             if User.objects.filter(email=email).exists():
                     messages.error(request, "User already exists.")
-                    return redirect('signup')
+                    my_page = Creator()
+                    return my_page.get(request)
 
             if not request.POST.get('password1'):
                 messages.error(request, "Password cannot be blank.")
-                return redirect('signup')
+                my_page = Creator()
+                return my_page.get(request)
 
             if password1 != password2:
                 messages.error(request, "Passwords do not match.")
-                return redirect('signup')
+                my_page = Creator()
+                return my_page.get(request)
 
             if password1 == password2:
                 if User.objects.filter(email=email).exists():
                     messages.error(request, "User already exists.")
-                    return redirect('signup')
+                    my_page = Creator()
+                    return my_page.get(request)
                 else:
                     # html_message = loader.render_to_string(
                     # 'email-welcome.html',
@@ -498,7 +531,7 @@ class Creator(View):
                     user.is_active = False
                     user.save()
                     
-                    # my_page = VerifyEmail()
+                    # my_page = Creator()
                     # return my_page.get(request, token, user)
                     return redirect('verifymail', pk=user.id)
                     
@@ -535,6 +568,78 @@ def verifymail(request, pk):
         
     return render(request, 'verify.html')
         
-        
-    
 
+class PasswordResetVerifymail(View):
+    token =  str(random.randint(100001,9999999))
+    def get(self, request):
+
+        return render(request, 'password_reset_verifymail.html') 
+    def post(self, request):
+        if request.method == 'POST':
+            email = request.POST.get('email')
+            user = User.objects.get(email=email)
+            token = PasswordResetVerifymail().token
+            if User.objects.filter(email=email).exists():
+
+                # send_mail(
+                #     'Trying to change your password?  -  Oxos-ReceiptMkr!',
+                #     token,
+                #     'mezardini@gmail.com',
+                #     [email],
+                #     fail_silently=False,
+                # )
+                reclaim_url = 'http://127.0.0.1:8000/reclaim_password/1/'+token
+                print(reclaim_url) 
+                return redirect('forgotpassword')
+                
+            else:
+                messages.error(request, "User does not exist. Try again")
+                my_page = PasswordResetVerifymail()
+                return my_page.get(request)
+            
+
+def password_reset_update_password(request, pk, str):
+    user = User.objects.get(id=pk)
+    if request.method == 'POST':
+        code = request.POST.get('code')
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
+
+        if  password1==password2:
+            # user = User.objects.get(id=pk)
+            user.set_password(password1)
+            user.save()
+            
+        if  password1!=password2:
+            messages.error(request, "Passwords do not match. Try again")
+            my_page = PasswordResetVerifymail()
+            return my_page.get(request)
+        # if code != PasswordResetVerifymail().token:
+        #     messages.error(request, "Wrong verification code provided")
+        #     my_page = PasswordResetVerifymail()
+        #     return my_page.get(request)
+
+    return render(request, 'password_reset_update_password.html') 
+
+# def password_reset_update_password(request, pk, str):
+#     user = User.objects.get(id=pk)
+#     if request.method == 'POST':
+#         code = request.POST.get('code')
+#         password1 = request.POST.get('password1')
+#         password2 = request.POST.get('password2')
+
+#         if code == PasswordResetVerifymail().token and password1==password2:
+#             user = User.objects.get(id=pk)
+#             user.set_password(password1)
+#             user.save()
+            
+#         if code == PasswordResetVerifymail().token and password1!=password2:
+#             messages.error(request, "Passwords do not match. Try again")
+#             my_page = PasswordResetVerifymail()
+#             return my_page.get(request)
+#         if code != PasswordResetVerifymail().token:
+#             messages.error(request, "Wrong verification code provided")
+#             my_page = PasswordResetVerifymail()
+#             return my_page.get(request)
+
+#     return render(request, 'password_reset_update_password.html') 
