@@ -3,6 +3,23 @@ import unittest
 from .models import Business, Product
 from django.contrib.auth.models import User
 # Create your tests here.
+from django.urls import reverse
+
+class MyViewTestCase(TestCase):
+    def test_my_view(self):
+        response = self.client.get(reverse('home'))  # Replace with your view name
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'home.html')
+
+    def test_protected_view(self):
+        user = User.objects.create_user(username='mezard', password='mezard2001')
+        userx = User.objects.get(username='mezard')
+        Business.objects.create(business_name='Knits by Zarah', user=userx, slug='Knits-by-zarah')
+        self.client.login(username='mezard', password='mezard2001')
+        # url = reverse('dashboard', kwargs={'slug': 'dini-trial'})
+        response = self.client.get(reverse('dashboard', kwargs={'slug': 'Knits-by-zarah'}))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'admindash.html')
 
 
 class BusinessTestCase(TestCase):

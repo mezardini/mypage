@@ -55,7 +55,7 @@ class Product(models.Model):
         ordering = [ '-date_created']
 
     def __str__(self):
-        return self.product_name + ' by ' + self.business.business_name
+        return self.product_name
     
     # def resize_image(self, width, height):
     #     img = Image.open(self.product_image)
