@@ -45,37 +45,41 @@ def dash(request, slug):
 
 # class Dashboard(LoginRequiredMixin, View):
 class Dashboard(View):
-    # login_url = 'signin'  
     template_name = 'admindash.html'
 
     def get(self, request, slug):
-        biz =  Business.objects.get(slug=slug) 
-        products = Product.objects.filter(business=biz)
-        reviews = Product_review.objects.filter(product__business=biz)
-        date = biz.date_created.strftime('%Y-%m-%d')
-        product_count = products.count()
-        text = 'SHOWING ALL'
-        # if product_count > 10:
-        #     text = 'SHOWING 1-10 0F ' + str(product_count)
+        try:
+            # Use get_object_or_404 to handle cases where the Business doesn't exist.
+            biz = get_object_or_404(Business, slug=slug)
+            products = Product.objects.filter(business=biz)
+            reviews = Product_review.objects.filter(product__business=biz)
+            date = biz.date_created.strftime('%Y-%m-%d')
+            product_count = products.count()
+            text = f'SHOWING ALL ({product_count} products)'
 
-        context = {'biz':biz,'text':text, 'products':products, 'reviews':reviews, 'date':date}
-        return render(request, Dashboard.template_name, context)
-    
-    def update(self, request, slug):
-        biz =  Business.objects.get(slug=slug) 
-        if request.method == 'POST':
-            business = Business.objects.filter(slug = slug)
-            product_update = business.update(
-                    product_name = request.POST['product_name'],
-                    product_description = request.POST['product_description'],
-                    product_price = request.POST['product_price'],
-                    business = biz,
-                    slug = slugify(request.POST['product_name']),
-                    status = request.POST['status'],
-                )
-            
-            my_view = Dashboard()
-            return my_view.get(request, biz.slug)
+            context = {'biz': biz, 'text': text, 'products': products, 'reviews': reviews, 'date': date}
+            return render(request, self.template_name, context)
+        except Exception as e:
+            # Handle any exceptions gracefully, perhaps log them for debugging.
+            return render(request, 'error.html', {'error_message': f"Error: {str(e)}"})
+
+    def post(self, request, slug):
+        try:
+            biz = get_object_or_404(Business, slug=slug)
+            if request.method == 'POST':
+                # Update business information based on the form data.
+                biz.product_name = request.POST['product_name']
+                biz.product_description = request.POST['product_description']
+                biz.product_price = request.POST['product_price']
+                biz.slug = slugify(request.POST['product_name'])
+                biz.status = request.POST['status']
+                biz.save()
+
+                # Redirect to the GET view after successfully updating.
+                return redirect('frontend:dashboard', slug=biz.slug)
+        except Exception as e:
+            # Handle any exceptions gracefully, perhaps log them for debugging.
+            return render(request, 'error.html', {'error_message': f"Error: {str(e)}"})
 
 
 class ProductDashboard(View):
