@@ -83,32 +83,40 @@ class Dashboard(View):
 
 
 class ProductDashboard(View):
-    template_name = 'product-admindash.html'
+    template_name = 'productdash.html'
 
     def get(self, request, slug, slugx):
-        biz = Business.objects.get(slug=slug)
-        product = Product.objects.get(slug = slugx)
-        reviews = Product_review.objects.filter(product=product)
+        try:
+            # Use get_object_or_404 to handle cases where Business or Product doesn't exist.
+            biz = get_object_or_404(Business, slug=slug)
+            product = get_object_or_404(Product, slug=slugx)
+            reviews = Product_review.objects.filter(product=product)
 
-        context = {'biz':biz, 'product':product, 'reviews':reviews}    
-        return render(request, ProductDashboard.template_name, context)
-    
+            context = {'biz': biz, 'product': product, 'reviews': reviews}
+            return render(request, self.template_name, context)
+        except Exception as e:
+            # Handle any exceptions gracefully, perhaps log them for debugging.
+            return render(request, 'error.html', {'error_message': f"Error: {str(e)}"})
+
     def post(self, request, slug, slugx):
-        biz = Business.objects.get(slug=slug)
-        product = Product.objects.get(slug = slugx)
-        if request.method == 'POST':
-            specific_product = Product.objects.filter(slug = slugx)
-            product_update = specific_product.update(
-                    product_name = request.POST['product_name'],
-                    product_description = request.POST['product_description'],
-                    product_price = request.POST['product_price'],
-                    business = biz,
-                    slug = slugify(request.POST['product_name']),
-                    status = request.POST['status'],
-                )
-            
-            my_view = ProductPage()
-            return my_view.get(request, biz.slug, product.slug)
+        try:
+            biz = get_object_or_404(Business, slug=slug)
+            product = get_object_or_404(Product, slug=slugx)
+
+            if request.method == 'POST':
+                # Update product information based on the form data.
+                product.product_name = request.POST['product_name']
+                product.product_description = request.POST['product_description']
+                product.product_price = request.POST['product_price']
+                product.slug = slugify(request.POST['product_name'])
+                product.status = request.POST['status']
+                product.save()
+
+                # Redirect to the GET view after successfully updating.
+                return redirect('frontend:product_dashboard', slug=biz.slug, slugx=product.slug)
+        except Exception as e:
+            # Handle any exceptions gracefully, perhaps log them for debugging.
+            return render(request, 'error.html', {'error_message': f"Error: {str(e)}"})
 
 def editproduct(request, slug, slugx):
     
@@ -189,56 +197,47 @@ def hidereview(request, slug, slugx, pk):
 
 class CreatePage(View):
     template_name = 'create_page.html'
-    viewers_choice = 'templates/home.html'
-
-    
 
     def get(self, request, slug):
-        biz = Business.objects.get(slug=slug)
-
-        context = {'choice': CreatePage.viewers_choice, 'biz':biz}
+        biz = get_object_or_404(Business, slug=slug)
+        context = {'choice': CreatePage.viewers_choice, 'biz': biz}
         return render(request, CreatePage.template_name, context)
-    
-    def post(self, request, slug):
-        biz = Business.objects.get(slug=slug)
 
+    def post(self, request, slug):
+        biz = get_object_or_404(Business, slug=slug)
         if request.method == 'POST':
             images = request.FILES.getlist('images')
-            image_list = []
-
-            productcreate = Product.objects.create(
-                    product_name = request.POST['product_name'],
-                    product_description = request.POST['product_description'],
-                    product_price = request.POST['product_price'],
-                    product_redirect_url = request.POST['product_payment_link'],
-                    product_image = request.FILES.get('images'),
-                    business = biz,
-                    slug = slugify(request.POST['product_name']),
-                )
-            productcreate.save()
+            product = Product(
+                product_name=request.POST['product_name'],
+                product_description=request.POST['product_description'],
+                product_price=request.POST['product_price'],
+                product_redirect_url=request.POST['product_payment_link'],
+                product_image=request.FILES.get('images'),
+                business=biz,
+                slug=slugify(request.POST['product_name']),
+            )
+            product.save()
+            
             for image in images:
-                media = Product_Media.objects.create(
-                    product_image = image,
-                    video = request.FILES.get('video'),
-                    product = productcreate
+                media = Product_Media(
+                    product_image=image,
+                    video=request.FILES.get('video'),
+                    product=product
                 )
-                
                 media.save()
 
-            my_view = ProductPage()
-            return my_view.get(request, biz.slug, productcreate.slug)
-    
-def signin(request):
+            return redirect('product_page', slug=biz.slug, slugx=product.slug)
 
+def signin(request):
     if request.method == 'POST':
         username = request.POST['email']
         password = request.POST['password']
 
-        if not request.POST.get('email'):
+        if not username:
             messages.error(request, "Email cannot be blank.")
             return redirect('signin')
 
-        if not request.POST.get('password'):
+        if not password:
             messages.error(request, "Password cannot be blank.")
             return redirect('signin')
 
@@ -249,7 +248,7 @@ def signin(request):
             return redirect('home')
         else:
             messages.error(request, "Incorrect username or password.")
-            return render(request, 'login.html')
+            return redirect('signin')
 
     return render(request, 'login.html')
 
@@ -473,74 +472,39 @@ def business_product_list(request, slug):
     return render(request, 'product_list.html', context)
 
 class Creator(View):
-    # template_name = 'signup.html'
 
     def get(self, request):
-         
         return render(request, 'signup.html')
-    
+
     def post(self, request):
-        if request.method == 'POST':
-            username = request.POST.get('email')
-            first_name = request.POST.get('username')
-            email = request.POST.get('email')
-            password1 = request.POST.get('password1')
-            password2 = request.POST.get('password2')
-            global token
-            token =  str(random.randint(100001,999999))
+        username = request.POST.get('email')
+        first_name = request.POST.get('username')
+        email = request.POST.get('email')
+        password1 = request.POST.get('password1')
+        password2 = request.POST.get('password2')
+        global token
+        token = str(random.randint(100001, 999999))
 
-            
-            if User.objects.filter(email=email).exists():
-                    messages.error(request, "User already exists.")
-                    my_page = Creator()
-                    return my_page.get(request)
+        # Validation checks
+        if User.objects.filter(email=email).exists():
+            messages.error(request, "User already exists.")
+            return redirect('creator')
 
-            if not request.POST.get('password1'):
-                messages.error(request, "Password cannot be blank.")
-                my_page = Creator()
-                return my_page.get(request)
+        if not password1:
+            messages.error(request, "Password cannot be blank.")
+            return redirect('creator')
 
-            if password1 != password2:
-                messages.error(request, "Passwords do not match.")
-                my_page = Creator()
-                return my_page.get(request)
+        if password1 != password2:
+            messages.error(request, "Passwords do not match.")
+            return redirect('creator')
 
-            if password1 == password2:
-                if User.objects.filter(email=email).exists():
-                    messages.error(request, "User already exists.")
-                    my_page = Creator()
-                    return my_page.get(request)
-                else:
-                    # html_message = loader.render_to_string(
-                    # 'email-welcome.html',
-                    # {
-                    #     'user_name': first_name,
-                    #     'token':token
-                        
-                    
-                    # }
-                    # )                 
-                    # mail = EmailMessage(
-                    #     "Verification Code for Your New Account",
-                    #     html_message,
-                    #     'settings.EMAIL_HOST_USER',
-                    #     [email],
-                    # )
-                    # mail.fail_silently = False
-                    # mail.content_subtype = 'html'
-                    # mail.send()
-                    print(token)                    
-                    user = User.objects.create_user(username=username,first_name=first_name, password=password1, email=email)
-                    
-                    user.is_active = False
-                    user.save()
-                    
-                    # my_page = Creator()
-                    # return my_page.get(request, token, user)
-                    return redirect('verifymail', pk=user.id)
-                    
+        # If validation passes, create the user
+        user = User.objects.create_user(username=username, first_name=first_name, password=password1, email=email)
+        user.is_active = False
+        user.save()
 
-
+        # Redirect to a view that handles email verification
+        return redirect('verifymail', pk=user.id)
 class VerifyEmail(View):
 
     def get(self, request, token, user):
