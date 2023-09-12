@@ -11,7 +11,7 @@ from django.contrib import messages
 from django.core.mail import EmailMessage
 from django.template import loader, Template
 from .models import Business, Product, Product_Media, Product_review
-from django.db.models import F
+from django.db.models import F, Sum, Count
 from .filters import PriceFilter
 from .forms import Form1
 from django.template.defaultfilters import slugify 
@@ -20,6 +20,7 @@ from io import BytesIO
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.paginator import Paginator 
 from django.core.mail import send_mail
+from django.core.cache import cache
 # Create your views here.
 
 
@@ -352,31 +353,53 @@ class ProductList(View):
 class ProductPage(View):
     template_name = 'product-pil.html'
 
-    average = 1
     def get(self, request, slug, slugx):
-        try :
+        try:
             biz = Business.objects.get(slug=slug)
             productx = Product.objects.get(slug=slugx)
             product_media = Product_Media.objects.filter(product=productx)
-            review = Product_review.objects.filter(product=productx).filter(status="Active")
-            related_products = Product.objects.filter(business=biz).filter(status="Active")
-            if request.user != biz.user:
-                product_views = Product.objects.filter(slug=slugx).update(views=F('views') +1)
+            review = Product_review.objects.filter(product=productx, status="Active")
+            related_products = Product.objects.filter(business=biz, status="Active")
             
-            review_text = str(review.count()) + ' Reviews'
+            # Cache the product for 5 minutes (300 seconds)
+            result = cache.get(f'product_{productx.id}')
+            if result is not None:
+                return result
+
+            # Update product views only if the user is not the business owner
+            if request.user != biz.user:
+                Product.objects.filter(slug=slugx).update(views=F('views') + 1)
+
+            review_count = review.count()
+            review_text = f'{review_count} Reviews'
+
             product_rating = Product_review.objects.filter(product=productx)
-            total_sum = sum(obj.rating for obj in product_rating)
+            total_sum = product_rating.aggregate(Sum('rating'))['rating__sum']
             total_count = product_rating.count()
-            if total_count > 0:
-                ProductPage.average = total_sum / total_count
-            else:
-                ProductPage.average = 0 
-        except Business.DoesNotExist : 
+
+            # Calculate the average rating or set it to 0 if there are no reviews
+            average_rating = total_sum / total_count if total_count > 0 else 0
+
+            # Cache the rendered template for this product
+            context = {
+                'biz': biz,
+                'product': productx,
+                'product_media': product_media,
+                'review': review,
+                'review_text': review_text,
+                'average': average_rating,
+                'related_products': related_products
+            }
+            response = render(request, ProductPage.template_name, context)
+
+            # Cache the rendered template for 5 minutes
+            cache.set(f'product_{productx.id}', response, 300)
+            
+            return response
+        except Business.DoesNotExist:
             messages.error(request, "Business does not exist.")
             return redirect('home')
-        context = {'biz':biz,'product':productx,'product_media':product_media, 'review':review, 
-                   'review_text':review_text, 'average':ProductPage.average, 'related_products':related_products}
-        return render(request, ProductPage.template_name, context)
+
     def post(self, request, slug, slugx):
         biz = Business.objects.get(slug=slug)
         productx = Product.objects.get(slug=slugx)
@@ -384,26 +407,20 @@ class ProductPage(View):
         if request.method == 'POST':
             creator = request.POST['review_creator']
             body = request.POST['review_body']
+            rating = request.POST['review_rating']
+            
             review = Product_review.objects.create(
-                creator = request.POST['review_creator'],
-                body = request.POST['review_body'],
-                product = productx,
-                rating = request.POST['review_rating']
+                creator=creator,
+                body=body,
+                product=productx,
+                rating=rating
             )
             review.save()
-            review_count = Product.objects.filter(slug=slugx).update(reviews_count=F('reviews_count') +1)
-            # mail = EmailMessage(
-            #     "New comment on your product",
-            #     creator + ' commented: ' + body + ' on your product: ' + productx.product_name,
-            #     'settings.EMAIL_HOST_USER',
-            #     [biz.user.email],
-            # )
-            # mail.fail_silently = False
-            # mail.content_subtype = 'html'
-            # mail.send()
-        my_view = ProductPage()
-        return my_view.get(request, biz.slug, productx.slug)
-   
+            
+            Product.objects.filter(slug=slugx).update(reviews_count=F('reviews_count') + 1)
+
+        # Redirect back to the product page after submitting a review
+        return redirect('product_page', slug=biz.slug, slugx=productx.slug) 
 
 def cta_click(request, slug):
     productx = Product.objects.get(slug=slug)
