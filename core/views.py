@@ -61,7 +61,7 @@ class Dashboard(View):
             context = {'biz': biz, 'text': text, 'products': products, 'reviews': reviews, 'date': date}
             return render(request, self.template_name, context)
         except Exception as e:
-            # Handle any exceptions gracefully, perhaps log them for debugging.
+           
             return render(request, 'error.html', {'error_message': f"Error: {str(e)}"})
 
     def post(self, request, slug):
@@ -76,10 +76,10 @@ class Dashboard(View):
                 biz.status = request.POST['status']
                 biz.save()
 
-                # Redirect to the GET view after successfully updating.
+                
                 return redirect('frontend:dashboard', slug=biz.slug)
         except Exception as e:
-            # Handle any exceptions gracefully, perhaps log them for debugging.
+           
             return render(request, 'error.html', {'error_message': f"Error: {str(e)}"})
 
 
@@ -88,7 +88,7 @@ class ProductDashboard(View):
 
     def get(self, request, slug, slugx):
         try:
-            # Use get_object_or_404 to handle cases where Business or Product doesn't exist.
+           
             biz = get_object_or_404(Business, slug=slug)
             product = get_object_or_404(Product, slug=slugx)
             reviews = Product_review.objects.filter(product=product)
@@ -96,7 +96,7 @@ class ProductDashboard(View):
             context = {'biz': biz, 'product': product, 'reviews': reviews}
             return render(request, self.template_name, context)
         except Exception as e:
-            # Handle any exceptions gracefully, perhaps log them for debugging.
+           
             return render(request, 'error.html', {'error_message': f"Error: {str(e)}"})
 
     def post(self, request, slug, slugx):
@@ -105,7 +105,7 @@ class ProductDashboard(View):
             product = get_object_or_404(Product, slug=slugx)
 
             if request.method == 'POST':
-                # Update product information based on the form data.
+                
                 product.product_name = request.POST['product_name']
                 product.product_description = request.POST['product_description']
                 product.product_price = request.POST['product_price']
@@ -113,10 +113,10 @@ class ProductDashboard(View):
                 product.status = request.POST['status']
                 product.save()
 
-                # Redirect to the GET view after successfully updating.
+                
                 return redirect('frontend:product_dashboard', slug=biz.slug, slugx=product.slug)
         except Exception as e:
-            # Handle any exceptions gracefully, perhaps log them for debugging.
+           
             return render(request, 'error.html', {'error_message': f"Error: {str(e)}"})
 
 def editproduct(request, slug, slugx):
